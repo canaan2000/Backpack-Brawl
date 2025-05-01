@@ -30,7 +30,6 @@ public class InventoryStats : MonoBehaviour
         {
             if (itemDamageDictionary.ContainsKey(item.tag)) 
             {
-                Debug.Log(itemDamageDictionary[item.tag]);
                 PlayerStats.attack += itemDamageDictionary[item.tag];
             }
         }

@@ -22,10 +22,8 @@ public class CollisionDetector : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision Detected!");
         if (collision.transform.tag != "Floor" && collision.transform.tag != "Backpack")   
         {
-            Debug.Log("It is an item!");
             GameObject Obj1 = this.gameObject;
             GameObject Obj2 = collision.gameObject;
             Debug.Log(Obj1.tag + " + " + Obj2.tag);

@@ -65,6 +65,13 @@ public class SpawnerScript : MonoBehaviour
         }
     }
 
+    public void SpawnItem(GameObject item)
+    {
+        RandSpawnPos();
+
+        Instantiate(item, spawnPoint, Quaternion.identity);
+    }
+
     void RandSpawnPos() 
     {
         float randX = Random.Range(minSpawn.x, maxSpawn.x);

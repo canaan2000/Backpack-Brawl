@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class CombatScript : MonoBehaviour
 {
+    public BundleDesicionHandler Bundles;
+
     public PlayerStats PlayerStats;
     public EnemyScript EnemyStats;
+
+    public GameObject enemy;
 
     public float attackCooldown = 1f;
     float cooldown = 0;
@@ -22,6 +26,7 @@ public class CombatScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Instantiate(enemy);
             FightStart();
         }
         if (combatTrue == true)
@@ -48,7 +53,7 @@ public class CombatScript : MonoBehaviour
     //NAME ENEMY'S "ENEMY"
     void FightStart()
     {
-        EnemyStats = GameObject.Find("Enemy").GetComponent<EnemyScript>();
+        EnemyStats = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyScript>();
 
         combatTrue = true;
     }
@@ -60,5 +65,7 @@ public class CombatScript : MonoBehaviour
         PlayerStats.money += Random.Range(1f, 55f);
 
         combatTrue = false;
+
+        Bundles.ShowOptions();
     }
 }

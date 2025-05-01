@@ -4,11 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Item
-  - CapsuleTag
-  - CubeTag
-  - SphereTag
-  - CylinderTag
   - Floor
   - RockTag
   - StickTag
@@ -20,6 +15,7 @@ TagManager:
   - InventoryTag
   - BurgerTag
   - IngotTag
+  - Enemy
   layers:
   - Default
   - TransparentFX

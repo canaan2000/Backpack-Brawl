@@ -16,9 +16,11 @@ public class InventoryStats : MonoBehaviour
         itemDamageDictionary.Add("RockTag", 1f);
         itemDamageDictionary.Add("AxeTag", 2f);
         itemDamageDictionary.Add("SwordTag", 6f);
+        itemDamageDictionary.Add("IngotTag", 2f);
 
         //How armor items give you at the start of combat.
         itemArmorDictionary.Add("RockTag", 1f);
+        itemArmorDictionary.Add("IngotTag", 5f);
     }
 
     // Update is called once per frame

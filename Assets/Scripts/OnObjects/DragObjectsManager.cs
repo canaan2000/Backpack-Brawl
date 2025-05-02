@@ -46,6 +46,17 @@ public class DragObjectsManager : MonoBehaviour
             mousePos.z = 18;
             dragObject.transform.position = CameraMain.ScreenToWorldPoint(mousePos);
             dragObject.GetComponent<Rigidbody>().useGravity = false;
+
+            
+
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+            {
+                dragObject.transform.rotation = new Quaternion(dragObject.transform.rotation.x + Input.GetAxis("Mouse ScrollWheel"), dragObject.transform.rotation.y, dragObject.transform.rotation.z, dragObject.transform.rotation.w);
+            }
+            if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+            {
+                dragObject.transform.rotation = new Quaternion(dragObject.transform.rotation.x + Input.GetAxis("Mouse ScrollWheel"), dragObject.transform.rotation.y, dragObject.transform.rotation.z, dragObject.transform.rotation.w);
+            }
         }
     }
 }

@@ -70,7 +70,10 @@ public class OnClickManager : MonoBehaviour
                     break;
 
                 case "AxeTag":
-                    Combat.EnemyStats.Health -= 1f;
+                    if (Combat.combatTrue == true)
+                    {
+                        Combat.EnemyStats.Health -= 1f;
+                    }
                     break;
 
 

@@ -30,9 +30,14 @@ public class InventoryList : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        inventoryList.Add(other.gameObject);
-
-        Stats.UpdateStats();
+        //prevent item from being added twice.
+        if (!inventoryList.Contains(other.gameObject))
+        {
+            //add item
+            inventoryList.Add(other.gameObject);
+        }
+        //update playerstats on item enter.
+            Stats.UpdateStats();
     }
 
     private void OnTriggerExit(Collider other)

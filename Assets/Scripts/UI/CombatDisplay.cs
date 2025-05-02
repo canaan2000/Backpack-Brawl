@@ -8,12 +8,17 @@ public class CombatDisplay : MonoBehaviour
 {
     public CombatScript CombatScript;
 
+    public GameObject attackCooldownDis;
+
     public TextMeshProUGUI enemyHealth;
     public TextMeshProUGUI enemyDamage;
+
+    Vector3 normalScale;
     // Start is called before the first frame update
     void Start()
     {
-        
+        //get attack cooldown display scale at start
+        normalScale = attackCooldownDis.transform.localScale;
     }
 
     // Update is called once per frame
@@ -33,6 +38,18 @@ public class CombatDisplay : MonoBehaviour
         {
             enemyHealth.enabled = false;
             enemyDamage.enabled = false;
+        }
+
+        //Activate and set size of attack cooldown display.
+        if (CombatScript.combatTrue == true)
+        {
+            attackCooldownDis.SetActive(true);
+            Vector3 newScale = new Vector3(Mathf.Lerp(0, 1, CombatScript.cooldown / CombatScript.attackCooldown), normalScale.y, normalScale.z);
+            attackCooldownDis.transform.localScale = newScale;
+        }
+        else
+        {
+            attackCooldownDis.SetActive(false);
         }
         
     }

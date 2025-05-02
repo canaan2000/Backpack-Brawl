@@ -13,7 +13,7 @@ public class CombatScript : MonoBehaviour
     public GameObject enemy;
 
     public float attackCooldown = 1f;
-    float cooldown = 0;
+    public float cooldown = 0;
 
     public bool combatTrue = false;
     // Start is called before the first frame update

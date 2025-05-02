@@ -24,7 +24,7 @@ public class InventoryStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateStats();
     }
 
     //updates when a new item enters inventory.

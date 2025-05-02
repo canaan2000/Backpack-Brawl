@@ -36,6 +36,7 @@ public class DragObjectsManager : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0)) 
         {
+            dragObject.GetComponent<Rigidbody>().useGravity = true;
             dragObject = null;
         }
 
@@ -44,6 +45,7 @@ public class DragObjectsManager : MonoBehaviour
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = 18;
             dragObject.transform.position = CameraMain.ScreenToWorldPoint(mousePos);
+            dragObject.GetComponent<Rigidbody>().useGravity = false;
         }
     }
 }

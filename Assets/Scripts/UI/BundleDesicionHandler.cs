@@ -10,10 +10,12 @@ public class BundleDesicionHandler : MonoBehaviour
 
     public SpawnerScript Spawner;
 
+    //Buttons
     public Button button1;
     public Button button2;
     public Button button3;
 
+    //Button Text
     public TextMeshProUGUI button1Text;
     public TextMeshProUGUI button2Text;
     public TextMeshProUGUI button3Text;
@@ -21,6 +23,7 @@ public class BundleDesicionHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //disables buttons
         HideOptions();
     }
 

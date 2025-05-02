@@ -7,6 +7,7 @@ public class MergeMathScript : MonoBehaviour
     public GameObject Obj1;
     public GameObject Obj2;
 
+    //Ready to merge keeps two objects from spawning.
     public bool readyToMerge = true;
     float delay = .05f;
     float timer;
@@ -20,6 +21,7 @@ public class MergeMathScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Sets ready to merge.
         timer -= Time.deltaTime;
         if (timer < 0)
         {
@@ -40,9 +42,6 @@ public class MergeMathScript : MonoBehaviour
 
             GameObject newObject = Instantiate(result, newPos, Quaternion.identity);
             newObject.name = newName;
-            //So it will trigger on trigger enter.
-            //newObject.GetComponent<Collider>().enabled = false;
-            //newObject.GetComponent<Collider>().enabled = true;
 
             Destroy(merge1); Destroy(merge2);
 

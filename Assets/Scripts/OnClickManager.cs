@@ -35,6 +35,19 @@ public class OnClickManager : MonoBehaviour
                 Destroy(this.gameObject);
                 break;
 
+            case "LeafTag":
+                Combat.PlayerStats.health += 5f;
+                Destroy(this.gameObject);
+                break;
+
+            case "FlowerTag":
+                Combat.PlayerStats.health += 15f;
+                Destroy(this.gameObject);
+                break;
+
+            case "AxeTag":
+                Combat.EnemyStats.Health -= 1f;
+                break;
 
 
         }

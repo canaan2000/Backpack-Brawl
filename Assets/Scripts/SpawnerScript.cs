@@ -24,6 +24,11 @@ public class SpawnerScript : MonoBehaviour
     {
         minSpawn = spawnArea.GetComponent<Collider>().bounds.min;
         maxSpawn = spawnArea.GetComponent<Collider>().bounds.max;
+
+        RandSpawnPos();
+
+        Instantiate(Stick, spawnPoint, Quaternion.identity);
+        Instantiate(Rocks[Random.Range(0,Rocks.Length)], spawnPoint, Quaternion.identity);
     }
 
     // Update is called once per frame

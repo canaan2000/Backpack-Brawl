@@ -8,6 +8,7 @@ public class CombatScript : MonoBehaviour
 
     public PlayerStats PlayerStats;
     public EnemyScript EnemyStats;
+    public InventoryStats InventoryStats;
 
     public GameObject enemy;
 
@@ -36,9 +37,7 @@ public class CombatScript : MonoBehaviour
             cooldown -= Time.deltaTime;
             if (cooldown <= 0 && combatTrue == true)
             {
-                PlayerStats.health -= EnemyStats.Attack;
-                EnemyStats.Health -= PlayerStats.attack;
-                cooldown = attackCooldown;
+                DealDamage();
             }
 
             if (EnemyStats.Health <= 0)
@@ -50,12 +49,14 @@ public class CombatScript : MonoBehaviour
 
     
 
-    //NAME ENEMY'S "ENEMY"
+    //NAME ENEMIES "ENEMY"
     void FightStart()
     {
         EnemyStats = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyScript>();
 
         combatTrue = true;
+
+        InventoryStats.UpdateArmorStats();
     }
 
     void FightEnd()
@@ -67,5 +68,31 @@ public class CombatScript : MonoBehaviour
         combatTrue = false;
 
         Bundles.ShowOptions();
+    }
+
+    void DealDamage()
+    {
+        float playerDamage = PlayerStats.attack;
+        float enemyDamage = EnemyStats.Attack;
+        for (int i = 0; i < enemyDamage; i++) 
+        {
+            if (PlayerStats.armor > 0)
+            {
+                PlayerStats.armor--;
+            }
+            else
+            {
+                PlayerStats.health--;
+            }
+        }
+
+        for (int i = 0; i < playerDamage; i++)
+            {
+                if (EnemyStats.Health > 0)
+                {
+                    EnemyStats.Health--;
+                }
+            }
+        cooldown = attackCooldown;
     }
 }

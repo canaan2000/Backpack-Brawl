@@ -11,6 +11,12 @@ public class DragObjectsManager : MonoBehaviour
     public GameObject dragObject;
     public Camera CameraMain;
     public GameObject backpack;
+
+    float dragSpeed = 1;
+    float targetDistance = 1f;
+    float dragForceMultiplier = 5f;
+    float maxDragMultiplier = 10f;
+    float baseDrag = 3f;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,18 +43,37 @@ public class DragObjectsManager : MonoBehaviour
         if (Input.GetMouseButtonUp(0)) 
         {
             dragObject.GetComponent<Rigidbody>().useGravity = true;
+            dragObject.GetComponent<Rigidbody>().drag = 0f;
             dragObject = null;
         }
 
         if (dragObject != null)
         {
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = 18;
-            dragObject.transform.position = CameraMain.ScreenToWorldPoint(mousePos);
-            dragObject.GetComponent<Rigidbody>().useGravity = false;
+            Rigidbody rb = dragObject.GetComponent<Rigidbody>();
+            Vector3 mousePosScreen = Input.mousePosition;
+            // Convert mouse position from screen space to world space
+            Vector3 mousePosWorld = Camera.main.ScreenToWorldPoint(new Vector3(mousePosScreen.x, mousePosScreen.y, dragObject.transform.position.z - Camera.main.transform.position.z));
 
-            
+            // Calculate the direction vector from the object to the mouse
+            Vector3 direction = mousePosWorld - rb.position;
+            //find distance from dragobject to mouse
+            float distance = Vector3.Distance(mousePosWorld, dragObject.transform.position);
+            //apply distance and a multiplier to the force.
+            float appliedForceMagnitude = dragSpeed * distance * dragForceMultiplier;
 
+            // Apply a force in that direction
+            rb.AddForce(direction.normalized * appliedForceMagnitude, ForceMode.Force);
+
+            //if the object is close to the mouse.
+            if (distance <= targetDistance)
+            {
+                // Calculate a drag multiplier based on proximity.
+                float normalizedDistance = Mathf.Clamp01(distance / targetDistance);
+                float dragMultiplier = Mathf.Lerp(maxDragMultiplier, 1f, normalizedDistance);
+
+                // Apply the increased drag to the dragged object's Rigidbody.
+                rb.drag = baseDrag * dragMultiplier;
+            }
             if (Input.GetAxis("Mouse ScrollWheel") > 0f)
             {
                 dragObject.transform.rotation = new Quaternion(dragObject.transform.rotation.x + Input.GetAxis("Mouse ScrollWheel"), dragObject.transform.rotation.y, dragObject.transform.rotation.z, dragObject.transform.rotation.w);

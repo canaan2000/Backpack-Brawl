@@ -27,7 +27,7 @@ public class BundleCreator : MonoBehaviour
         
     }
 
-    public void CreateOptions()
+    void CreateOptions()
     {
         for (int i = 0; i < bundleSize; i++) 
         {

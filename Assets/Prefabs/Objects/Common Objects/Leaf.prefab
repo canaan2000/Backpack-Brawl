@@ -196,9 +196,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7266997441106935290}
   m_LocalRotation: {x: -0.65269524, y: -0, z: -0, w: 0.7576206}
-  m_LocalPosition: {x: 0.49044, y: 4.147, z: -7.8414}
-  m_LocalScale: {x: 0.0051250723, y: 0.0051250723, z: 0.0051250723}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 1.1099, y: 4.339, z: -9.2559}
+  m_LocalScale: {x: 2.09, y: 2.09, z: 2.09}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3407172930049964719}
   - {fileID: 5777216899062836605}
@@ -215,7 +215,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -312,3 +312,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Combat: {fileID: 0}
+  readyToClick: 1

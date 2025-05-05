@@ -15,6 +15,12 @@ public class CombatScript : MonoBehaviour
     public float attackCooldown = 1f;
     public float cooldown = 0;
 
+    public float scalePercent = .3f;
+    public float baseAttack = 2;
+    public float baseHealth = 30f;
+
+    public int level = 1;
+
     public bool combatTrue = false;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +33,7 @@ public class CombatScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(enemy);
+            GameObject Enemy = Instantiate(enemy);
             FightStart();
         }
         if (combatTrue == true)
@@ -53,6 +59,8 @@ public class CombatScript : MonoBehaviour
     void FightStart()
     {
         EnemyStats = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyScript>();
+        EnemyStats.Attack = baseAttack * Mathf.Pow(1 + scalePercent, level - 1);
+        EnemyStats.Health = baseHealth * Mathf.Pow(1 + scalePercent, level - 1);
 
         combatTrue = true;
 
@@ -66,6 +74,8 @@ public class CombatScript : MonoBehaviour
         PlayerStats.money += Random.Range(1f, 55f);
 
         combatTrue = false;
+
+        level++;
 
         Bundles.ShowOptions();
     }

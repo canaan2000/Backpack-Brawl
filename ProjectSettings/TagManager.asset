@@ -16,6 +16,13 @@ TagManager:
   - BurgerTag
   - IngotTag
   - Enemy
+  - CubeTag
+  - SphereTag
+  - CylinderTag
+  - CapsuleTag
+  - OreTag
+  - CoalTag
+  - TorchTag
   layers:
   - Default
   - TransparentFX

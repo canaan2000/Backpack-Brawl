@@ -1235,10 +1235,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8750cb4f93574c141aa1e9c658002261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  common:
-  - {fileID: 7266997441106935290, guid: ba8690e80d685074e8de0706a16779d2, type: 3}
+  AllObjects:
   - {fileID: 186312528012161770, guid: d09d712193d56784c8e7214fa96af19f, type: 3}
+  - {fileID: 596304231132886924, guid: e6e4c110580736b4f86a982039a9e0b4, type: 3}
+  - {fileID: 3311932171338732397, guid: fafca462e72dd2f4a94329c0b74826eb, type: 3}
+  - {fileID: 3679647375475919218, guid: 4831319e285e53e4c9236269b3032e01, type: 3}
+  - {fileID: 6063351912288209982, guid: 77f4f5b4dab1dee46be9420334d95342, type: 3}
+  - {fileID: 7266997441106935290, guid: ba8690e80d685074e8de0706a16779d2, type: 3}
+  - {fileID: 7408208907586688709, guid: 74aac245a68648c4abcf9c16bb3e7d2b, type: 3}
   - {fileID: 1119258419171646720, guid: e8c119c6cf04582439b2865d0d845d48, type: 3}
+  - {fileID: 5311470639943069289, guid: e487223dd0471fc4b9ef395794ee190d, type: 3}
+  - {fileID: 831853598034156804, guid: 0ee9c85639d31cf40a68068118d3e42e, type: 3}
+  - {fileID: 2048895325155081440, guid: 9328f2236b98bf341ac4184c8f736eaf, type: 3}
+  - {fileID: 1869634578200866347, guid: fd6c182924cabd448b5d55c143ee2101, type: 3}
+  - {fileID: 4870479689551863581, guid: 5ff9d3c15fd53ce44b9007d63d2d3c9e, type: 3}
+  - {fileID: 4655967774871242519, guid: 084085f2956e94f498feabf578b30014, type: 3}
+  - {fileID: 4412328722876688910, guid: c9d13f7f9cb3f2c44a45fc8717dabe4e, type: 3}
+  common: []
   uncommon: []
   rare: []
   option1: []
@@ -1387,6 +1400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CombatScript: {fileID: 582221572}
   attackCooldownDis: {fileID: 143585687}
+  clickCooldownDis: {fileID: 0}
   enemyHealth: {fileID: 1279148286}
   enemyDamage: {fileID: 1477475700}
 --- !u!4 &629801297 stripped
@@ -3552,7 +3566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
       propertyPath: MergeDataList.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
       propertyPath: CubeOptions.Array.data[1]
@@ -3647,6 +3661,14 @@ PrefabInstance:
       value: LeafTag
       objectReference: {fileID: 0}
     - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
+      propertyPath: MergeDataList.Array.data[6].Obj1Tag
+      value: FlowerTag
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
+      propertyPath: MergeDataList.Array.data[6].Obj2Tag
+      value: LeafTag
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
       propertyPath: MergeDataList.Array.data[0].ResultPrefab
       value: 
       objectReference: {fileID: 2048895325155081440, guid: 9328f2236b98bf341ac4184c8f736eaf, type: 3}
@@ -3668,6 +3690,10 @@ PrefabInstance:
       objectReference: {fileID: 4870479689551863581, guid: 5ff9d3c15fd53ce44b9007d63d2d3c9e, type: 3}
     - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
       propertyPath: MergeDataList.Array.data[5].ResultPrefab
+      value: 
+      objectReference: {fileID: 5311470639943069289, guid: e487223dd0471fc4b9ef395794ee190d, type: 3}
+    - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
+      propertyPath: MergeDataList.Array.data[6].ResultPrefab
       value: 
       objectReference: {fileID: 5311470639943069289, guid: e487223dd0471fc4b9ef395794ee190d, type: 3}
     m_RemovedComponents: []

@@ -10,6 +10,8 @@ public class CombatDisplay : MonoBehaviour
 
     public GameObject attackCooldownDis;
 
+    public GameObject clickCooldownDis;
+
     public TextMeshProUGUI enemyHealth;
     public TextMeshProUGUI enemyDamage;
 
@@ -46,6 +48,9 @@ public class CombatDisplay : MonoBehaviour
             attackCooldownDis.SetActive(true);
             Vector3 newScale = new Vector3(Mathf.Lerp(0, 1, CombatScript.cooldown / CombatScript.attackCooldown), normalScale.y, normalScale.z);
             attackCooldownDis.transform.localScale = newScale;
+
+            //if combat is active the display the clickcooldown
+
         }
         else
         {

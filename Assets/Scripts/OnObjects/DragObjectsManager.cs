@@ -40,7 +40,7 @@ public class DragObjectsManager : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonUp(0)) 
+        if (Input.GetMouseButtonUp(0) && dragObject != null) 
         {
             dragObject.GetComponent<Rigidbody>().useGravity = true;
             dragObject.GetComponent<Rigidbody>().drag = 0f;

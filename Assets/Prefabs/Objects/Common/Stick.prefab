@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8932940651074389823}
   - component: {fileID: -2056021941584223829}
   - component: {fileID: -3466396418250744953}
+  - component: {fileID: 2843994969944927557}
   m_Layer: 0
   m_Name: Stick
   m_TagString: StickTag
@@ -93,6 +94,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Combat: {fileID: 0}
+  readyToClick: 1
+--- !u!114 &2843994969944927557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119258419171646720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2968f215599004792acd02b15adff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    name: 
+    description: 
+    rarity: 0
 --- !u!1 &8216162737063208409
 GameObject:
   m_ObjectHideFlags: 0

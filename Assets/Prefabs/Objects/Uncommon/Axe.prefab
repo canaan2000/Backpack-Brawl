@@ -159,6 +159,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData:
-    name: 
+    name: Axe
     description: 
+    damage: 3
+    armor: 0
+    poison: 0
+    clickHunger: 0
+    clickArmor: 0
+    clickDamage: 2
+    clickPoison: 0
     rarity: 1

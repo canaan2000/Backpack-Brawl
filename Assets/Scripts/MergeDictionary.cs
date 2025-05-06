@@ -38,22 +38,27 @@ public class MergeDictionary : MonoBehaviour
 
     public void CheckMerge(GameObject obj1, GameObject obj2)
     {
-        // Create keys for both possible tag combinations
-        string key1 = obj1.tag + "_" + obj2.tag;
-        string key2 = obj2.tag + "_" + obj1.tag;
+        NewItemScript itemScript1 = obj1.GetComponent<NewItemScript>();
+        NewItemScript itemScript2 = obj2.GetComponent<NewItemScript>();
 
-        // Check if either key exists in the dictionary
-        if (mergeDictionary.ContainsKey(key1))
-        {
-            MergeMath.Merge(obj1, obj2, mergeDictionary[key1], mergeDictionary[key1].name);
-            return;
-        }
-        else if (mergeDictionary.ContainsKey(key2))
-        {
-            MergeMath.Merge(obj1, obj2, mergeDictionary[key2], mergeDictionary[key2].name);
-            return;
-        }
-        // If no matching combination is found. log a message
-        Debug.Log("No matching merge combination found for " + obj1.tag + " and " + obj2.tag);
+        
+            // Create keys for both possible name combinations
+            string key1 = itemScript1.itemData.name + "_" + itemScript2.itemData.name;
+            string key2 = itemScript2.itemData.name + "_" + itemScript1.itemData.name;
+
+            // Check if either key exists in the dictionary
+            if (mergeDictionary.ContainsKey(key1))
+            {
+                MergeMath.Merge(obj1, obj2, mergeDictionary[key1], mergeDictionary[key1].name);
+                return;
+            }
+            else if (mergeDictionary.ContainsKey(key2))
+            {
+                MergeMath.Merge(obj1, obj2, mergeDictionary[key2], mergeDictionary[key2].name);
+                return;
+            }
+            // If no matching combination is found. log a message
+            Debug.Log("No matching merge combination found for " + itemScript1.itemData.name + " and " + itemScript2.itemData.name);
+        
     }
 }

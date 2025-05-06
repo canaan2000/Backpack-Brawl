@@ -10,10 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 343319442323081146}
   - component: {fileID: -9108877570157746621}
-  - component: {fileID: 8932940651074389823}
-  - component: {fileID: -2056021941584223829}
-  - component: {fileID: -3466396418250744953}
-  - component: {fileID: 2843994969944927557}
   m_Layer: 0
   m_Name: Stick
   m_TagString: StickTag
@@ -53,64 +49,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
---- !u!114 &8932940651074389823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119258419171646720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5f62c189f3c75342a22f9716310e50d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  merger: {fileID: 0}
-  Dictionary: {fileID: 0}
---- !u!64 &-2056021941584223829
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119258419171646720}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: 0bc44cf8cfe695b43a2c8da0b8ba177d, type: 3}
---- !u!114 &-3466396418250744953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119258419171646720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60a600fd78a60bb488375aa13ca09bfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Combat: {fileID: 0}
-  readyToClick: 1
---- !u!114 &2843994969944927557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119258419171646720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d2968f215599004792acd02b15adff9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemData:
-    name: 
-    description: 
-    rarity: 0
 --- !u!1 &8216162737063208409
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,9 +61,12 @@ GameObject:
   - component: {fileID: 2622410378361442216}
   - component: {fileID: 1531530058423544636}
   - component: {fileID: 2996482717601523258}
+  - component: {fileID: 5331650918787696984}
+  - component: {fileID: 5394800392366365427}
+  - component: {fileID: 4463761347232415381}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: StickTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,3 +150,53 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 0bc44cf8cfe695b43a2c8da0b8ba177d, type: 3}
+--- !u!54 &5331650918787696984
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8216162737063208409}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
+--- !u!114 &5394800392366365427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8216162737063208409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f62c189f3c75342a22f9716310e50d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  merger: {fileID: 0}
+  Dictionary: {fileID: 0}
+--- !u!114 &4463761347232415381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8216162737063208409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2968f215599004792acd02b15adff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    name: Stick
+    description: 
+    damage: 0
+    armor: 0
+    poison: 0
+    hunger: 0
+    rarity: 0

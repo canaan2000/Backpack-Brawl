@@ -327,6 +327,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData:
-    name: 
+    name: Leaf
     description: 
     rarity: 0

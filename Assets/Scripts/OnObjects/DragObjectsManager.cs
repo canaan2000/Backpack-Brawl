@@ -73,6 +73,7 @@ public class DragObjectsManager : MonoBehaviour
 
                 // Apply the increased drag to the dragged object's Rigidbody.
                 rb.drag = baseDrag * dragMultiplier;
+                rb.angularDrag = baseDrag * dragMultiplier;
             }
             if (Input.GetAxis("Mouse ScrollWheel") > 0f)
             {

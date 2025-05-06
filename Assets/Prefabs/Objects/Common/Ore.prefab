@@ -274,6 +274,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData:
-    name: 
+    name: Ore
     description: 
     rarity: 0

@@ -159,6 +159,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData:
-    name: 
+    name: Flower
     description: 
     rarity: 1

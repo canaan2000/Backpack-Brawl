@@ -164,8 +164,10 @@ MonoBehaviour:
     damage: 3
     armor: 0
     poison: 0
+    staminaUsage: 3
     clickHunger: 0
     clickArmor: 0
     clickDamage: 2
     clickPoison: 0
+    singleUse: 0
     rarity: 1

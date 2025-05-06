@@ -11,6 +11,8 @@ public class PlayerStats : MonoBehaviour
     public float poison = 0f;
     public float durability = 100f;
     public float money = 0f;
+    public float stamina = 0f;
+    public float maxStamina = 10f;
 
     public int hungerDepleteSpeed = 5; //Higher is slower
     public int poisonDepleteSpeed = 3;
@@ -32,7 +34,10 @@ public class PlayerStats : MonoBehaviour
         }
         //Poison depletes health
         health -= poison * Time.deltaTime;
-        
-        
+
+        if (stamina <= maxStamina)
+        {
+            stamina += Time.deltaTime;
+        }
     }
 }

@@ -12,11 +12,11 @@ public class DragObjectsManager : MonoBehaviour
     public Camera CameraMain;
     public GameObject backpack;
 
-    float dragSpeed = 1;
+    float dragSpeed = 2;
     float targetDistance = 1f;
     float dragForceMultiplier = 5f;
     float maxDragMultiplier = 10f;
-    float baseDrag = 3f;
+    float baseDrag = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +36,7 @@ public class DragObjectsManager : MonoBehaviour
                 if (hit.collider != null)
                 {
                     dragObject = hit.collider.gameObject;
+                    dragObject.GetComponent<Rigidbody>().useGravity = false;
                 }
             }
         }

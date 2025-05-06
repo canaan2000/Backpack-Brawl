@@ -42,7 +42,7 @@ public class OnClickManager : MonoBehaviour
     private void OnMouseDown()
     {
         NewItemScript itemScript = gameObject.GetComponent<NewItemScript>();
-        if (readyToClick == true)
+        if (Combat.PlayerStats.stamina >= itemScript.itemData.staminaUsage)
         {
             readyToClick = false;
             Combat.PlayerStats.armor += itemScript.itemData.clickArmor;
@@ -50,6 +50,7 @@ public class OnClickManager : MonoBehaviour
             Combat.PlayerStats.hunger += itemScript.itemData.clickHunger;
             Combat.EnemyStats.Poison += itemScript.itemData.clickPoison;
 
+            Combat.PlayerStats.stamina -= itemScript.itemData.staminaUsage;
             if (itemScript.itemData.singleUse == true)
             {
                 Destroy(gameObject);

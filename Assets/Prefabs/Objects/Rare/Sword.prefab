@@ -146,4 +146,11 @@ MonoBehaviour:
   itemData:
     name: Sword
     description: 
+    damage: 6
+    armor: 0
+    poison: 0
+    clickHunger: 0
+    clickArmor: 0
+    clickDamage: 3
+    clickPoison: 0
     rarity: 2

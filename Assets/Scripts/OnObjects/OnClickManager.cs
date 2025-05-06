@@ -49,6 +49,11 @@ public class OnClickManager : MonoBehaviour
             Combat.EnemyStats.Health -= itemScript.itemData.clickDamage;
             Combat.PlayerStats.hunger += itemScript.itemData.clickHunger;
             Combat.EnemyStats.Poison += itemScript.itemData.clickPoison;
+
+            if (itemScript.itemData.singleUse == true)
+            {
+                Destroy(gameObject);
+            }
         }
 
     }

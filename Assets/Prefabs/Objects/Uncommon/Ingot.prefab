@@ -146,4 +146,11 @@ MonoBehaviour:
   itemData:
     name: Ingot
     description: 
+    damage: 3
+    armor: 2
+    poison: 0
+    clickHunger: 0
+    clickArmor: 1
+    clickDamage: 1
+    clickPoison: 0
     rarity: 1

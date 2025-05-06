@@ -154,4 +154,12 @@ MonoBehaviour:
   itemData:
     name: Burger
     description: 
+    damage: 0
+    armor: 0
+    poison: 0
+    clickHunger: 25
+    clickArmor: 0
+    clickDamage: 0
+    clickPoison: 0
+    singleUse: 1
     rarity: 2

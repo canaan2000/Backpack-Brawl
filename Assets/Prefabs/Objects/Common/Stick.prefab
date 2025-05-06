@@ -195,8 +195,11 @@ MonoBehaviour:
   itemData:
     name: Stick
     description: 
-    damage: 0
+    damage: 1
     armor: 0
     poison: 0
-    hunger: 0
+    clickHunger: 0
+    clickArmor: 0
+    clickDamage: 0
+    clickPoison: 0
     rarity: 0

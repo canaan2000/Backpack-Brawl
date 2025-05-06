@@ -161,4 +161,12 @@ MonoBehaviour:
   itemData:
     name: Rock
     description: 
+    damage: 1
+    armor: 1
+    poison: 0
+    clickHunger: 0
+    clickArmor: 0
+    clickDamage: 10
+    clickPoison: 0
+    singleUse: 1
     rarity: 0

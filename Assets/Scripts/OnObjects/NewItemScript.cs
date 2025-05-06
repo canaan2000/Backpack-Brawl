@@ -16,6 +16,7 @@ public class NewItemScript : MonoBehaviour
         public float clickArmor;
         public float clickDamage;
         public float clickPoison;
+        public bool singleUse;
 
         public enum Rarity {Common, Uncommon, Rare};
         public Rarity rarity;
@@ -37,6 +38,7 @@ public class NewItemScript : MonoBehaviour
             itemData.clickArmor = 0f;
             itemData.clickDamage = 0f;
             itemData.clickPoison = 0f;
+            itemData.singleUse = false;
 
             itemData.rarity = ItemClass.Rarity.Common; // Or whatever default rarity you want
         }

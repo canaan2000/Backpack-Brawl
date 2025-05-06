@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData:
     name: Axe
-    description: 
+    description: An axe for hammering your foes
     damage: 3
     armor: 0
     poison: 0

@@ -4,14 +4,7 @@ using UnityEngine;
 
 public class SpawnerScript : MonoBehaviour
 {
-    public GameObject cube;
-    public GameObject sphere;
-    public GameObject cylinder;
-    public GameObject capsule;
-    public GameObject[] Rocks;
-    public GameObject Stick;
-    public GameObject Leaf;
-    public GameObject Ingot;
+    public List<GameObject> gameObjects;
 
     public GameObject spawnArea;
 
@@ -27,8 +20,8 @@ public class SpawnerScript : MonoBehaviour
 
         RandSpawnPos();
 
-        Instantiate(Stick, spawnPoint, Quaternion.identity);
-        Instantiate(Rocks[Random.Range(0,Rocks.Length)], spawnPoint, Quaternion.identity);
+        Instantiate(gameObjects[1], spawnPoint, Quaternion.identity);
+        Instantiate(gameObjects[0], spawnPoint, Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -38,35 +31,35 @@ public class SpawnerScript : MonoBehaviour
         {
             RandSpawnPos();
             //changes spawnpoint position
-            Instantiate(cube, spawnPoint, Quaternion.identity);
+            Instantiate(gameObjects[0], spawnPoint, Quaternion.identity);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             RandSpawnPos();
 
-            Instantiate(Ingot, spawnPoint, Quaternion.identity);
+            Instantiate(gameObjects[1], spawnPoint, Quaternion.identity);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             RandSpawnPos();
 
-            Instantiate(Leaf, spawnPoint, Quaternion.identity);
+            Instantiate(gameObjects[2], spawnPoint, Quaternion.identity);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             RandSpawnPos();
 
-            Instantiate(Stick, spawnPoint, Quaternion.identity);
+            Instantiate(gameObjects[3], spawnPoint, Quaternion.identity);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             RandSpawnPos();
 
-            Instantiate(Rocks[Random.Range(0,Rocks.Length)], spawnPoint, Quaternion.identity);
+            Instantiate(gameObjects[4], spawnPoint, Quaternion.identity);
         }
     }
 

@@ -39,6 +39,10 @@ public class PlayerStats : MonoBehaviour
         {
             stamina += Time.deltaTime;
         }
+        if (stamina > maxStamina)
+        {
+            stamina = maxStamina;
+        }
 
         if (health <= 0 || hunger <= 0)
         {

@@ -14,23 +14,21 @@ public class DisplayPlayerStats : MonoBehaviour
     public TextMeshProUGUI attackDisp;
     public TextMeshProUGUI hungerDisp;
     public TextMeshProUGUI staminaDisp;
+    public TextMeshProUGUI poisonDisp;
 
     float lastHealth = 100;
     float lastArmor;
     float lastStamina;
-    float lastHunger;
 
     Color defaultHealthColor = Color.white;
     Color defaultArmorColor = Color.grey;
     Color defaultStaminaColor = Color.yellow;
-    Color defaultHungerColor = new Color(1f, 0.5f, 0f); // Orange for hunger
 
     float flashDuration = 0.2f;
 
     Coroutine currentHealthFlashCoroutine = null;
     Coroutine currentArmorFlashCoroutine = null;
     Coroutine currentStaminaFlashCoroutine = null;
-    Coroutine currentHungerFlashCoroutine = null;
 
     // Start is called before the first frame update
     void Start()
@@ -38,11 +36,9 @@ public class DisplayPlayerStats : MonoBehaviour
         if (healthDisp != null) defaultHealthColor = healthDisp.color;
         if (armorDisp != null) defaultArmorColor = armorDisp.color;
         if (staminaDisp != null) defaultStaminaColor = staminaDisp.color;
-        if (hungerDisp != null) defaultHungerColor = hungerDisp.color;
 
         lastArmor = PlayerStats.armor;
         lastStamina = PlayerStats.stamina;
-        lastHunger = PlayerStats.hunger;
     }
 
     // Update is called once per frame
@@ -54,6 +50,7 @@ public class DisplayPlayerStats : MonoBehaviour
         if (attackDisp != null) attackDisp.text = PlayerStats.attack.ToString("Auto Attack: 0.0");
         if (hungerDisp != null) hungerDisp.text = PlayerStats.hunger.ToString("Food: 00");
         if (staminaDisp != null) staminaDisp.text = PlayerStats.stamina.ToString("Stamina: 0.000");
+        if (poisonDisp != null) poisonDisp.text = PlayerStats.poison.ToString("Poison: 0");
 
         // Health Flash
         if (healthDisp != null && lastHealth > PlayerStats.health)

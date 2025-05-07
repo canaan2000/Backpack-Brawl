@@ -44,5 +44,9 @@ public class PlayerStats : MonoBehaviour
         {
             Application.LoadLevel(Application.loadedLevel);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }

@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 4928453181966027035}
   - component: {fileID: 7948429062760710203}
   - component: {fileID: 3707225671657163400}
+  - component: {fileID: -1424563954530645169}
   m_Layer: 0
   m_Name: Ore
   m_TagString: OreTag
@@ -275,5 +276,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData:
     name: Ore
-    description: 
+    description: You could make ingots out of this.
+    damage: 0
+    armor: 0
+    poison: 0
+    staminaUsage: 0
+    clickHealing: 0
+    clickHunger: 0
+    clickArmor: 0
+    clickDamage: 0
+    clickPoison: 0
+    singleUse: 0
     rarity: 0
+--- !u!114 &-1424563954530645169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7408208907586688709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb10017274982244a1f5b8c5559754a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleSpeed: 2

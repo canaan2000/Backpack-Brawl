@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5990138201580700217}
   - component: {fileID: 6695653086957330955}
   - component: {fileID: -6090948805390078910}
+  - component: {fileID: -378820468843637746}
   m_Layer: 0
   m_Name: Torch
   m_TagString: Untagged
@@ -161,8 +162,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData:
     name: Torch
-    description: 
+    description: Don't touch the hot end.
+    damage: 3
+    armor: 0
+    poison: 0
+    staminaUsage: 4
+    clickHealing: 0
+    clickHunger: 0
+    clickArmor: 0
+    clickDamage: 5
+    clickPoison: 0
+    singleUse: 0
     rarity: 1
+--- !u!114 &-378820468843637746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4412328722876688910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb10017274982244a1f5b8c5559754a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleSpeed: 2
 --- !u!1 &7980327791504779189
 GameObject:
   m_ObjectHideFlags: 0

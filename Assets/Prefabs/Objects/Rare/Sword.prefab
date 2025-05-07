@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -5087842673268652933}
   - component: {fileID: -4732794804151107697}
   - component: {fileID: -2572521315863995209}
+  - component: {fileID: -8099214357976822245}
   m_Layer: 0
   m_Name: Sword
   m_TagString: SwordTag
@@ -145,12 +146,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData:
     name: Sword
-    description: 
+    description: Slash thy foes
     damage: 6
     armor: 0
     poison: 0
+    staminaUsage: 0
+    clickHealing: 0
     clickHunger: 0
     clickArmor: 0
     clickDamage: 3
     clickPoison: 0
+    singleUse: 0
     rarity: 2
+--- !u!114 &-8099214357976822245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831853598034156804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb10017274982244a1f5b8c5559754a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleSpeed: 2

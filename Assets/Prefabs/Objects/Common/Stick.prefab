@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 343319442323081146}
   - component: {fileID: -9108877570157746621}
+  - component: {fileID: 5859890321241547089}
+  - component: {fileID: -5000850609396792243}
   m_Layer: 0
   m_Name: Stick
   m_TagString: StickTag
@@ -49,6 +51,45 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
+--- !u!114 &5859890321241547089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119258419171646720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb10017274982244a1f5b8c5559754a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleSpeed: 2
+--- !u!114 &-5000850609396792243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119258419171646720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2968f215599004792acd02b15adff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    name: Stick
+    description: 
+    damage: 0
+    armor: 0
+    poison: 0
+    staminaUsage: 0
+    clickHealing: 0
+    clickHunger: 0
+    clickArmor: 0
+    clickDamage: 0
+    clickPoison: 0
+    singleUse: 0
+    rarity: 0
 --- !u!1 &8216162737063208409
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,12 +235,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData:
     name: Stick
-    description: 
+    description: A sticky stick
     damage: 1
     armor: 0
     poison: 0
+    staminaUsage: 0
+    clickHealing: 0
     clickHunger: 0
     clickArmor: 0
     clickDamage: 0
     clickPoison: 0
+    singleUse: 0
     rarity: 0

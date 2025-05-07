@@ -42,7 +42,7 @@ public class OnClickManager : MonoBehaviour
     private void OnMouseDown()
     {
         NewItemScript itemScript = gameObject.GetComponent<NewItemScript>();
-        if (Combat.PlayerStats.stamina >= itemScript.itemData.staminaUsage)
+        if (Combat.PlayerStats.stamina >= itemScript.itemData.staminaUsage && Combat.combatTrue == true)
         {
             readyToClick = false;
             Combat.PlayerStats.armor += itemScript.itemData.clickArmor;

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3710591150110967474}
   - component: {fileID: 1517367919275330559}
   - component: {fileID: -8544512475626933913}
+  - component: {fileID: -8820437524520204250}
   m_Layer: 0
   m_Name: Rock1
   m_TagString: RockTag
@@ -164,9 +165,23 @@ MonoBehaviour:
     damage: 1
     armor: 1
     poison: 0
+    staminaUsage: 0
     clickHunger: 0
     clickArmor: 0
     clickDamage: 10
     clickPoison: 0
     singleUse: 1
     rarity: 0
+--- !u!114 &-8820437524520204250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186312528012161770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb10017274982244a1f5b8c5559754a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleSpeed: 2

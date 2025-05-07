@@ -48,12 +48,12 @@ public class DisplayPlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (healthDisp != null) healthDisp.text = PlayerStats.health.ToString("0");
-        if (armorDisp != null) armorDisp.text = PlayerStats.armor.ToString("0");
+        if (healthDisp != null) healthDisp.text = PlayerStats.health.ToString("Health: 0");
+        if (armorDisp != null) armorDisp.text = PlayerStats.armor.ToString("Armor: 0");
         if (moneyDisp != null) moneyDisp.text = PlayerStats.money.ToString("$0.00");
-        if (attackDisp != null) attackDisp.text = PlayerStats.attack.ToString("0.0");
-        if (hungerDisp != null) hungerDisp.text = PlayerStats.hunger.ToString("00");
-        if (staminaDisp != null) staminaDisp.text = PlayerStats.stamina.ToString("0.000");
+        if (attackDisp != null) attackDisp.text = PlayerStats.attack.ToString("Auto Attack: 0.0");
+        if (hungerDisp != null) hungerDisp.text = PlayerStats.hunger.ToString("Food: 00");
+        if (staminaDisp != null) staminaDisp.text = PlayerStats.stamina.ToString("Stamina: 0.000");
 
         // Health Flash
         if (healthDisp != null && lastHealth > PlayerStats.health)

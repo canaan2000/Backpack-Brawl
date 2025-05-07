@@ -39,5 +39,10 @@ public class PlayerStats : MonoBehaviour
         {
             stamina += Time.deltaTime;
         }
+
+        if (health <= 0 || hunger <= 0)
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
     }
 }

@@ -2245,7 +2245,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 740.63, y: 365.6}
+  m_AnchoredPosition: {x: 740.63, y: 277}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &947335559
@@ -3119,7 +3119,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 740.63, y: 290.8}
+  m_AnchoredPosition: {x: 740.63, y: 98}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1706609255
@@ -3973,7 +3973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
       propertyPath: MergeDataList.Array.size
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
       propertyPath: CubeOptions.Array.data[1]
@@ -4100,6 +4100,14 @@ PrefabInstance:
       value: Ore
       objectReference: {fileID: 0}
     - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
+      propertyPath: MergeDataList.Array.data[10].Obj1Tag
+      value: Ingot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
+      propertyPath: MergeDataList.Array.data[10].Obj2Tag
+      value: Ingot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
       propertyPath: MergeDataList.Array.data[0].ResultPrefab
       value: 
       objectReference: {fileID: 2048895325155081440, guid: 9328f2236b98bf341ac4184c8f736eaf, type: 3}
@@ -4139,6 +4147,10 @@ PrefabInstance:
       propertyPath: MergeDataList.Array.data[9].ResultPrefab
       value: 
       objectReference: {fileID: 6063351912288209982, guid: 77f4f5b4dab1dee46be9420334d95342, type: 3}
+    - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
+      propertyPath: MergeDataList.Array.data[10].ResultPrefab
+      value: 
+      objectReference: {fileID: 2299246717986321120, guid: 6c5893e2cd03a564fa2a284acfacbfd7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
 --- !u!4 &8407056273784430755

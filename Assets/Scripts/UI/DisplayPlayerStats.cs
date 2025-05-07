@@ -14,20 +14,81 @@ public class DisplayPlayerStats : MonoBehaviour
     public TextMeshProUGUI attackDisp;
     public TextMeshProUGUI hungerDisp;
     public TextMeshProUGUI staminaDisp;
+
+    float lastHealth = 100;
+    float lastArmor;
+    float lastStamina;
+    float lastHunger;
+
+    Color defaultHealthColor = Color.white;
+    Color defaultArmorColor = Color.grey;
+    Color defaultStaminaColor = Color.yellow;
+    Color defaultHungerColor = new Color(1f, 0.5f, 0f); // Orange for hunger
+
+    float flashDuration = 0.2f;
+
+    Coroutine currentHealthFlashCoroutine = null;
+    Coroutine currentArmorFlashCoroutine = null;
+    Coroutine currentStaminaFlashCoroutine = null;
+    Coroutine currentHungerFlashCoroutine = null;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (healthDisp != null) defaultHealthColor = healthDisp.color;
+        if (armorDisp != null) defaultArmorColor = armorDisp.color;
+        if (staminaDisp != null) defaultStaminaColor = staminaDisp.color;
+        if (hungerDisp != null) defaultHungerColor = hungerDisp.color;
+
+        lastArmor = PlayerStats.armor;
+        lastStamina = PlayerStats.stamina;
+        lastHunger = PlayerStats.hunger;
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthDisp.text = PlayerStats.health.ToString("0");
-        armorDisp.text = PlayerStats.armor.ToString("0");
-        moneyDisp.text = PlayerStats.money.ToString("$0.00");
-        attackDisp.text = PlayerStats.attack.ToString("0.0");
-        hungerDisp.text = PlayerStats.hunger.ToString("00");
-        staminaDisp.text = PlayerStats.stamina.ToString("0.000");
+        if (healthDisp != null) healthDisp.text = PlayerStats.health.ToString("0");
+        if (armorDisp != null) armorDisp.text = PlayerStats.armor.ToString("0");
+        if (moneyDisp != null) moneyDisp.text = PlayerStats.money.ToString("$0.00");
+        if (attackDisp != null) attackDisp.text = PlayerStats.attack.ToString("0.0");
+        if (hungerDisp != null) hungerDisp.text = PlayerStats.hunger.ToString("00");
+        if (staminaDisp != null) staminaDisp.text = PlayerStats.stamina.ToString("0.000");
+
+        // Health Flash
+        if (healthDisp != null && lastHealth > PlayerStats.health)
+        {
+            if (currentHealthFlashCoroutine != null) StopCoroutine(currentHealthFlashCoroutine);
+            currentHealthFlashCoroutine = StartCoroutine(FlashColor(healthDisp, Color.red, defaultHealthColor));
+        }
+        lastHealth = PlayerStats.health;
+
+        // Armor Flash
+        if (armorDisp != null && lastArmor > PlayerStats.armor)
+        {
+            if (currentArmorFlashCoroutine != null) StopCoroutine(currentArmorFlashCoroutine);
+            currentArmorFlashCoroutine = StartCoroutine(FlashColor(armorDisp, Color.red, defaultArmorColor));
+        }
+        lastArmor = PlayerStats.armor;
+
+        // Stamina Flash
+        if (staminaDisp != null && lastStamina > PlayerStats.stamina)
+        {
+            if (currentStaminaFlashCoroutine != null) StopCoroutine(currentStaminaFlashCoroutine);
+            currentStaminaFlashCoroutine = StartCoroutine(FlashColor(staminaDisp, Color.red, defaultStaminaColor));
+        }
+        lastStamina = PlayerStats.stamina;
+    }
+
+    IEnumerator FlashColor(TextMeshProUGUI textComponent, Color flashColor, Color defaultColor)
+    {
+        textComponent.color = flashColor;
+        yield return new WaitForSeconds(flashDuration);
+        textComponent.color = defaultColor;
+
+        // Reset the corresponding coroutine variable
+        if (textComponent == healthDisp) currentHealthFlashCoroutine = null;
+        else if (textComponent == armorDisp) currentArmorFlashCoroutine = null;
+        else if (textComponent == staminaDisp) currentStaminaFlashCoroutine = null;
     }
 }

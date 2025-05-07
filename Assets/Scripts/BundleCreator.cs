@@ -1,128 +1,156 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq; // To easily shuffle lists
 
 public class BundleCreator : MonoBehaviour
 {
     // Public list to hold all the GameObjects that can be part of a bundle.
     public List<GameObject> AllObjects;
 
-    // Public lists to categorize GameObjects based on their rarity.
-    public List<GameObject> common;
-    public List<GameObject> uncommon;
-    public List<GameObject> rare;
+    // Internal lists to categorize GameObjects based on their rarity.
+    private List<GameObject> common;
+    private List<GameObject> uncommon;
+    private List<GameObject> rare;
 
-    // Public lists to represent different options or bundles of GameObjects.
-    public List<GameObject> option1;
-    public List<GameObject> option2;
-    public List<GameObject> option3;
+    // Public list of lists to hold the three generated bundle options.
+    public List<List<GameObject>> options = new List<List<GameObject>>();
 
-    // Public list of lists to hold all the option lists together.
-    public List<List<GameObject>> options;
-
-    // Public integer to define the desired size of each bundle/option.
-    public int bundleSize = 5;
-
-    // Start is called before the first frame update. This method is executed once when the script starts.
+    // Start is called before the first frame update.
     void Start()
     {
-        // Iterate through each GameObject in the AllObjects list.
+        // Initialize the rarity lists.
+        common = new List<GameObject>();
+        uncommon = new List<GameObject>();
+        rare = new List<GameObject>();
+
+        // Categorize all objects by their rarity.
         foreach (GameObject obj in AllObjects)
         {
-            // Get the NewItemScript component attached to the current GameObject.
             NewItemScript itemScript = obj.GetComponent<NewItemScript>();
 
-            // If the GameObject has a NewItemScript component and its itemData is not null.
             if (itemScript != null && itemScript.itemData != null)
             {
-                // Check if the rarity of the item is Common.
-                if (itemScript.itemData.rarity == NewItemScript.ItemClass.Rarity.Common)
+                switch (itemScript.itemData.rarity)
                 {
-                    // Add the current GameObject to the common list.
-                    common.Add(obj);
-                }
-                // Check if the rarity of the item is Uncommon.
-                if (itemScript.itemData.rarity == NewItemScript.ItemClass.Rarity.Uncommon)
-                {
-                    // Add the current GameObject to the uncommon list.
-                    uncommon.Add(obj);
-                }
-                // Check if the rarity of the item is Rare.
-                if (itemScript.itemData.rarity == NewItemScript.ItemClass.Rarity.Rare)
-                {
-                    // Add the current GameObject to the rare list.
-                    rare.Add(obj);
+                    case NewItemScript.ItemClass.Rarity.Common:
+                        common.Add(obj);
+                        break;
+                    case NewItemScript.ItemClass.Rarity.Uncommon:
+                        uncommon.Add(obj);
+                        break;
+                    case NewItemScript.ItemClass.Rarity.Rare:
+                        rare.Add(obj);
+                        break;
                 }
             }
-            // If the NewItemScript or its itemData is missing, log a warning.
             else
             {
                 Debug.LogWarning("GameObject " + obj.name + " is missing NewItemScript or its ItemData.");
             }
         }
-        // After categorizing all objects by rarity, call the CreateOptions method to generate bundles.
+
+        // Create the three bundle options.
         CreateOptions();
+
+        // Log the contents of each generated option.
+        Debug.Log("Generated Options:");
+        for (int i = 0; i < options.Count; i++)
+        {
+            Debug.Log($"Option {i + 1}:");
+            foreach (GameObject item in options[i])
+            {
+                Debug.Log($"- {item.name} ({GetRarity(item)}) - Value: ${item.GetComponent<NewItemScript>().itemData.value:F2}");
+            }
+            Debug.Log("---");
+        }
     }
 
-    // Update is called once per frame. This method is executed every frame.
-    void Update()
+    // Helper function to get the rarity of a GameObject.
+    private string GetRarity(GameObject obj)
     {
-
+        NewItemScript itemScript = obj.GetComponent<NewItemScript>();
+        if (itemScript != null && itemScript.itemData != null)
+        {
+            return itemScript.itemData.rarity.ToString();
+        }
+        return "Unknown Rarity";
     }
 
-    // Method to create the different options (bundles) of GameObjects.
+    // Method to create the three bundle options.
     void CreateOptions()
     {
-        // Clear the option lists before adding new items.  This is VERY important
-        option1.Clear();
-        option2.Clear();
-        option3.Clear();
+        options.Clear(); // Clear any existing options
 
-        // Loop 'bundleSize' number of times to add elements to each option list.
-        for (int i = 0; i < bundleSize; i++)
+        for (int i = 0; i < 3; i++)
         {
-            Debug.Log("Adding Objects to bundles. Iteration: " + i); //Added iteration
-
-            // Add a random GameObject from the common list to option1.
-            if (common.Count > 0)
+            List<GameObject> newOption = GenerateBundle();
+            if (newOption != null)
             {
-                int randomIndex = Random.Range(0, common.Count);
-                option1.Add(common[randomIndex]);
-                Debug.Log($"Added {common[randomIndex].name} (Common) to option1");
+                options.Add(newOption);
             }
             else
             {
-                Debug.LogWarning("Common list is empty, cannot add to option1.");
-            }
-
-            // Add a random GameObject from the uncommon list to option2.
-            if (uncommon.Count > 0)
-            {
-                int randomIndex = Random.Range(0, uncommon.Count);
-                option2.Add(uncommon[randomIndex]);
-                Debug.Log($"Added {uncommon[randomIndex].name} (Uncommon) to option2");
-            }
-            else
-            {
-                Debug.LogWarning("Uncommon list is empty, cannot add to option2.");
-            }
-
-            // Add a random GameObject from the rare list to option3.
-            if (rare.Count > 0)
-            {
-                int randomIndex = Random.Range(0, rare.Count);
-                option3.Add(rare[randomIndex]);
-                Debug.Log($"Added {rare[randomIndex].name} (Rare) to option3");
-            }
-            else
-            {
-                Debug.LogWarning("Rare list is empty, cannot add to option3.");
+                Debug.LogError($"Failed to generate option {i + 1}. Check if there are enough items of each rarity.");
             }
         }
-        //consider adding the options list population here.
-        options.Clear();
-        options.Add(option1);
-        options.Add(option2);
-        options.Add(option3);
+    }
+
+    // Method to generate a single bundle based on the rarity specifications with random counts for each bundle.
+    private List<GameObject> GenerateBundle()
+    {
+        List<GameObject> bundle = new List<GameObject>();
+        List<GameObject> availableCommon = common.ToList();
+        List<GameObject> availableUncommon = uncommon.ToList();
+        List<GameObject> availableRare = rare.ToList();
+
+        // Pick a random number of common items (between 3 and 5).
+        int numCommon = Random.Range(2, Mathf.Min(5, availableCommon.Count + 1));
+        for (int i = 0; i < numCommon; i++)
+        {
+            if (availableCommon.Count > 0)
+            {
+                int randomIndex = Random.Range(0, availableCommon.Count);
+                bundle.Add(availableCommon[randomIndex]);
+                availableCommon.RemoveAt(randomIndex);
+            }
+            else
+            {
+                Debug.LogWarning("Not enough common items to fulfill the requirement for a bundle.");
+                return null;
+            }
+        }
+
+        // Pick a random number of uncommon items (between 1 and 3).
+        int numUncommon = Random.Range(0, Mathf.Min(4, availableUncommon.Count + 1));
+        for (int i = 0; i < numUncommon; i++)
+        {
+            if (availableUncommon.Count > 0)
+            {
+                int randomIndex = Random.Range(0, availableUncommon.Count);
+                bundle.Add(availableUncommon[randomIndex]);
+                availableUncommon.RemoveAt(randomIndex);
+            }
+            else
+            {
+                Debug.LogWarning("Not enough uncommon items to fulfill the requirement for a bundle.");
+                return null;
+            }
+        }
+
+        // Pick a random number of rare items (either 0 or 1).
+        int numRare = Random.Range(0, Mathf.Min(2, availableRare.Count + 1));
+        for (int i = 0; i < numRare; i++)
+        {
+            if (availableRare.Count > 0)
+            {
+                int randomIndex = Random.Range(0, availableRare.Count);
+                bundle.Add(availableRare[randomIndex]);
+                availableRare.RemoveAt(randomIndex);
+            }
+            // It's okay if there are no rare items
+        }
+
+        return bundle;
     }
 }

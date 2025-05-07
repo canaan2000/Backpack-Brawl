@@ -171,6 +171,7 @@ MonoBehaviour:
     clickArmor: 0
     clickDamage: 0
     clickPoison: 0
+    value: 10
     singleUse: 0
     rarity: 1
 --- !u!114 &807823492639056852

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6063351912288209982
+--- !u!1 &2299246717986321120
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,51 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6876586362476140164}
-  - component: {fileID: 7548403827320330529}
-  - component: {fileID: 5703147023250779627}
-  - component: {fileID: 8648283127140511805}
-  - component: {fileID: -6669840079581132130}
-  - component: {fileID: 1721852937012637078}
-  - component: {fileID: -2475492553238042475}
-  - component: {fileID: 4258850059961277498}
+  - component: {fileID: 2855261093453691914}
+  - component: {fileID: 6801206497860749972}
+  - component: {fileID: 3126818300496827979}
+  - component: {fileID: 5769576408583996831}
+  - component: {fileID: -10553551999585043}
+  - component: {fileID: -5582888781631755677}
+  - component: {fileID: -367718212704061243}
   m_Layer: 0
-  m_Name: Coal
-  m_TagString: CoalTag
+  m_Name: Shield
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6876586362476140164
+--- !u!4 &2855261093453691914
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6063351912288209982}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.54, y: 3.7446895, z: 0.27710342}
-  m_LocalScale: {x: 2312.4001, y: 2312.4001, z: 2312.4001}
+  m_GameObject: {fileID: 2299246717986321120}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 31.616295, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7548403827320330529
+--- !u!33 &6801206497860749972
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6063351912288209982}
-  m_Mesh: {fileID: 5895724908482350232, guid: 4b8dae997ef44c34aaca74b5fd9b1c5f, type: 3}
---- !u!23 &5703147023250779627
+  m_GameObject: {fileID: 2299246717986321120}
+  m_Mesh: {fileID: -5495902117074765545, guid: a64e714522636d34d929562713a66d7c, type: 3}
+--- !u!23 &3126818300496827979
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6063351912288209982}
+  m_GameObject: {fileID: 2299246717986321120}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -66,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1407478551324109150, guid: 4b8dae997ef44c34aaca74b5fd9b1c5f, type: 3}
+  - {fileID: -876546973899608171, guid: a64e714522636d34d929562713a66d7c, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -88,13 +87,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &8648283127140511805
+--- !u!54 &5769576408583996831
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6063351912288209982}
+  m_GameObject: {fileID: 2299246717986321120}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -102,15 +101,29 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 8
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-6669840079581132130
+--- !u!64 &-10553551999585043
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2299246717986321120}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: a64e714522636d34d929562713a66d7c, type: 3}
+--- !u!114 &-5582888781631755677
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6063351912288209982}
+  m_GameObject: {fileID: 2299246717986321120}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5f62c189f3c75342a22f9716310e50d, type: 3}
@@ -118,36 +131,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   merger: {fileID: 0}
   Dictionary: {fileID: 0}
---- !u!65 &1721852937012637078
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6063351912288209982}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.0005080868, y: 0.0005080867, z: 0.00024325434}
-  m_Center: {x: 1.1641534e-10, y: 1.6007108e-10, z: 5.6868667e-25}
---- !u!114 &-2475492553238042475
+--- !u!114 &-367718212704061243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6063351912288209982}
+  m_GameObject: {fileID: 2299246717986321120}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d2968f215599004792acd02b15adff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemData:
-    name: Coal
-    description: 
+    name: Shield
+    description: Block em
     damage: 0
-    armor: 0
+    armor: 20
     poison: 0
     staminaUsage: 0
     clickHealing: 0
@@ -155,18 +155,6 @@ MonoBehaviour:
     clickArmor: 0
     clickDamage: 0
     clickPoison: 0
+    value: 0
     singleUse: 0
     rarity: 0
---- !u!114 &4258850059961277498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6063351912288209982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cb10017274982244a1f5b8c5559754a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scaleSpeed: 2

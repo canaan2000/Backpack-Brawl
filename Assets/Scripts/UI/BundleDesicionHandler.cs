@@ -107,6 +107,7 @@ public class BundleDesicionHandler : MonoBehaviour
                     Spawner.SpawnItem(item);
                 }
                 HideOptions();
+                Bundles.CreateOptions();
             }
             else
             {
@@ -133,6 +134,7 @@ public class BundleDesicionHandler : MonoBehaviour
                     Spawner.SpawnItem(item);
                 }
                 HideOptions();
+                Bundles.CreateOptions();
             }
             else
             {
@@ -159,6 +161,7 @@ public class BundleDesicionHandler : MonoBehaviour
                     Spawner.SpawnItem(item);
                 }
                 HideOptions();
+                Bundles.CreateOptions();
             }
             else
             {

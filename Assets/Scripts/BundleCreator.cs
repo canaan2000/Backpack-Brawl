@@ -78,7 +78,7 @@ public class BundleCreator : MonoBehaviour
     }
 
     // Method to create the three bundle options.
-    void CreateOptions()
+    public void CreateOptions()
     {
         options.Clear(); // Clear any existing options
 

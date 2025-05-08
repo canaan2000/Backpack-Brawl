@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: -10553551999585043}
   - component: {fileID: -5582888781631755677}
   - component: {fileID: -367718212704061243}
+  - component: {fileID: 4200038387159553450}
+  - component: {fileID: 179819846642867793}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -101,7 +103,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!64 &-10553551999585043
 MeshCollider:
@@ -157,4 +159,31 @@ MonoBehaviour:
     clickPoison: 0
     value: 0
     singleUse: 0
-    rarity: 0
+    rarity: 1
+--- !u!114 &4200038387159553450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2299246717986321120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60a600fd78a60bb488375aa13ca09bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Combat: {fileID: 0}
+  readyToClick: 1
+--- !u!114 &179819846642867793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2299246717986321120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb10017274982244a1f5b8c5559754a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleSpeed: 5

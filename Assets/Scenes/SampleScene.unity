@@ -3436,7 +3436,7 @@ MonoBehaviour:
   - {fileID: 1119258419171646720, guid: e8c119c6cf04582439b2865d0d845d48, type: 3}
   - {fileID: 7408208907586688709, guid: 74aac245a68648c4abcf9c16bb3e7d2b, type: 3}
   - {fileID: 4655967774871242519, guid: 084085f2956e94f498feabf578b30014, type: 3}
-  - {fileID: 4412328722876688910, guid: c9d13f7f9cb3f2c44a45fc8717dabe4e, type: 3}
+  - {fileID: 4058161806263587406, guid: 2641b44e4952d41479ad46a032504c36, type: 3}
   spawnArea: {fileID: 293953412}
 --- !u!1 &1817316838
 GameObject:
@@ -4232,7 +4232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
       propertyPath: MergeDataList.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
       propertyPath: CubeOptions.Array.data[1]
@@ -4367,6 +4367,14 @@ PrefabInstance:
       value: Ingot
       objectReference: {fileID: 0}
     - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
+      propertyPath: MergeDataList.Array.data[11].Obj1Tag
+      value: Crystal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
+      propertyPath: MergeDataList.Array.data[11].Obj2Tag
+      value: Crystal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
       propertyPath: MergeDataList.Array.data[0].ResultPrefab
       value: 
       objectReference: {fileID: 2048895325155081440, guid: 9328f2236b98bf341ac4184c8f736eaf, type: 3}
@@ -4408,6 +4416,10 @@ PrefabInstance:
       objectReference: {fileID: 6063351912288209982, guid: 77f4f5b4dab1dee46be9420334d95342, type: 3}
     - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
       propertyPath: MergeDataList.Array.data[10].ResultPrefab
+      value: 
+      objectReference: {fileID: 2299246717986321120, guid: 6c5893e2cd03a564fa2a284acfacbfd7, type: 3}
+    - target: {fileID: 4089100757472759862, guid: 950869a9005205f48a1cbaa759e5faa0, type: 3}
+      propertyPath: MergeDataList.Array.data[11].ResultPrefab
       value: 
       objectReference: {fileID: 2299246717986321120, guid: 6c5893e2cd03a564fa2a284acfacbfd7, type: 3}
     m_RemovedComponents: []

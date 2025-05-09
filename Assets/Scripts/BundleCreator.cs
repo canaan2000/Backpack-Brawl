@@ -13,6 +13,10 @@ public class BundleCreator : MonoBehaviour
     private List<GameObject> uncommon;
     private List<GameObject> rare;
 
+    float commonPercentage = 90f;
+    float uncommonPercentage = 50f;
+    float rarePercentage = 10f;
+
     // Public list of lists to hold the three generated bundle options.
     public List<List<GameObject>> options = new List<List<GameObject>>();
 

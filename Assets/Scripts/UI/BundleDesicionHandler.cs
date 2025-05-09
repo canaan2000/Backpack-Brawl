@@ -15,6 +15,7 @@ public class BundleDesicionHandler : MonoBehaviour
     public Button button1;
     public Button button2;
     public Button button3;
+    public Button skipButton;
 
     // Button Text
     public TextMeshProUGUI button1Text;
@@ -26,12 +27,6 @@ public class BundleDesicionHandler : MonoBehaviour
     {
         // Disables buttons initially
         HideOptions();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // No per-frame logic needed for now
     }
 
     public void ShowOptions()
@@ -61,6 +56,7 @@ public class BundleDesicionHandler : MonoBehaviour
         button1.gameObject.SetActive(true);
         button2.gameObject.SetActive(true);
         button3.gameObject.SetActive(true);
+        skipButton.gameObject.SetActive(true);
 
         // Set the text for each button
         button1Text.text = button1Display;
@@ -92,6 +88,7 @@ public class BundleDesicionHandler : MonoBehaviour
         button1.gameObject.SetActive(false);
         button2.gameObject.SetActive(false);
         button3.gameObject.SetActive(false);
+        skipButton.gameObject.SetActive(false);
     }
 
     public void ButtonOption1()
@@ -166,12 +163,17 @@ public class BundleDesicionHandler : MonoBehaviour
             else
             {
                 Debug.Log("Not enough money to purchase Option 3.");
-                // Optionally, provide visual feedback to the player
             }
         }
         else
         {
             Debug.LogError("Option 3 is not available.");
         }
+    }
+
+    public void ButtonSkipShop()
+    {
+        HideOptions();
+        Bundles.CreateOptions();
     }
 }

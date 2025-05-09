@@ -67,7 +67,8 @@ public class SpawnerScript : MonoBehaviour
     {
         RandSpawnPos();
 
-        Instantiate(item, spawnPoint, Quaternion.identity);
+        GameObject obj = Instantiate(item, spawnPoint, Quaternion.identity);
+        obj.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     void RandSpawnPos() 

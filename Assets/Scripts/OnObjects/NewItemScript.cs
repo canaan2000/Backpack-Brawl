@@ -2,14 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(CollisionDetector))]
-[RequireComponent(typeof(MeshCollider))]
-[RequireComponent(typeof(OnClickManager))]
-[RequireComponent(typeof(OnMergeScript))]
-
 public class NewItemScript : MonoBehaviour
 {
+    
     [System.Serializable]
     public class ItemClass
     {
@@ -55,9 +50,6 @@ public class NewItemScript : MonoBehaviour
             itemData.rarity = ItemClass.Rarity.Common;
         }
         gameObject.name = itemData.name;
-
-
-        gameObject.GetComponent<MeshCollider>().convex = true;
     }
 
     // Update is called once per frame

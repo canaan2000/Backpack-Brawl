@@ -10,6 +10,7 @@ public class BundleDesicionHandler : MonoBehaviour
     public BundleCreator Bundles;
     public SpawnerScript Spawner;
     public PlayerStats PlayerStats; // Reference to the player's stats
+    public CollectionManager Collection;
 
     // Buttons
     public Button button1;
@@ -101,7 +102,7 @@ public class BundleDesicionHandler : MonoBehaviour
                 PlayerStats.money -= price;
                 foreach (var item in Bundles.options[0])
                 {
-                    Spawner.SpawnItem(item);
+                    Collection.SpawnInCollection(item);
                 }
                 HideOptions();
                 Bundles.CreateOptions();
@@ -128,7 +129,7 @@ public class BundleDesicionHandler : MonoBehaviour
                 PlayerStats.money -= price;
                 foreach (var item in Bundles.options[1])
                 {
-                    Spawner.SpawnItem(item);
+                    Collection.SpawnInCollection(item);
                 }
                 HideOptions();
                 Bundles.CreateOptions();
@@ -155,7 +156,7 @@ public class BundleDesicionHandler : MonoBehaviour
                 PlayerStats.money -= price;
                 foreach (var item in Bundles.options[2])
                 {
-                    Spawner.SpawnItem(item);
+                    Collection.SpawnInCollection(item);
                 }
                 HideOptions();
                 Bundles.CreateOptions();

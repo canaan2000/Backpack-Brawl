@@ -7,6 +7,9 @@ public class CollectionManager : MonoBehaviour
     public GameObject collectionBounds;
     public List<GameObject> collectionObjs;
 
+    public GameObject stick;
+    public GameObject rock;
+
     Vector3 maxSpawn;
     Vector3 minSpawn;
     Vector3 spawn;
@@ -15,6 +18,9 @@ public class CollectionManager : MonoBehaviour
     {
         minSpawn = collectionBounds.GetComponent<Collider>().bounds.min;
         maxSpawn = collectionBounds.GetComponent<Collider>().bounds.max;
+
+        SpawnInCollection(rock);
+        SpawnInCollection(stick);
     }
 
     // Update is called once per frame

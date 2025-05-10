@@ -19,9 +19,6 @@ public class SpawnerScript : MonoBehaviour
         maxSpawn = spawnArea.GetComponent<Collider>().bounds.max;
 
         RandSpawnPos();
-
-        Instantiate(gameObjects[1], spawnPoint, Quaternion.identity);
-        Instantiate(gameObjects[0], spawnPoint, Quaternion.identity);
     }
 
     // Update is called once per frame

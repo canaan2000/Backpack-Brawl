@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CombatScript : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class CombatScript : MonoBehaviour
     public PlayerStats PlayerStats;
     public EnemyScript EnemyStats;
     public InventoryStats InventoryStats;
+
+    public Button startFightButton;
 
     public GameObject enemy;
 
@@ -31,15 +34,9 @@ public class CombatScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GameObject Enemy = Instantiate(enemy);
-            FightStart();
-        }
         if (combatTrue == true)
         {
-
-
+            startFightButton.gameObject.SetActive(false);
             cooldown -= Time.deltaTime;
             if (cooldown <= 0 && combatTrue == true)
             {
@@ -51,18 +48,26 @@ public class CombatScript : MonoBehaviour
                 FightEnd();
             }
         }
+        else
+        {
+            startFightButton.gameObject.SetActive(true);
+        }
     }
 
     
 
     //NAME ENEMIES "ENEMY"
-    void FightStart()
+    public void FightStart()
     {
+        Instantiate(enemy);
+
         EnemyStats = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyScript>();
         EnemyStats.Attack = baseAttack * Mathf.Pow(1 + scalePercent, level - 1);
         EnemyStats.Health = baseHealth * Mathf.Pow(1 + scalePercent, level - 1);
 
         combatTrue = true;
+
+        startFightButton.gameObject.SetActive(false);
 
         InventoryStats.UpdateArmorStats();
     }
@@ -76,6 +81,8 @@ public class CombatScript : MonoBehaviour
         combatTrue = false;
 
         level++;
+
+        startFightButton.gameObject.SetActive(true);
 
         Bundles.ShowOptions();
     }

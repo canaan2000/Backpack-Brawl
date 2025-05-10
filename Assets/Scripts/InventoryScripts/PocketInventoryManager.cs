@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PocketInventoryManager : MonoBehaviour
 {
-    GameObject storedObj;
+    public GameObject storedObj;
      
     // Start is called before the first frame update
     void Start()
@@ -20,10 +20,13 @@ public class PocketInventoryManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (storedObj == null)
+        if (!Input.GetMouseButton(0))
         {
-            storedObj = other.gameObject;
-            storedObj.GetComponent<Rigidbody>().isKinematic = true;
+            if (storedObj == null)
+            {
+                storedObj = other.gameObject;
+                storedObj.GetComponent<Rigidbody>().isKinematic = true;
+            }
         }
     }
 

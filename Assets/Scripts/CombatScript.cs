@@ -36,7 +36,6 @@ public class CombatScript : MonoBehaviour
     {
         if (combatTrue == true)
         {
-            startFightButton.gameObject.SetActive(false);
             cooldown -= Time.deltaTime;
             if (cooldown <= 0 && combatTrue == true)
             {
@@ -48,9 +47,10 @@ public class CombatScript : MonoBehaviour
                 FightEnd();
             }
         }
+        //When combat isnt happening
         else
         {
-            startFightButton.gameObject.SetActive(true);
+            
         }
     }
 

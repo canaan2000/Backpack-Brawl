@@ -30,4 +30,13 @@ public class CollisionDetector : MonoBehaviour
             Dictionary.CheckMerge(Obj1, Obj2);
         }
     }
+
+    private void OnMouseDown()
+    {
+        if (gameObject.GetComponent<Rigidbody>().isKinematic == true)
+        {
+            gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        }
+
+    }
 }

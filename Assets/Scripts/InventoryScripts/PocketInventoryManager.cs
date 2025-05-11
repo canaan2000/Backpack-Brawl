@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class PocketInventoryManager : MonoBehaviour
 {
     public GameObject storedObj;
-    private bool hasStoredObject = false; // New flag
     public InventoryList inventoryList;
+    public PlayerStats playerStats;
 
     // Start is called before the first frame update
     void Start()
@@ -20,17 +21,19 @@ public class PocketInventoryManager : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (storedObj == null && !hasStoredObject) // Check the flag as well
+        if (storedObj == null && !Input.GetMouseButton(0)) // Check the flag as well
         {
             storedObj = other.gameObject;
             Rigidbody rb = storedObj.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 rb.isKinematic = true;
+
+                inventoryList.Stats.storedItem = storedObj;
+                inventoryList.Stats.UpdateStats();
             }
-            hasStoredObject = true; // Set the flag
 
             if (inventoryList.inventoryList.Contains(storedObj))
             {
@@ -45,9 +48,10 @@ public class PocketInventoryManager : MonoBehaviour
         if (other.gameObject == storedObj)
         {
             storedObj = null;
-            hasStoredObject = false; // Reset the flag when the object leaves
+            inventoryList.Stats.storedItem = null;
+            inventoryList.Stats.UpdateStats();
         }
-        if (!inventoryList.inventoryList.Contains(storedObj))
+        if (inventoryList.inventoryList.Contains(storedObj))
         {
             inventoryList.inventoryList.Add(storedObj);
             inventoryList.Stats.UpdateStats();

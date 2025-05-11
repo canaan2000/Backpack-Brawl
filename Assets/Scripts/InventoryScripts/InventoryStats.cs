@@ -7,6 +7,8 @@ public class InventoryStats : MonoBehaviour
 {
     public InventoryList Inventory;
     public PlayerStats PlayerStats;
+
+    public GameObject storedItem;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +28,19 @@ public class InventoryStats : MonoBehaviour
         foreach (var item in Inventory.inventoryList)
         {
             NewItemScript itemScript = item.GetComponent<NewItemScript>();
+            if (itemScript != null)
+            {
+                PlayerStats.attack += itemScript.itemData.damage;
+            }
+        }
 
-            PlayerStats.attack += itemScript.itemData.damage;
+        if (storedItem != null)
+        {
+            NewItemScript storedItemScript = storedItem.GetComponent<NewItemScript>();
+            if (storedItemScript != null)
+            {
+                PlayerStats.attack += storedItemScript.itemData.damage;
+            }
         }
     }
     //get armor at start of combat.

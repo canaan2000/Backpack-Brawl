@@ -76,16 +76,11 @@ public class DragObjectsManager : MonoBehaviour
                 rb.drag = baseDrag * dragMultiplier;
                 rb.angularDrag = baseDrag * dragMultiplier;
             }
-            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+            if (Input.GetAxis("Mouse ScrollWheel") != 0f)
             {
-                dragObject.transform.rotation = new Quaternion(dragObject.transform.rotation.x + Input.GetAxis("Mouse ScrollWheel"), dragObject.transform.rotation.y, dragObject.transform.rotation.z, dragObject.transform.rotation.w);
-            }
-            if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-            {
-                dragObject.transform.rotation = new Quaternion(dragObject.transform.rotation.x + Input.GetAxis("Mouse ScrollWheel"), dragObject.transform.rotation.y, dragObject.transform.rotation.z, dragObject.transform.rotation.w);
+                float rotationAmount = Input.GetAxis("Mouse ScrollWheel") * 100f; // Adjust sensitivity
+                rb.angularVelocity = Vector3.up * rotationAmount; // Rotate around Y-axis (you might want to change this)
             }
         }
     }
-
-    
 }

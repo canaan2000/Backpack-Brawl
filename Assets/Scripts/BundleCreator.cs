@@ -108,7 +108,7 @@ public class BundleCreator : MonoBehaviour
         List<GameObject> availableUncommon = uncommon.ToList();
         List<GameObject> availableRare = rare.ToList();
 
-        // Pick a random number of common items (between 3 and 5).
+        // Pick a random number of common items (between 2 and 5).
         int numCommon = Random.Range(2, Mathf.Min(5, availableCommon.Count + 1));
         for (int i = 0; i < numCommon; i++)
         {

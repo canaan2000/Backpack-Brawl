@@ -23,6 +23,14 @@ public class MaxInventoryDisp : MonoBehaviour
     {
         inventoryDisp.text = inventoryManager.inventoryList.Count.ToString();
         inventoryDisp.text += "/" + colToInv.maxInventory;
+        if (inventoryManager.inventoryList.Count > colToInv.maxInventory)
+        {
+            inventoryDisp.color = Color.red;
+        }
+        else
+        {
+            inventoryDisp.color = Color.white;
+        }
 
         if (pocketManager.storedObj != null) 
         {

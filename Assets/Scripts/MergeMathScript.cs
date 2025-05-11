@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class MergeMathScript : MonoBehaviour
 {
+    public InventoryList Inventory;
+
     public GameObject Obj1;
     public GameObject Obj2;
 
@@ -42,7 +44,12 @@ public class MergeMathScript : MonoBehaviour
             Vector3 newPos = Vector3.Lerp(pos1, pos2, .5f);
 
             GameObject newObject = Instantiate(result, newPos, Quaternion.identity);
+            newObject.GetComponent<OnMergeScript>().OnMerge();
             newObject.name = newName;
+            if (!Inventory.inventoryList.Contains(newObject))
+            {
+                Inventory.inventoryList.Add(newObject);
+            }
 
             Destroy(merge1); Destroy(merge2);
 

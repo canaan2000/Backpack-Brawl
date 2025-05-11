@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class OnMergeScript : MonoBehaviour
@@ -11,25 +12,23 @@ public class OnMergeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        objScale = transform.localScale;
-        transform.localScale = Vector3.zero; // Set initial scale to zero
+        if (transform.localScale != Vector3.zero)
+        {
+            objScale = transform.localScale;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeElapsed += Time.deltaTime;
-        float t = timeElapsed * scaleSpeed;
-
-        
-
-        // Linearly interpolate from the initial zero scale to the original scale
-        transform.localScale = Vector3.Lerp(Vector3.zero, objScale, t);
-
-        // Optional: You can stop the scaling once it reaches the original size
-        if (t >= 1f)
-        {
-            enabled = false; // Disable the script to save on performance
-        }
+        transform.localScale = Vector3.Lerp(transform.localScale, objScale, Time.deltaTime);
     }
+
+    public void OnMerge()
+    {
+        objScale = transform.localScale;
+        transform.localScale = Vector3.zero;
+    }
+
+
 }

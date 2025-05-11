@@ -39,11 +39,4 @@ public class InventoryList : MonoBehaviour
         //update playerstats on item enter.
             Stats.UpdateStats();
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        inventoryList.Remove(other.gameObject);
-
-        Stats.UpdateStats();
-    }
 }

@@ -14,6 +14,7 @@ public class CombatDisplay : MonoBehaviour
 
     public TextMeshProUGUI enemyHealth;
     public TextMeshProUGUI enemyDamage;
+    public TextMeshProUGUI enemyPoison;
 
     Vector3 normalScale;
     // Start is called before the first frame update
@@ -30,16 +31,20 @@ public class CombatDisplay : MonoBehaviour
         {
             enemyHealth.enabled = true;
             enemyDamage.enabled = true;
+            enemyPoison.enabled = true;
 
             enemyHealth.text = CombatScript.EnemyStats.Health.ToString("Health: 0");
             enemyHealth.color = Color.red;
 
-            enemyDamage.text = CombatScript.EnemyStats.Attack.ToString("Attack per second: 0");
+            enemyDamage.text = CombatScript.EnemyStats.Attack.ToString("Damage per attack: 0");
+
+            enemyPoison.text = CombatScript.EnemyStats.Poison.ToString("Poison: 0.0");
         }   
         else
         {
             enemyHealth.enabled = false;
             enemyDamage.enabled = false;
+            enemyPoison.enabled = false;
         }
 
         //Activate and set size of attack cooldown display.

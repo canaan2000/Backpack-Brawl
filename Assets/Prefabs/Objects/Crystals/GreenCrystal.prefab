@@ -104,16 +104,16 @@ MonoBehaviour:
   itemData:
     name: Green Crystal
     description: Magic or something.
-    damage: 0
-    armor: 0
-    poison: 0
+    damage: 1
+    armor: 5
+    poison: 1
     staminaUsage: 0
     clickHealing: 0
     clickHunger: 0
     clickArmor: 0
     clickDamage: 0
     clickPoison: 0
-    value: 0
+    value: 15
     singleUse: 0
     rarity: 0
 --- !u!114 &-3872060694386306341

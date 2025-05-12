@@ -2,9 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[RequireComponent(typeof(MeshCollider))]
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(OnMergeScript))]
+[RequireComponent(typeof(OnClickManager))]
+[RequireComponent(typeof(CollisionDetector))]
+[RequireComponent(typeof(MeshCollider))]
+
+
 public class NewItemScript : MonoBehaviour
 {
-    
+
     [System.Serializable]
     public class ItemClass
     {

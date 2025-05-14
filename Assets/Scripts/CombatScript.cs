@@ -10,6 +10,7 @@ public class CombatScript : MonoBehaviour
     public PlayerStats PlayerStats;
     public EnemyScript EnemyStats;
     public InventoryStats InventoryStats;
+    public InventoryList InventoryList;
 
     public Button startFightButton;
 
@@ -89,6 +90,8 @@ public class CombatScript : MonoBehaviour
 
     void DealDamage()
     {
+        InventoryList.StartDamageNumbers();
+
         float playerDamage = PlayerStats.attack;
         float enemyDamage = EnemyStats.Attack;
         for (int i = 0; i < enemyDamage; i++) 

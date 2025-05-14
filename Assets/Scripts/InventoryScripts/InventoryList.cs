@@ -39,4 +39,15 @@ public class InventoryList : MonoBehaviour
         //update playerstats on item enter.
             Stats.UpdateStats();
     }
+
+    public void StartDamageNumbers()
+    {
+        foreach (var item in inventoryList)
+        {
+            if (item.GetComponent<NewItemScript>().itemData.damage > 0)
+            {
+                item.GetComponent<DamageNumberSpawner>().SpawnDamageNumber();
+            }
+        }
+    }
 }

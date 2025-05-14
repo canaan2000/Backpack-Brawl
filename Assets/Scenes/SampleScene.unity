@@ -2437,6 +2437,7 @@ MonoBehaviour:
   PlayerStats: {fileID: 192500032}
   EnemyStats: {fileID: 0}
   InventoryStats: {fileID: 440833014}
+  InventoryList: {fileID: 440833013}
   startFightButton: {fileID: 48974737}
   enemy: {fileID: 4618172486824050924, guid: cc48f939256fcce4695bdb7d56e1bf72, type: 3}
   attackCooldown: 1

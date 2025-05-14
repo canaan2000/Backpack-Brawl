@@ -9,7 +9,7 @@ public class DamageNumberSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class DamageNumberSpawner : MonoBehaviour
         spawnPos = this.gameObject.transform.position;
         spawnPos.y += 1;
         GameObject DamageNumber = Instantiate(damageNumber, spawnPos, Quaternion.identity);
-        damageNumber.transform.SetParent(this.gameObject.transform, true);
+        DamageNumber.transform.SetParent(this.gameObject.transform, true);
         DamageNumber.GetComponentInChildren<TextMeshProUGUI>().text = GetComponent<NewItemScript>().itemData.damage.ToString();
     }
 }

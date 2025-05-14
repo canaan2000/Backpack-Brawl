@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryList : MonoBehaviour
+public class EnemyInventoryList : MonoBehaviour
 {
-    public InventoryStats Stats;
+    public EnemyInventoryStats Stats;
     public GameObject inventory;
     public List<GameObject> inventoryList;
     // Start is called before the first frame update
     void Start()
     {
-        
+        foreach (var item in inventoryList) 
+        {
+            Instantiate(item, inventory.transform.position, Quaternion.identity);
+        }
     }
 
     // Update is called once per frame
@@ -44,7 +47,7 @@ public class InventoryList : MonoBehaviour
     {
         foreach (var item in inventoryList)
         {
-            if (item.GetComponent<NewItemScript>().itemData.damage > 0 && item.GetComponent<DamageNumberSpawner>() != null)
+            if (item.GetComponent<NewItemScript>().itemData.damage > 0)
             {
                 item.GetComponent<DamageNumberSpawner>().SpawnDamageNumber();
             }

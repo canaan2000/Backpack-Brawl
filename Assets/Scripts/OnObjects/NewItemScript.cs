@@ -9,6 +9,7 @@ using UnityEngine;
 [RequireComponent(typeof(OnClickManager))]
 [RequireComponent(typeof(CollisionDetector))]
 [RequireComponent(typeof(MeshCollider))]
+[RequireComponent(typeof(DamageNumberSpawner))]
 
 
 public class NewItemScript : MonoBehaviour

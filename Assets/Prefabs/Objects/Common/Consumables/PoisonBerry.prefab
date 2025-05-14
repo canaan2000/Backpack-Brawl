@@ -126,7 +126,7 @@ MonoBehaviour:
     clickHunger: 0
     clickArmor: 0
     clickDamage: 0
-    clickPoison: 0
+    clickPoison: 2
     value: 2
     singleUse: 1
     rarity: 0

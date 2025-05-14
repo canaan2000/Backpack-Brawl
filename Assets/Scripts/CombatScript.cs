@@ -64,7 +64,7 @@ public class CombatScript : MonoBehaviour
         EnemyStats = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyScript>();
         EnemyStats.Attack = baseAttack * Mathf.Pow(1 + scalePercent, level - 1);
         EnemyStats.Health = baseHealth * Mathf.Pow(1 + scalePercent, level - 1);
-
+        
         combatTrue = true;
 
         startFightButton.gameObject.SetActive(false);
@@ -76,7 +76,7 @@ public class CombatScript : MonoBehaviour
     {
         Destroy(EnemyStats.gameObject);
 
-        PlayerStats.money += Random.Range(1f, 55f);
+        PlayerStats.money += Random.Range(10f, 55f);
 
         combatTrue = false;
 

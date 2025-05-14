@@ -39,5 +39,6 @@ public class CollectionManager : MonoBehaviour
         GameObject collectionObject = Instantiate(objToCollection, spawn, Quaternion.identity);
         collectionObjs.Add(collectionObject);
         collectionObject.GetComponent<Rigidbody>().isKinematic = true;
+        collectionObject.GetComponent<Collider>().enabled = false;
     }
 }

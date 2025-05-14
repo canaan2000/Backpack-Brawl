@@ -25,7 +25,7 @@ public class CollectionToInventory : MonoBehaviour
         }
     }
 
-    void SpawnFromCollection()
+    public void SpawnFromCollection()
     {
         int i = Random.Range(0, Collection.collectionObjs.Count);
         Spawner.SpawnItem(Collection.collectionObjs[i]);

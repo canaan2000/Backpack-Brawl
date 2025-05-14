@@ -6,7 +6,7 @@ using UnityEngine;
 public class OnMergeScript : MonoBehaviour
 {
     Vector3 objScale;
-    public float scaleSpeed = 5f;
+    float scaleSpeed = 5f;
     private float timeElapsed = 0f;
 
     // Start is called before the first frame update
@@ -21,7 +21,7 @@ public class OnMergeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localScale = Vector3.Lerp(transform.localScale, objScale, Time.deltaTime);
+        transform.localScale = Vector3.Lerp(transform.localScale, objScale, Time.deltaTime * scaleSpeed);
     }
 
     public void OnMerge()

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -2505957257464466846}
   - component: {fileID: 6520419026679910013}
   m_Layer: 0
-  m_Name: Bow
+  m_Name: Poison Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c09f54a65900b6a4e8df2c52e369272a, type: 2}
+  - {fileID: 2100000, guid: 1ee4688279d442648af0e658d7bb0cb8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -131,7 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb10017274982244a1f5b8c5559754a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleSpeed: 5
 --- !u!114 &-1270206637543446823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,17 +172,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData:
-    name: Bow
+    name: Poison Bow
     description: A weapon
-    damage: 3
+    damage: 5
     armor: 0
-    poison: 0
-    staminaUsage: 1
+    poison: 10
+    staminaUsage: 1.5
     clickHealing: 0
     clickHunger: 0
     clickArmor: 0
-    clickDamage: 1.5
-    clickPoison: 0
-    value: 0
+    clickDamage: 0
+    clickPoison: 1
+    value: 30
     singleUse: 0
-    rarity: 1
+    rarity: 2

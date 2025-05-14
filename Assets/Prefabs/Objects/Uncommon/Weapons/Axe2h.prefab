@@ -131,7 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb10017274982244a1f5b8c5559754a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleSpeed: 5
 --- !u!114 &3284732047415500294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +183,6 @@ MonoBehaviour:
     clickArmor: 0
     clickDamage: 8
     clickPoison: 0
-    value: 0
+    value: 20
     singleUse: 0
     rarity: 1

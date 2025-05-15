@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3284732047415500294}
   - component: {fileID: 6326868875921483428}
   - component: {fileID: -2821452822799193349}
+  - component: {fileID: 5217630276065743300}
   m_Layer: 0
   m_Name: Axe2h
   m_TagString: Untagged
@@ -186,3 +187,16 @@ MonoBehaviour:
     value: 20
     singleUse: 0
     rarity: 1
+--- !u!114 &5217630276065743300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7925811597416310029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e921f360719dc4a988feb4ffd24a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageNumber: {fileID: 5262715178686733786, guid: ad42eb14fccf9bb41a5fa504cfee7fb3, type: 3}

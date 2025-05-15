@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 5320853033904429239}
   - component: {fileID: -5567693578166056794}
   - component: {fileID: -1784061191686995383}
+  - component: {fileID: 7954755493246872825}
   m_Layer: 0
   m_Name: Leaf
   m_TagString: LeafTag
@@ -339,6 +340,7 @@ MonoBehaviour:
     clickArmor: 0
     clickDamage: 0
     clickPoison: 0
+    value: 0
     singleUse: 1
     rarity: 0
 --- !u!114 &-1784061191686995383
@@ -353,4 +355,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb10017274982244a1f5b8c5559754a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleSpeed: 2
+--- !u!114 &7954755493246872825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7266997441106935290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e921f360719dc4a988feb4ffd24a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageNumber: {fileID: 5262715178686733786, guid: ad42eb14fccf9bb41a5fa504cfee7fb3, type: 3}

@@ -8,7 +8,6 @@ public class EnemyScript : MonoBehaviour
 
     public float Attack;
     public float Health;
-    public float Armor;
     public float Poison;
     
     // Start is called before the first frame update

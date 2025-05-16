@@ -7,6 +7,7 @@ public class PocketInventoryManager : MonoBehaviour
     public GameObject storedObj;
     public InventoryList inventoryList;
     public PlayerStats playerStats;
+    public DamageNumberSpawner DamageNumberSpawner;
 
     // Start is called before the first frame update
     void Start()

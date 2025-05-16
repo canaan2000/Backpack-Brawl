@@ -16,6 +16,9 @@ GameObject:
   - component: {fileID: -966689546767881521}
   - component: {fileID: 835849564423346621}
   - component: {fileID: -3187657687565404435}
+  - component: {fileID: 1172635780176617838}
+  - component: {fileID: 6676243276976984435}
+  - component: {fileID: 4317830187041434693}
   m_Layer: 0
   m_Name: Burger
   m_TagString: BurgerTag
@@ -179,4 +182,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb10017274982244a1f5b8c5559754a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleSpeed: 2
+--- !u!64 &1172635780176617838
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5311470639943069289}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2534964839176971238, guid: f86a0e8e0d5a95648928d733cc3834f1, type: 3}
+--- !u!114 &6676243276976984435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5311470639943069289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f62c189f3c75342a22f9716310e50d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  merger: {fileID: 0}
+  Dictionary: {fileID: 0}
+--- !u!114 &4317830187041434693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5311470639943069289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e921f360719dc4a988feb4ffd24a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageNumber: {fileID: 5262715178686733786, guid: ad42eb14fccf9bb41a5fa504cfee7fb3, type: 3}

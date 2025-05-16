@@ -181,6 +181,8 @@ GameObject:
   - component: {fileID: 7948429062760710203}
   - component: {fileID: 3707225671657163400}
   - component: {fileID: -1424563954530645169}
+  - component: {fileID: 1624381338744364348}
+  - component: {fileID: 9090955116275972986}
   m_Layer: 0
   m_Name: Ore
   m_TagString: OreTag
@@ -286,6 +288,7 @@ MonoBehaviour:
     clickArmor: 0
     clickDamage: 0
     clickPoison: 0
+    value: 0
     singleUse: 0
     rarity: 0
 --- !u!114 &-1424563954530645169
@@ -300,4 +303,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb10017274982244a1f5b8c5559754a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleSpeed: 2
+--- !u!64 &1624381338744364348
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7408208907586688709}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!114 &9090955116275972986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7408208907586688709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e921f360719dc4a988feb4ffd24a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageNumber: {fileID: 5262715178686733786, guid: ad42eb14fccf9bb41a5fa504cfee7fb3, type: 3}

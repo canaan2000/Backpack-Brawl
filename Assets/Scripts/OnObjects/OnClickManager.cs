@@ -5,6 +5,7 @@ using UnityEngine;
 public class OnClickManager : MonoBehaviour
 {
     public CombatScript Combat;
+    public DamageNumberSpawner NumberSpawner;
 
     private float clickCooldown = 1f;
     public bool readyToClick = true;
@@ -13,6 +14,8 @@ public class OnClickManager : MonoBehaviour
     void Start()
     {
         Combat = GameObject.Find("CombatManager").GetComponent<CombatScript>();
+
+        NumberSpawner = GetComponent<DamageNumberSpawner>();
 
         cooldown = clickCooldown;
     }
@@ -52,6 +55,8 @@ public class OnClickManager : MonoBehaviour
             Combat.PlayerStats.health += itemScript.itemData.clickHealing;
 
             Combat.PlayerStats.stamina -= itemScript.itemData.staminaUsage;
+
+            NumberSpawner.OnClickSpawnNumber();
             if (itemScript.itemData.singleUse == true)
             {
                 Destroy(gameObject);

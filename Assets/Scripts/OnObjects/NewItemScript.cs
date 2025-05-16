@@ -34,6 +34,9 @@ public class NewItemScript : MonoBehaviour
 
         public enum Rarity {Common, Uncommon, Rare};
         public Rarity rarity;
+
+        public enum Class { Basic };
+        public Class itemClass;
     }
 
     public ItemClass itemData;
@@ -58,6 +61,7 @@ public class NewItemScript : MonoBehaviour
             itemData.singleUse = false;
 
             itemData.rarity = ItemClass.Rarity.Common;
+            itemData.itemClass = ItemClass.Class.Basic;
         }
         gameObject.name = itemData.name;
     }

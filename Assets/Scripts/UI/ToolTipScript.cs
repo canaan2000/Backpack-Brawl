@@ -78,7 +78,7 @@ public class ToolTipScript : MonoBehaviour
 
                     if (itemScript.itemData.clickDamage > 0)
                     {
-                        tooltip.text += "\nDamage: " + itemScript.itemData.clickDamage;
+                        tooltip.text += "\nDamage per click: " + itemScript.itemData.clickDamage;
                     }
 
                     if (itemScript.itemData.clickPoison > 0)

@@ -44,7 +44,7 @@ public class PlayerStats : MonoBehaviour
             stamina = maxStamina;
         }
 
-        if (health <= 0 || hunger <= 0)
+        if (health <= 0)
         {
             Application.LoadLevel(Application.loadedLevel);
         }

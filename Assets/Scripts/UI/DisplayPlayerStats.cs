@@ -24,7 +24,6 @@ public class DisplayPlayerStats : MonoBehaviour
     Color defaultArmorColor = Color.grey;
     Color defaultStaminaColor = Color.yellow;
 
-    [SerializeField]
     float flashDuration = 0.2f;
 
     Coroutine currentHealthFlashCoroutine = null;

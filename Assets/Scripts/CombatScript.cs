@@ -12,6 +12,7 @@ public class CombatScript : MonoBehaviour
     public InventoryStats InventoryStats;
     public InventoryList InventoryList;
     public PocketInventoryManager Pocket;
+    public RandomEventHandler RandomEvent;
 
     public Button startFightButton;
 
@@ -77,6 +78,7 @@ public class CombatScript : MonoBehaviour
     void FightEnd()
     {
         Destroy(EnemyStats.gameObject);
+        RandomEvent.TriggerRandomEvent();
 
         PlayerStats.money += Random.Range(10f, 55f);
 

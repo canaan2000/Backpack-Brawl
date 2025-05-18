@@ -389,7 +389,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 8
+  m_Constraints: 24
   m_CollisionDetection: 0
 --- !u!114 &7232297777989218037
 MonoBehaviour:
@@ -432,6 +432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Combat: {fileID: 0}
+  NumberSpawner: {fileID: 0}
   readyToClick: 1
 --- !u!114 &8440315452404779173
 MonoBehaviour:
@@ -472,6 +473,7 @@ MonoBehaviour:
     value: 5
     singleUse: 0
     rarity: 0
+    itemClass: 0
 --- !u!65 &3266571940830153236
 BoxCollider:
   m_ObjectHideFlags: 0

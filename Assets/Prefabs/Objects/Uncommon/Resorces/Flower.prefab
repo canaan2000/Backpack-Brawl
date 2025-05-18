@@ -118,7 +118,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 8
+  m_Constraints: 24
   m_CollisionDetection: 0
 --- !u!64 &-2931554560910958060
 MeshCollider:
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Combat: {fileID: 0}
+  NumberSpawner: {fileID: 0}
   readyToClick: 1
 --- !u!114 &-5545143965605800947
 MonoBehaviour:
@@ -175,6 +176,7 @@ MonoBehaviour:
     value: 10
     singleUse: 1
     rarity: 1
+    itemClass: 0
 --- !u!114 &-3783791482305766263
 MonoBehaviour:
   m_ObjectHideFlags: 0

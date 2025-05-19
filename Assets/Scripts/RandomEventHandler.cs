@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
-
+using TMPro; // If using TextMeshPro
 
 [System.Serializable]
 public class RandomEvent
@@ -11,23 +10,41 @@ public class RandomEvent
     public string title;
     public string button1Text;
     public string button2Text;
-    public GameObject dropButton1;
-    public GameObject dropButton2;
+    public ButtonOutcome outcomeButton1;
+    public ButtonOutcome outcomeButton2;
 }
 
+[System.Serializable]
+public class ButtonOutcome
+{
+    public GameObject dropItem;
+    public bool loseRequiredItem;
+    public string requiredItemName;
+    public int requiredMoney;
+    public int requiredHealth;
+    public string outcomeText; // Optional text to display after choosing this outcome
+}
 
 public class RandomEventHandler : MonoBehaviour
 {
-    public CollectionManager Collection;
-
-    public List<RandomEvent> possibleEvents;
+    public CollectionManager Collection; // Assign your CollectionManager script
+    public InventoryList playerInventory;   // Assign your player's InventoryList script
+    public PlayerStats playerStats;       // Assign your player's PlayerStats script
+    public GameObject eventPanel;          // Assign the panel containing event UI
     public TextMeshProUGUI eventTitleText; // Assign in Inspector
     public Button button1;                // Assign in Inspector
     public Button button2;                // Assign in Inspector
-    public GameObject button1DropParent;   // Assign in Inspector (where button 1 drop will be parented)
-    public GameObject button2DropParent;   // Assign in Inspector (where button 2 drop will be parented)
+    public TextMeshProUGUI button1Text;    // Assign the Text component of button1
+    public TextMeshProUGUI button2Text;    // Assign the Text component of button2
+    public Color disabledButtonColor = Color.grey; // Color to use for disabled buttons
+    public Color enabledButtonColor = Color.white; // Default button color (adjust in Inspector if needed)
+
+    public List<RandomEvent> possibleEvents;
 
     private RandomEvent currentEvent;
+
+    [SerializeField]
+    float eventChance = .5f;
 
     void Start()
     {
@@ -39,7 +56,7 @@ public class RandomEventHandler : MonoBehaviour
     {
         ShowEventUI();
 
-        if (possibleEvents.Count > 0)
+        if (possibleEvents.Count > 0 && eventPanel != null)
         {
             // Choose a random event from the list
             int randomIndex = Random.Range(0, possibleEvents.Count);
@@ -51,32 +68,10 @@ public class RandomEventHandler : MonoBehaviour
                 eventTitleText.text = currentEvent.title;
             }
 
-            if (button1 != null)
-            {
-                TextMeshProUGUI button1TMP = button1.GetComponentInChildren<TextMeshProUGUI>();
-                if (button1TMP != null)
-                {
-                    button1TMP.text = currentEvent.button1Text;
-                }
-                button1.onClick.RemoveAllListeners(); // Clear previous listeners
-                button1.onClick.AddListener(() => HandleButton1Click());
-                button1.gameObject.SetActive(true);
-            }
-
-            if (button2 != null)
-            {
-                TextMeshProUGUI button2TMP = button2.GetComponentInChildren<TextMeshProUGUI>();
-                if (button2TMP != null)
-                {
-                    button2TMP.text = currentEvent.button2Text;
-                }
-                button2.onClick.RemoveAllListeners(); // Clear previous listeners
-                button2.onClick.AddListener(() => HandleButton2Click());
-                button2.gameObject.SetActive(true);
-            }
+            UpdateButtonState(button1, button1Text, currentEvent.outcomeButton1);
+            UpdateButtonState(button2, button2Text, currentEvent.outcomeButton2);
 
             // Hide the third button (assuming you only want to show two for these events)
-            // You'll need to assign your third button in the Inspector if you have one.
             Button button3 = null; // Assign your third button here if needed
             if (button3 != null)
             {
@@ -85,64 +80,173 @@ public class RandomEventHandler : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No random events defined in the Inspector!");
+            Debug.LogWarning("No random events defined in the Inspector or Event Panel not assigned!");
         }
     }
 
-    void HandleButton1Click()
+    void UpdateButtonState(Button button, TextMeshProUGUI buttonText, ButtonOutcome outcome)
     {
-        if (currentEvent != null && currentEvent.dropButton1 != null && button1DropParent != null)
+        bool canAfford = true;
+        string buttonLabel = "";
+
+        // Check for required item
+        if (!string.IsNullOrEmpty(outcome.requiredItemName))
         {
-            Collection.SpawnInCollection(currentEvent.dropButton1);
-            Debug.Log($"Button 1 clicked: Dropped {currentEvent.dropButton1.name}");
+            bool hasItem = false;
+            foreach (var item in playerInventory.inventoryList)
+            {
+                NewItemScript itemScript = item.GetComponent<NewItemScript>();
+                if (itemScript != null && itemScript.itemData.name == outcome.requiredItemName)
+                {
+                    hasItem = true;
+                    break;
+                }
+            }
+            if (!hasItem) canAfford = false;
+            buttonLabel += $"Requires: {outcome.requiredItemName}\n";
         }
-        else
+
+        // Check for required money
+        if (outcome.requiredMoney > 0)
         {
-            Debug.Log("Button 1 clicked, but no drop defined or drop parent is missing.");
+            if (playerStats != null && playerStats.money < outcome.requiredMoney)
+            {
+                canAfford = false;
+            }
+            buttonLabel += $"Money Cost: {outcome.requiredMoney.ToString("00")}\n";
         }
-        // Optionally, you might want to hide the event UI after a choice is made
-        HideEventUI();
+
+        // Check for required health
+        if (outcome.requiredHealth > 0)
+        {
+            if (playerStats != null && playerStats.health < outcome.requiredHealth)
+            {
+                canAfford = false;
+            }
+            buttonLabel += $"Health Cost: {outcome.requiredHealth.ToString("00")}\n";
+        }
+
+        // Append the text from the RandomEvent data
+        buttonLabel += (button == button1) ? currentEvent.button1Text : currentEvent.button2Text;
+
+        if (button != null && buttonText != null)
+        {
+            button.interactable = canAfford;
+            buttonText.color = canAfford ? enabledButtonColor : disabledButtonColor;
+            buttonText.text = buttonLabel; // Update the button text with cost info and event text
+
+            // Remove previous listener and add a new one based on interactability
+            button.onClick.RemoveAllListeners();
+            if (canAfford)
+            {
+                button.onClick.AddListener(() => HandleButtonClick(outcome));
+            }
+        }
     }
 
-    void HandleButton2Click()
+    void HandleButtonClick(ButtonOutcome outcome)
     {
-        if (currentEvent != null && currentEvent.dropButton2 != null && button2DropParent != null)
+        bool canProceed = true;
+
+        // Redundant check for safety
+        if (!string.IsNullOrEmpty(outcome.requiredItemName))
         {
-            Collection.SpawnInCollection(currentEvent.dropButton2);
-            Debug.Log($"Button 2 clicked: Dropped {currentEvent.dropButton2.name}");
+            bool hasItem = false;
+            foreach (var item in playerInventory.inventoryList)
+            {
+                NewItemScript itemScript = item.GetComponent<NewItemScript>();
+                if (itemScript != null && itemScript.itemData.name == outcome.requiredItemName)
+                {
+                    hasItem = true;
+                    break;
+                }
+            }
+            if (!hasItem) canProceed = false;
+        }
+
+        if (playerStats != null && playerStats.money < outcome.requiredMoney) canProceed = false;
+        if (playerStats != null && playerStats.health < outcome.requiredHealth) canProceed = false;
+
+        if (canProceed)
+        {
+            // Apply the outcome
+            if (outcome.dropItem != null && Collection != null)
+            {
+                Collection.SpawnInCollection(outcome.dropItem);
+                Debug.Log($"Dropped: {outcome.dropItem.name}");
+            }
+
+            if (!string.IsNullOrEmpty(outcome.requiredItemName) && outcome.loseRequiredItem)
+            {
+                RemoveItemFromInventory(outcome.requiredItemName);
+            }
+
+            if (playerStats != null)
+            {
+                playerStats.money += outcome.requiredMoney;
+                playerStats.health += outcome.requiredHealth;
+            }
+            else
+            {
+                Debug.LogError("PlayerStats reference is not assigned!");
+            }
+
+
+            ChanceForNextEvent();
         }
         else
         {
-            Debug.Log("Button 2 clicked, but no drop defined or drop parent is missing.");
+            DisplayOutcome("You cannot afford this option.");
         }
-        // Optionally, you might want to hide the event UI after a choice is made
-        HideEventUI();
+    }
+
+    void RemoveItemFromInventory(string itemName)
+    {
+        for (int i = playerInventory.inventoryList.Count - 1; i >= 0; i--)
+        {
+            GameObject item = playerInventory.inventoryList[i];
+            NewItemScript itemScript = item.GetComponent<NewItemScript>();
+            if (itemScript != null && itemScript.itemData.name == itemName)
+            {
+                playerInventory.inventoryList.RemoveAt(i);
+                Debug.Log($"Lost: {itemName}");
+                break; // Remove only one instance if multiple exist
+            }
+        }
+    }
+
+    void DisplayOutcome(string text)
+    {
+        
+       HideEventUI();
+        
     }
 
     void HideEventUI()
     {
-        if (eventTitleText != null) eventTitleText.gameObject.SetActive(false);
-        if (button1 != null) button1.gameObject.SetActive(false);
-        if (button2 != null) button2.gameObject.SetActive(false);
-        // Show your third button again if you hid it
-        // Button button3 = null; // Assign your third button here if needed
-        // if (button3 != null) button3.gameObject.SetActive(true);
+        if (eventPanel != null)
+        {
+            eventPanel.SetActive(false);
+        }
     }
 
-    // You might want a function to show the event UI again later
     public void ShowEventUI()
     {
-        if (eventTitleText != null) eventTitleText.gameObject.SetActive(true);
-        if (button1 != null) button1.gameObject.SetActive(true);
-        if (button2 != null) button2.gameObject.SetActive(true);
-        // Hide your third button again if needed
-        // Button button3 = null; // Assign your third button here if needed
-        // if (button3 != null) button3.gameObject.SetActive(false);
+        if (eventPanel != null)
+        {
+            eventPanel.SetActive(true);
+            if (eventTitleText != null) eventTitleText.gameObject.SetActive(true);
+            if (button1 != null) button1.gameObject.SetActive(true);
+            if (button2 != null) button2.gameObject.SetActive(true);
+        }
     }
 
-    // Example of how you might trigger an event after a delay
-    public void TriggerEventWithDelay(float delay)
+    public void ChanceForNextEvent()
     {
-        Invoke(nameof(TriggerRandomEvent), delay);
+        float num = Random.Range(0, 1f);
+        if (num < eventChance)
+        {
+            TriggerRandomEvent();
+        }
     }
 }

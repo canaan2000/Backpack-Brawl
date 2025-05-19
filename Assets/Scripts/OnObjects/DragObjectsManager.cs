@@ -80,7 +80,7 @@ public class DragObjectsManager : MonoBehaviour
             if (Input.GetAxis("Mouse ScrollWheel") != 0f)
             {
                 float rotationAmount = Input.GetAxis("Mouse ScrollWheel") * 100f; // Adjust sensitivity
-                rb.angularVelocity = Vector3.up * rotationAmount; // Rotate around Y-axis (you might want to change this)
+                rb.angularVelocity = new Vector3 (0,0,1) * rotationAmount; // Rotate around Y-axis (you might want to change this)
             }
         }
     }

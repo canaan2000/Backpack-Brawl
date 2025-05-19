@@ -183,15 +183,13 @@ public class RandomEventHandler : MonoBehaviour
 
             if (playerStats != null)
             {
-                playerStats.money += outcome.requiredMoney;
-                playerStats.health += outcome.requiredHealth;
+                playerStats.money -= outcome.requiredMoney;
+                playerStats.health -= outcome.requiredHealth;
             }
             else
             {
                 Debug.LogError("PlayerStats reference is not assigned!");
             }
-
-
             ChanceForNextEvent();
         }
         else
@@ -247,6 +245,10 @@ public class RandomEventHandler : MonoBehaviour
         if (num < eventChance)
         {
             TriggerRandomEvent();
+        }
+        else
+        {
+            HideEventUI();
         }
     }
 }

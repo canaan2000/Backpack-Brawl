@@ -712,7 +712,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 496459399}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1491,6 +1491,115 @@ RectTransform:
   m_AnchoredPosition: {x: -734.63, y: 430}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &233609445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 233609448}
+  - component: {fileID: 233609447}
+  - component: {fileID: 233609446}
+  m_Layer: 0
+  m_Name: Point Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &233609446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233609445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fbf558477d6bc14faa6bef9d177ccb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light: {fileID: 233609447}
+  distanceFromCamera: 15
+--- !u!108 &233609447
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233609445}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1.63
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 1
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &233609448
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233609445}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &289405112
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,7 +1637,7 @@ RectTransform:
   - {fileID: 947446994}
   - {fileID: 143585691}
   m_Father: {fileID: 496459399}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1900,7 +2009,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 581904693}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BundleDesicionHandler, Assembly-CSharp
         m_MethodName: ButtonOption2
         m_Mode: 1
@@ -2078,7 +2187,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 496459399}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2343,7 +2452,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 581904691}
   - {fileID: 609313052}
   - {fileID: 95113701}
   - {fileID: 1998936140}
@@ -2439,107 +2547,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 530687659}
   m_CullTransparentMesh: 1
---- !u!1 &581904690
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 581904691}
-  - component: {fileID: 581904692}
-  - component: {fileID: 581904693}
-  m_Layer: 5
-  m_Name: OptionManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &581904691
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581904690}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 496459399}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.000061035156}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &581904692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581904690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8750cb4f93574c141aa1e9c658002261, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AllObjects:
-  - {fileID: 186312528012161770, guid: d09d712193d56784c8e7214fa96af19f, type: 3}
-  - {fileID: 4058161806263587406, guid: 2641b44e4952d41479ad46a032504c36, type: 3}
-  - {fileID: 4058161806263587406, guid: 5f234cb0acefbb34daad1f386b099150, type: 3}
-  - {fileID: 4058161806263587406, guid: 5f04b51380881514d923278e38f104bf, type: 3}
-  - {fileID: 6063351912288209982, guid: 77f4f5b4dab1dee46be9420334d95342, type: 3}
-  - {fileID: 7266997441106935290, guid: ba8690e80d685074e8de0706a16779d2, type: 3}
-  - {fileID: 7408208907586688709, guid: 74aac245a68648c4abcf9c16bb3e7d2b, type: 3}
-  - {fileID: 7999739569021004360, guid: e81713c460621844caaa4dc4dd849bd8, type: 3}
-  - {fileID: 5311470639943069289, guid: e487223dd0471fc4b9ef395794ee190d, type: 3}
-  - {fileID: 831853598034156804, guid: 0ee9c85639d31cf40a68068118d3e42e, type: 3}
-  - {fileID: 2048895325155081440, guid: 9328f2236b98bf341ac4184c8f736eaf, type: 3}
-  - {fileID: 1869634578200866347, guid: fd6c182924cabd448b5d55c143ee2101, type: 3}
-  - {fileID: 4870479689551863581, guid: 5ff9d3c15fd53ce44b9007d63d2d3c9e, type: 3}
-  - {fileID: 4655967774871242519, guid: 084085f2956e94f498feabf578b30014, type: 3}
-  - {fileID: 4412328722876688910, guid: c9d13f7f9cb3f2c44a45fc8717dabe4e, type: 3}
-  - {fileID: 2299246717986321120, guid: 6c5893e2cd03a564fa2a284acfacbfd7, type: 3}
-  - {fileID: 8401355476157496681, guid: 7b2365e99e2a9aa49bb124dda44e8c82, type: 3}
-  - {fileID: 7334410138749303876, guid: 7bc38652efd3f23419ab0a96c92d56e1, type: 3}
-  - {fileID: 7334410138749303876, guid: 6df4d71161f6b084e93c1d549890b2a6, type: 3}
-  - {fileID: 1393874630851132854, guid: 021914961438c9a45825792c384549a9, type: 3}
-  - {fileID: 7925811597416310029, guid: 5e231c1c41ea31543a785ce64121780b, type: 3}
-  - {fileID: 7334410138749303876, guid: 6df4d71161f6b084e93c1d549890b2a6, type: 3}
-  - {fileID: 3989132556634526754, guid: 2a9f1652f1aef2340bccc07f2b141f3d, type: 3}
-  - {fileID: 3989132556634526754, guid: 74e267e66deae3e48a3a68767ee3ae6c, type: 3}
-  - {fileID: 5684125226766054322, guid: 20309b2b333b68d459069a095db4191c, type: 3}
-  - {fileID: 3989132556634526754, guid: 74e267e66deae3e48a3a68767ee3ae6c, type: 3}
-  - {fileID: 3695059735673706771, guid: f24aeb196c42add4e86031b8d252b616, type: 3}
---- !u!114 &581904693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581904690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6f9964145a14ef4c867664a800bd568, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Bundles: {fileID: 581904692}
-  Spawner: {fileID: 1706609257}
-  PlayerStats: {fileID: 192500032}
-  Collection: {fileID: 330209607}
-  button1: {fileID: 2145384386}
-  button2: {fileID: 382005704}
-  button3: {fileID: 746527595}
-  skipButton: {fileID: 1644867000}
-  button1Text: {fileID: 732890513}
-  button2Text: {fileID: 1817316840}
-  button3Text: {fileID: 68626483}
 --- !u!1 &582221571
 GameObject:
   m_ObjectHideFlags: 0
@@ -2569,7 +2576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6acedb5e16cf40946b38fd6560450f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bundles: {fileID: 581904693}
+  Bundles: {fileID: 0}
   PlayerStats: {fileID: 192500032}
   EnemyStats: {fileID: 0}
   InventoryStats: {fileID: 440833014}
@@ -2631,7 +2638,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 496459399}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2747,6 +2754,23 @@ MonoBehaviour:
       loseRequiredItem: 0
       requiredItemName: 
       requiredMoney: 0
+      requiredHealth: 0
+      outcomeText: 
+  - title: Health or Money?
+    button1Text: Health!
+    button2Text: Money!
+    outcomeButton1:
+      dropItem: {fileID: 0}
+      loseRequiredItem: 0
+      requiredItemName: 
+      requiredMoney: 0
+      requiredHealth: 25
+      outcomeText: 
+    outcomeButton2:
+      dropItem: {fileID: 186312528012161770, guid: d09d712193d56784c8e7214fa96af19f, type: 3}
+      loseRequiredItem: 0
+      requiredItemName: 
+      requiredMoney: 25
       requiredHealth: 0
       outcomeText: 
   eventChance: 0.5
@@ -3203,7 +3227,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.3
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -3622,7 +3646,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 581904693}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BundleDesicionHandler, Assembly-CSharp
         m_MethodName: ButtonOption3
         m_Mode: 1
@@ -5246,7 +5270,7 @@ RectTransform:
   - {fileID: 1477475699}
   - {fileID: 740601123}
   m_Father: {fileID: 496459399}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6015,7 +6039,7 @@ RectTransform:
   - {fileID: 3927958}
   - {fileID: 173898450}
   m_Father: {fileID: 496459399}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6123,7 +6147,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 581904693}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BundleDesicionHandler, Assembly-CSharp
         m_MethodName: ButtonSkipShop
         m_Mode: 1
@@ -6955,7 +6979,7 @@ RectTransform:
   m_Children:
   - {fileID: 1708686645}
   m_Father: {fileID: 496459399}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7223,7 +7247,7 @@ RectTransform:
   - {fileID: 1644866999}
   - {fileID: 52357345}
   m_Father: {fileID: 496459399}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7449,7 +7473,7 @@ Transform:
   m_Children:
   - {fileID: 530687660}
   m_Father: {fileID: 496459399}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -180}
 --- !u!1 &2083159027
 GameObject:
@@ -7670,7 +7694,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 581904693}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BundleDesicionHandler, Assembly-CSharp
         m_MethodName: ButtonOption1
         m_Mode: 1

@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class CombatScript : MonoBehaviour
 {
-    public BundleDesicionHandler Bundles;
-
     public PlayerStats PlayerStats;
     public EnemyScript EnemyStats;
     public InventoryStats InventoryStats;
@@ -45,7 +43,7 @@ public class CombatScript : MonoBehaviour
                 DealDamage();
             }
 
-            if (EnemyStats.Health <= 0)
+            if (EnemyStats.Health <= 0 && EnemyStats != null)
             {
                 FightEnd();
             }
@@ -87,8 +85,6 @@ public class CombatScript : MonoBehaviour
         level++;
 
         startFightButton.gameObject.SetActive(true);
-
-        Bundles.ShowOptions();
     }
 
     void DealDamage()

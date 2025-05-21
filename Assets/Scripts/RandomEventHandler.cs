@@ -28,6 +28,7 @@ public class ButtonOutcome
 public class RandomEventHandler : MonoBehaviour
 {
     public CollectionManager Collection; // Assign your CollectionManager script
+    public StoreManager Store;
     public InventoryList playerInventory;   // Assign your player's InventoryList script
     public PlayerStats playerStats;       // Assign your player's PlayerStats script
     public GameObject eventPanel;          // Assign the panel containing event UI
@@ -39,12 +40,15 @@ public class RandomEventHandler : MonoBehaviour
     public Color disabledButtonColor = Color.grey; // Color to use for disabled buttons
     public Color enabledButtonColor = Color.white; // Default button color (adjust in Inspector if needed)
 
+
     public List<RandomEvent> possibleEvents;
 
     private RandomEvent currentEvent;
 
     [SerializeField]
     float eventChance = .5f;
+    [SerializeField]
+    float storeChance = .1f;
 
     void Start()
     {
@@ -54,33 +58,42 @@ public class RandomEventHandler : MonoBehaviour
     // Call this function to trigger a random event
     public void TriggerRandomEvent()
     {
-        ShowEventUI();
+        float storeOrEvent = Random.Range(0, 1f);
 
-        if (possibleEvents.Count > 0 && eventPanel != null)
+        if (storeOrEvent < storeChance)
         {
-            // Choose a random event from the list
-            int randomIndex = Random.Range(0, possibleEvents.Count);
-            currentEvent = possibleEvents[randomIndex];
-
-            // Update UI elements
-            if (eventTitleText != null)
-            {
-                eventTitleText.text = currentEvent.title;
-            }
-
-            UpdateButtonState(button1, button1Text, currentEvent.outcomeButton1);
-            UpdateButtonState(button2, button2Text, currentEvent.outcomeButton2);
-
-            // Hide the third button (assuming you only want to show two for these events)
-            Button button3 = null; // Assign your third button here if needed
-            if (button3 != null)
-            {
-                button3.gameObject.SetActive(false);
-            }
+            Store.RefreshStore();
         }
         else
         {
-            Debug.LogWarning("No random events defined in the Inspector or Event Panel not assigned!");
+            ShowEventUI();
+
+            if (possibleEvents.Count > 0 && eventPanel != null)
+            {
+                // Choose a random event from the list
+                int randomIndex = Random.Range(0, possibleEvents.Count);
+                currentEvent = possibleEvents[randomIndex];
+
+                // Update UI elements
+                if (eventTitleText != null)
+                {
+                    eventTitleText.text = currentEvent.title;
+                }
+
+                UpdateButtonState(button1, button1Text, currentEvent.outcomeButton1);
+                UpdateButtonState(button2, button2Text, currentEvent.outcomeButton2);
+
+                // Hide the third button (assuming you only want to show two for these events)
+                Button button3 = null; // Assign your third button here if needed
+                if (button3 != null)
+                {
+                    button3.gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                Debug.LogWarning("No random events defined in the Inspector or Event Panel not assigned!");
+            }
         }
     }
 

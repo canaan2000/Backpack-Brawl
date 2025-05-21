@@ -8,8 +8,10 @@ public class StoreManager : MonoBehaviour
 {
     // Assign your actual item prefabs/GameObjects here
     // These GameObjects MUST have a NewItemScript component attached.
+    public GameObject storeCanvas;
     public List<GameObject> allAvailableStoreItems; // Items that can potentially be sold in the store
     public List<Button> storeButtons; // The 8 buttons in your scroll menu
+    public Button closeStore;
 
     // Reference to PlayerStats to check money
     public PlayerStats playerStats; // Assign in Inspector
@@ -35,8 +37,6 @@ public class StoreManager : MonoBehaviour
             Debug.LogError("CollectionManager is not assigned in StoreManager!");
             return;
         }
-
-        SetupStoreButtons();
     }
 
     // You can call this method to refresh the store inventory with new random items
@@ -47,6 +47,8 @@ public class StoreManager : MonoBehaviour
 
     void SetupStoreButtons()
     {
+        storeCanvas.SetActive(true);
+
         buttonItemMap.Clear(); // Clear previous mappings
         // Activate all buttons first in case some were deactivated
         foreach (Button btn in storeButtons)
@@ -200,5 +202,10 @@ public class StoreManager : MonoBehaviour
         {
             feedbackText.text = "";
         }
+    }
+
+    public void CloseStore()
+    {
+        storeCanvas.SetActive(false);
     }
 }

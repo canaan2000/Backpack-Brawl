@@ -220,6 +220,7 @@ public class RandomEventHandler : MonoBehaviour
             NewItemScript itemScript = item.GetComponent<NewItemScript>();
             if (itemScript != null && itemScript.itemData.name == itemName)
             {
+                Destroy(playerInventory.inventoryList[i]);
                 playerInventory.inventoryList.RemoveAt(i);
                 Debug.Log($"Lost: {itemName}");
                 break; // Remove only one instance if multiple exist

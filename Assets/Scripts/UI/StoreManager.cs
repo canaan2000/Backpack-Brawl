@@ -136,13 +136,13 @@ public class StoreManager : MonoBehaviour
         if (button == null || itemScript == null || playerStats == null || !button.gameObject.activeInHierarchy) return;
 
         bool canAfford = playerStats.money >= itemScript.itemData.value; // <--- Changed to itemScript.value
-        button.interactable = true;//canAfford;
+        button.interactable = canAfford;
 
-        TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
-        if (buttonText != null)
-        {
-            buttonText.color = canAfford ? Color.white : Color.grey; // Example: white for enabled, grey for disabled
-        }
+        //TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
+        //if (buttonText != null)
+        //{
+        //    buttonText.color = canAfford ? Color.white : Color.grey; // Example: white for enabled, grey for disabled
+        //}
     }
 
     void PurchaseItem(Button clickedButton)

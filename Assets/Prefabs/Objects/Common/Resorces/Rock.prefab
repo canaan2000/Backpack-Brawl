@@ -173,7 +173,7 @@ MonoBehaviour:
     clickArmor: 0
     clickDamage: 10
     clickPoison: 0
-    value: 0
+    value: 5
     singleUse: 1
     rarity: 0
     itemClass: 0

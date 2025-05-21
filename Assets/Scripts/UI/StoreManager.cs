@@ -11,7 +11,6 @@ public class StoreManager : MonoBehaviour
     public GameObject storeCanvas;
     public List<GameObject> allAvailableStoreItems; // Items that can potentially be sold in the store
     public List<Button> storeButtons; // The 8 buttons in your scroll menu
-    public Button closeStore;
 
     // Reference to PlayerStats to check money
     public PlayerStats playerStats; // Assign in Inspector
@@ -137,7 +136,7 @@ public class StoreManager : MonoBehaviour
         if (button == null || itemScript == null || playerStats == null || !button.gameObject.activeInHierarchy) return;
 
         bool canAfford = playerStats.money >= itemScript.itemData.value; // <--- Changed to itemScript.value
-        button.interactable = canAfford;
+        button.interactable = true;//canAfford;
 
         TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
         if (buttonText != null)
@@ -163,6 +162,7 @@ public class StoreManager : MonoBehaviour
                 if (itemPrefabToSpawn != null)
                 {
                     collectionManager.SpawnInCollection(itemPrefabToSpawn);
+                    clickedButton.gameObject.SetActive(false);
                 }
                 else
                 {

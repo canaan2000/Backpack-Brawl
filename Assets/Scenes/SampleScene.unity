@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3016,10 +3016,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -3245,8 +3245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526ab7fbe4cd61b45a4fcdaa553c6ab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Store: {fileID: 765221957}
   Collection: {fileID: 330209607}
-  Store: {fileID: 0}
   playerInventory: {fileID: 440833013}
   playerStats: {fileID: 192500032}
   eventPanel: {fileID: 1540127563}
@@ -3310,7 +3310,7 @@ MonoBehaviour:
       requiredHealth: 0
       outcomeText: 
   eventChance: 0.5
-  storeChance: 1
+  storeChance: 0.25
 --- !u!1 &629157972
 GameObject:
   m_ObjectHideFlags: 0
@@ -3942,10 +3942,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -4662,6 +4662,8 @@ MonoBehaviour:
   - {fileID: 7408208907586688709, guid: 74aac245a68648c4abcf9c16bb3e7d2b, type: 3}
   - {fileID: 186312528012161770, guid: d09d712193d56784c8e7214fa96af19f, type: 3}
   - {fileID: 7999739569021004360, guid: e81713c460621844caaa4dc4dd849bd8, type: 3}
+  - {fileID: 7334410138749303876, guid: 7bc38652efd3f23419ab0a96c92d56e1, type: 3}
+  - {fileID: 7334410138749303876, guid: 6df4d71161f6b084e93c1d549890b2a6, type: 3}
   storeButtons:
   - {fileID: 1563914344}
   - {fileID: 1293722950}
@@ -4671,7 +4673,6 @@ MonoBehaviour:
   - {fileID: 659093888}
   - {fileID: 741465554}
   - {fileID: 1186782286}
-  closeStore: {fileID: 0}
   playerStats: {fileID: 192500032}
   collectionManager: {fileID: 330209607}
   feedbackText: {fileID: 0}
@@ -5221,10 +5222,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -7177,10 +7178,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -8625,10 +8626,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -8979,10 +8980,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -9843,10 +9844,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -11045,10 +11046,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0

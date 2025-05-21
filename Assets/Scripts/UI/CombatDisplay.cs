@@ -27,7 +27,7 @@ public class CombatDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CombatScript.combatTrue == true) 
+        if (CombatScript.combatTrue == true && CombatScript.EnemyStats != null) 
         {
             enemyHealth.enabled = true;
             enemyDamage.enabled = true;

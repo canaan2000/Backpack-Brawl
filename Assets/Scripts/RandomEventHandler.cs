@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+using TMPro; // If using TextMeshPro
 
 [System.Serializable]
 public class RandomEvent
@@ -27,8 +27,8 @@ public class ButtonOutcome
 
 public class RandomEventHandler : MonoBehaviour
 {
-    public CollectionManager Collection; // Assign your CollectionManager script
     public StoreManager Store;
+    public CollectionManager Collection; // Assign your CollectionManager script
     public InventoryList playerInventory;   // Assign your player's InventoryList script
     public PlayerStats playerStats;       // Assign your player's PlayerStats script
     public GameObject eventPanel;          // Assign the panel containing event UI
@@ -40,7 +40,6 @@ public class RandomEventHandler : MonoBehaviour
     public Color disabledButtonColor = Color.grey; // Color to use for disabled buttons
     public Color enabledButtonColor = Color.white; // Default button color (adjust in Inspector if needed)
 
-
     public List<RandomEvent> possibleEvents;
 
     private RandomEvent currentEvent;
@@ -48,7 +47,7 @@ public class RandomEventHandler : MonoBehaviour
     [SerializeField]
     float eventChance = .5f;
     [SerializeField]
-    float storeChance = .1f;
+    float storeChance = .25f;
 
     void Start()
     {
@@ -58,11 +57,13 @@ public class RandomEventHandler : MonoBehaviour
     // Call this function to trigger a random event
     public void TriggerRandomEvent()
     {
-        float storeOrEvent = Random.Range(0, 1f);
-
-        if (storeOrEvent < storeChance)
+        //if StoreOrEvent is less than storeChance store event happens, else a regular event.
+        float StoreOrEvent = Random.Range(0, 1f);
+        if (StoreOrEvent < storeChance)
         {
             Store.RefreshStore();
+
+            HideEventUI();
         }
         else
         {
@@ -195,7 +196,7 @@ public class RandomEventHandler : MonoBehaviour
             }
 
             if (playerStats != null)
-            {
+            { 
                 playerStats.money -= outcome.requiredMoney;
                 playerStats.health -= outcome.requiredHealth;
             }
@@ -213,14 +214,13 @@ public class RandomEventHandler : MonoBehaviour
 
     void RemoveItemFromInventory(string itemName)
     {
-        for (int i = 0; i < playerInventory.inventoryList.Count; i++)
+        for (int i = playerInventory.inventoryList.Count - 1; i >= 0; i--)
         {
             GameObject item = playerInventory.inventoryList[i];
             NewItemScript itemScript = item.GetComponent<NewItemScript>();
             if (itemScript != null && itemScript.itemData.name == itemName)
             {
                 playerInventory.inventoryList.RemoveAt(i);
-                Destroy(item);
                 Debug.Log($"Lost: {itemName}");
                 break; // Remove only one instance if multiple exist
             }

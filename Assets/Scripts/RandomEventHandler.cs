@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // If using TextMeshPro
+using TMPro;
 
 [System.Serializable]
 public class RandomEvent
@@ -200,13 +200,14 @@ public class RandomEventHandler : MonoBehaviour
 
     void RemoveItemFromInventory(string itemName)
     {
-        for (int i = playerInventory.inventoryList.Count - 1; i >= 0; i--)
+        for (int i = 0; i < playerInventory.inventoryList.Count; i++)
         {
             GameObject item = playerInventory.inventoryList[i];
             NewItemScript itemScript = item.GetComponent<NewItemScript>();
             if (itemScript != null && itemScript.itemData.name == itemName)
             {
                 playerInventory.inventoryList.RemoveAt(i);
+                Destroy(item);
                 Debug.Log($"Lost: {itemName}");
                 break; // Remove only one instance if multiple exist
             }

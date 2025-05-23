@@ -12,7 +12,6 @@ public class DisplayPlayerStats : MonoBehaviour
     public TextMeshProUGUI armorDisp;
     public TextMeshProUGUI moneyDisp;
     public TextMeshProUGUI attackDisp;
-    public TextMeshProUGUI hungerDisp;
     public TextMeshProUGUI staminaDisp;
     public TextMeshProUGUI poisonDisp;
 
@@ -48,7 +47,6 @@ public class DisplayPlayerStats : MonoBehaviour
         if (armorDisp != null) armorDisp.text = PlayerStats.armor.ToString("Armor: 0");
         if (moneyDisp != null) moneyDisp.text = PlayerStats.money.ToString("$0.00");
         if (attackDisp != null) attackDisp.text = PlayerStats.attack.ToString("Auto Attack: 0.0");
-        if (hungerDisp != null) hungerDisp.text = PlayerStats.hunger.ToString("Food: 00");
         if (staminaDisp != null) staminaDisp.text = PlayerStats.stamina.ToString("Stamina: 0.000");
         if (poisonDisp != null) poisonDisp.text = PlayerStats.poison.ToString("Poison: 0");
 

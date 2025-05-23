@@ -50,7 +50,6 @@ public class OnClickManager : MonoBehaviour
             readyToClick = false;
             Combat.PlayerStats.armor += itemScript.itemData.clickArmor;
             Combat.EnemyStats.Health -= itemScript.itemData.clickDamage;
-            Combat.PlayerStats.hunger += itemScript.itemData.clickHunger;
             Combat.EnemyStats.Poison += itemScript.itemData.clickPoison;
             Combat.PlayerStats.health += itemScript.itemData.clickHealing;
 

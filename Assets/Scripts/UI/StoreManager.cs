@@ -137,12 +137,6 @@ public class StoreManager : MonoBehaviour
 
         bool canAfford = playerStats.money >= itemScript.itemData.value; // <--- Changed to itemScript.value
         button.interactable = canAfford;
-
-        //TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
-        //if (buttonText != null)
-        //{
-        //    buttonText.color = canAfford ? Color.white : Color.grey; // Example: white for enabled, grey for disabled
-        //}
     }
 
     void PurchaseItem(Button clickedButton)

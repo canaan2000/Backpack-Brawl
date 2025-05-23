@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CombatScript : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class CombatScript : MonoBehaviour
     public Button startFightButton;
 
     public GameObject enemy;
+
+    public GameObject poisonDamageNumber;
+    public GameObject poisonDamageNumberSpawner;
 
     public float attackCooldown = 1f;
     public float cooldown = 0;
@@ -90,7 +94,7 @@ public class CombatScript : MonoBehaviour
     void DealDamage()
     {
         InventoryList.StartDamageNumbers();
-
+        DealPoisonDamage();
 
         float playerDamage = PlayerStats.attack;
         float enemyDamage = EnemyStats.Attack;
@@ -114,5 +118,18 @@ public class CombatScript : MonoBehaviour
                 }
             }
         cooldown = attackCooldown;
+    }
+
+    void DealPoisonDamage()
+    {
+        if (EnemyStats.Poison > 0) 
+        {
+            EnemyStats.Health -= EnemyStats.Poison;
+
+            //PoisonDamageNumber
+            GameObject PDN = Instantiate(poisonDamageNumber, poisonDamageNumberSpawner.transform.position, Quaternion.identity);
+            PDN.GetComponentInChildren<TextMeshProUGUI>().text = EnemyStats.Poison.ToString();
+            EnemyStats.Poison -= 1;
+        }
     }
 }

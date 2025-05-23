@@ -19,11 +19,9 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Poison > 0) 
+        if (Poison < 0) 
         {
-            Health -= Poison * Time.deltaTime;
-
-            Poison -= Time.deltaTime / PlayerStats.poisonDepleteSpeed;
+            Poison = 0;
         }
     }
 }

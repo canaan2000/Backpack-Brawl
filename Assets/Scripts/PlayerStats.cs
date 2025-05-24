@@ -23,7 +23,7 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (stamina <= maxStamina)
+        if (stamina <= maxStamina && !Input.GetKey(KeyCode.Space))
         {
             stamina += Time.deltaTime;
         }

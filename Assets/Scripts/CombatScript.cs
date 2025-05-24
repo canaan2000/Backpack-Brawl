@@ -39,7 +39,7 @@ public class CombatScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (combatTrue == true)
+        if (combatTrue == true && !Input.GetKey(KeyCode.Space)) 
         {
             cooldown -= Time.deltaTime;
             if (cooldown <= 0 && combatTrue == true)
@@ -80,7 +80,6 @@ public class CombatScript : MonoBehaviour
     void FightEnd()
     {
         Destroy(EnemyStats.gameObject);
-        RandomEvent.TriggerRandomEvent();
 
         PlayerStats.money += Random.Range(10f, 55f);
 
@@ -89,6 +88,8 @@ public class CombatScript : MonoBehaviour
         level++;
 
         startFightButton.gameObject.SetActive(true);
+
+        RandomEvent.TriggerRandomEvent();
     }
 
     void DealDamage()

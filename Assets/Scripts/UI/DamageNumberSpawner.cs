@@ -29,10 +29,23 @@ public class DamageNumberSpawner : MonoBehaviour
 
     public void OnClickSpawnNumber()
     {
-        spawnPos = this.gameObject.transform.position;
-        spawnPos.y += 1;
-        GameObject DamageNumber = Instantiate(damageNumber, spawnPos, Quaternion.identity);
-        damageNumber.transform.SetParent(this.gameObject.transform, true);
-        DamageNumber.GetComponentInChildren<TextMeshProUGUI>().text = GetComponent<NewItemScript>().itemData.clickDamage.ToString();
+        NewItemScript itemScript = GetComponent<NewItemScript>();
+        if (itemScript.itemData.clickDamage > 0)
+        {
+            spawnPos = this.gameObject.transform.position;
+            spawnPos.y += 1;
+            GameObject DamageNumber = Instantiate(damageNumber, spawnPos, Quaternion.identity);
+            damageNumber.transform.SetParent(this.gameObject.transform, true);
+            DamageNumber.GetComponentInChildren<TextMeshProUGUI>().text = GetComponent<NewItemScript>().itemData.clickDamage.ToString();
+        }
+
+        if (itemScript.itemData.clickPoison > 0)
+        {
+            spawnPos = this.gameObject.transform.position;
+            spawnPos.y += 1;
+            GameObject DamageNumber = Instantiate(damageNumber, spawnPos, Quaternion.identity);
+            damageNumber.transform.SetParent(this.gameObject.transform, true);
+            DamageNumber.GetComponentInChildren<TextMeshProUGUI>().text = GetComponent<NewItemScript>().itemData.clickPoison.ToString();
+        }
     }
 }

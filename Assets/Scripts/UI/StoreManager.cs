@@ -135,7 +135,7 @@ public class StoreManager : MonoBehaviour
         // Handle cases where a button might be hidden
         if (button == null || itemScript == null || playerStats == null || !button.gameObject.activeInHierarchy) return;
 
-        bool canAfford = playerStats.money >= itemScript.itemData.value; // <--- Changed to itemScript.value
+        bool canAfford = playerStats.money >= itemScript.itemData.value;
         button.interactable = canAfford;
     }
 

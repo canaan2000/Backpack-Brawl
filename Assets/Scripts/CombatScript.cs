@@ -69,12 +69,14 @@ public class CombatScript : MonoBehaviour
         EnemyStats = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyScript>();
         EnemyStats.Attack = baseAttack * Mathf.Pow(1 + scalePercent, level - 1);
         EnemyStats.Health = baseHealth * Mathf.Pow(1 + scalePercent, level - 1);
-        
-        combatTrue = true;
+        EnemyStats.Poison = InventoryStats.UpdatePoisonStats();
+
+        combatTrue = true; 
 
         startFightButton.gameObject.SetActive(false);
 
         InventoryStats.UpdateArmorStats();
+        
     }
 
     void FightEnd()

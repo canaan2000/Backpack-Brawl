@@ -55,4 +55,16 @@ public class InventoryStats : MonoBehaviour
 
         }
     }
+
+    public float UpdatePoisonStats()
+    {
+        float poisonAmount = 0f;
+        foreach (var item in Inventory.inventoryList)
+        {
+            NewItemScript itemScript = item.GetComponent<NewItemScript>();
+
+            poisonAmount += itemScript.itemData.poison;
+        }
+        return poisonAmount;
+    }
 }

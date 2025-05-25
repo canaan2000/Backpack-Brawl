@@ -31,7 +31,7 @@ public class CombatScript : MonoBehaviour
 
     public bool combatTrue = false;
 
-    public List<Color> floatingNumberColor = new List<Color>();
+    public Color poisonDamageColor;
     // Start is called before the first frame update
     void Start()
     {
@@ -146,7 +146,7 @@ public class CombatScript : MonoBehaviour
             //PoisonDamageNumber
             GameObject PDN = Instantiate(poisonDamageNumber, poisonDamageNumberSpawner.transform.position, Quaternion.identity);
             PDN.GetComponentInChildren<TextMeshProUGUI>().text = EnemyStats.Poison.ToString();
-            PDN.GetComponent<DamageNumberBehavior>().InitialColor(floatingNumberColor[0]);
+            PDN.GetComponent<DamageNumberBehavior>().InitialColor(poisonDamageColor);
             EnemyStats.Poison -= 1;
         }
     }

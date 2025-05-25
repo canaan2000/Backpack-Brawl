@@ -90,6 +90,14 @@ public class ToolTipScript : MonoBehaviour
                     {
                         tooltip.text += "\nSingle Use";
                     }
+                    if (itemScript.itemData.autoManaGain != 0)
+                    {
+                        tooltip.text += "\nMana Gain: " + itemScript.itemData.autoManaGain; 
+                    }
+                    if (itemScript.itemData.clickManaUsage != 0)
+                    {
+                        tooltip.text += "\nMana Cost: " + itemScript.itemData.clickManaUsage;
+                    }
                 }
                 else
                 {

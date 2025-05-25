@@ -44,9 +44,15 @@ public class InventoryList : MonoBehaviour
     {
         foreach (var item in inventoryList)
         {
-            if (item.GetComponent<NewItemScript>().itemData.damage > 0)
+            NewItemScript itemScript = item.GetComponent<NewItemScript>();
+            if (itemScript.itemData.damage > 0)
             {
                 item.GetComponent<DamageNumberSpawner>().SpawnDamageNumber();
+            }
+
+            if (itemScript.itemData.autoManaGain != 0 )
+            {
+                item.GetComponent<DamageNumberSpawner>().SpawnManaNumber();
             }
         }
     }

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UI; // Included for completeness, even if not strictly used with TextMeshProUGUI only
 
 public class DisplayPlayerStats : MonoBehaviour
 {
-    public PlayerStats PlayerStats;
+    public PlayerStats PlayerStats; // Assuming PlayerStats is a ScriptableObject or similar
 
     public TextMeshProUGUI healthDisp;
     public TextMeshProUGUI armorDisp;
@@ -14,41 +14,52 @@ public class DisplayPlayerStats : MonoBehaviour
     public TextMeshProUGUI attackDisp;
     public TextMeshProUGUI staminaDisp;
     public TextMeshProUGUI poisonDisp;
+    public TextMeshProUGUI manaDisp; // Mana Display TextMeshProUGUI
 
-    float lastHealth = 100;
+    float lastHealth = 100; // Initialize with a value that ensures first update doesn't flash
     float lastArmor;
     float lastStamina;
+    float lastMana; // New: To track changes in mana
 
     Color defaultHealthColor = Color.white;
     Color defaultArmorColor = Color.grey;
     Color defaultStaminaColor = Color.yellow;
+    Color defaultManaColor = Color.blue; // New: Default color for Mana
 
     float flashDuration = 0.2f;
 
     Coroutine currentHealthFlashCoroutine = null;
     Coroutine currentArmorFlashCoroutine = null;
     Coroutine currentStaminaFlashCoroutine = null;
+    Coroutine currentManaFlashCoroutine = null; // New: Coroutine for Mana flash
 
     // Start is called before the first frame update
     void Start()
     {
+        // Initialize default colors from the TextMeshProUGUI components, if available
         if (healthDisp != null) defaultHealthColor = healthDisp.color;
         if (armorDisp != null) defaultArmorColor = armorDisp.color;
         if (staminaDisp != null) defaultStaminaColor = staminaDisp.color;
+        if (manaDisp != null) defaultManaColor = manaDisp.color; // New: Initialize default mana color
 
+        // Initialize last values to prevent flashes on first frame
+        lastHealth = PlayerStats.health; // Ensure this is set to current health, not just 100
         lastArmor = PlayerStats.armor;
         lastStamina = PlayerStats.stamina;
+        lastMana = PlayerStats.mana; // New: Initialize lastMana
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Display updates for all stats
         if (healthDisp != null) healthDisp.text = PlayerStats.health.ToString("Health: 0");
         if (armorDisp != null) armorDisp.text = PlayerStats.armor.ToString("Armor: 0");
         if (moneyDisp != null) moneyDisp.text = PlayerStats.money.ToString("$0.00");
         if (attackDisp != null) attackDisp.text = PlayerStats.attack.ToString("Auto Attack: 0.0");
         if (staminaDisp != null) staminaDisp.text = PlayerStats.stamina.ToString("Stamina: 0.000");
         if (poisonDisp != null) poisonDisp.text = PlayerStats.poison.ToString("Poison: 0");
+        if (manaDisp != null) manaDisp.text = PlayerStats.mana.ToString("Mana: 0"); // New: Mana display
 
         // Health Flash
         if (healthDisp != null && lastHealth > PlayerStats.health)
@@ -73,6 +84,14 @@ public class DisplayPlayerStats : MonoBehaviour
             currentStaminaFlashCoroutine = StartCoroutine(FlashColor(staminaDisp, Color.red, defaultStaminaColor));
         }
         lastStamina = PlayerStats.stamina;
+
+        // Mana Flash (New functionality)
+        if (manaDisp != null && lastMana > PlayerStats.mana) // If mana has decreased
+        {
+            if (currentManaFlashCoroutine != null) StopCoroutine(currentManaFlashCoroutine); // Stop any existing flash
+            currentManaFlashCoroutine = StartCoroutine(FlashColor(manaDisp, Color.blue, defaultManaColor)); // Flash blue
+        }
+        lastMana = PlayerStats.mana; // Update lastMana for the next frame
     }
 
     IEnumerator FlashColor(TextMeshProUGUI textComponent, Color flashColor, Color defaultColor)
@@ -85,5 +104,6 @@ public class DisplayPlayerStats : MonoBehaviour
         if (textComponent == healthDisp) currentHealthFlashCoroutine = null;
         else if (textComponent == armorDisp) currentArmorFlashCoroutine = null;
         else if (textComponent == staminaDisp) currentStaminaFlashCoroutine = null;
+        else if (textComponent == manaDisp) currentManaFlashCoroutine = null; // New: Reset Mana coroutine
     }
 }

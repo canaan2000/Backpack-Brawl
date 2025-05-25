@@ -54,6 +54,7 @@ public class OnClickManager : MonoBehaviour
             Combat.PlayerStats.health += itemScript.itemData.clickHealing;
 
             Combat.PlayerStats.stamina -= itemScript.itemData.staminaUsage;
+            Combat.PlayerStats.mana -= itemScript.itemData.clickManaUsage;
 
             NumberSpawner.OnClickSpawnNumber();
             if (itemScript.itemData.singleUse == true)

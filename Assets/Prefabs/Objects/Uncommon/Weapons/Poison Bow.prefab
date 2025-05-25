@@ -179,7 +179,10 @@ MonoBehaviour:
     damage: 5
     armor: 0
     poison: 10
+    autoManaGain: 0
+    autoStaminaUsage: 0
     staminaUsage: 1.5
+    clickManaUsage: 0
     clickHealing: 0
     clickHunger: 0
     clickArmor: 0
@@ -204,5 +207,6 @@ MonoBehaviour:
   damageNumber: {fileID: 5262715178686733786, guid: ad42eb14fccf9bb41a5fa504cfee7fb3, type: 3}
   floatingNumberColor:
   - {r: 1, g: 0.009137107, b: 0, a: 1}
-  - {r: 0.8018868, g: 0.1021271, b: 0.7973592, a: 1}
-  - {r: 0.11661786, g: 0.8962264, b: 0.097232126, a: 1}
+  - {r: 0.8207547, g: 0.112273075, b: 0.64108133, a: 1}
+  - {r: 0.11173906, g: 0.8773585, b: 0.12588793, a: 1}
+  - {r: 0, g: 0.41398382, b: 1, a: 1}

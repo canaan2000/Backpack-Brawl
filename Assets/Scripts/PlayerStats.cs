@@ -13,6 +13,7 @@ public class PlayerStats : MonoBehaviour
     public float money = 0f;
     public float stamina = 0f;
     public float maxStamina = 10f;
+    public float mana;
 
 
     // Start is called before the first frame update

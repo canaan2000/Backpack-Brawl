@@ -31,6 +31,7 @@ public class RandomEventHandler : MonoBehaviour
     public CollectionManager Collection; // Assign your CollectionManager script
     public InventoryList playerInventory;   // Assign your player's InventoryList script
     public PlayerStats playerStats;       // Assign your player's PlayerStats script
+    public CombatScript CombatScript;
     public GameObject eventPanel;          // Assign the panel containing event UI
     public TextMeshProUGUI eventTitleText; // Assign in Inspector
     public Button button1;                // Assign in Inspector
@@ -264,6 +265,7 @@ public class RandomEventHandler : MonoBehaviour
         else
         {
             HideEventUI();
+            CombatScript.FightStart();
         }
     }
 }

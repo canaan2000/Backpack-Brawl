@@ -67,4 +67,24 @@ public class InventoryStats : MonoBehaviour
         }
         return poisonAmount;
     }
+
+    public void HandleAutoStaminaUsage()
+    {
+        foreach (var item in Inventory.inventoryList)
+        {
+            NewItemScript itemScript = item.GetComponent<NewItemScript>();
+
+            PlayerStats.stamina -= itemScript.itemData.autoStaminaUsage;
+        }
+    }
+
+    public void HandleMana()
+    {
+        foreach (var item in Inventory.inventoryList)
+        {
+            NewItemScript itemScript = item.GetComponent<NewItemScript>();
+
+            PlayerStats.mana += itemScript.itemData.autoManaGain;
+        }
+    }
 }

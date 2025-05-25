@@ -30,6 +30,8 @@ public class CombatScript : MonoBehaviour
     public int level = 1;
 
     public bool combatTrue = false;
+
+    public List<Color> floatingNumberColor = new List<Color>();
     // Start is called before the first frame update
     void Start()
     {
@@ -96,12 +98,28 @@ public class CombatScript : MonoBehaviour
 
     void DealDamage()
     {
-        InventoryList.StartDamageNumbers();
-        DealPoisonDamage();
-
         float playerDamage = PlayerStats.attack;
         float enemyDamage = EnemyStats.Attack;
-        for (int i = 0; i < enemyDamage; i++) 
+
+        DealPoisonDamage();
+        InventoryStats.HandleMana();
+        if (PlayerStats.stamina > 0)
+        {
+            InventoryList.StartDamageNumbers();
+            
+            InventoryStats.HandleAutoStaminaUsage();
+
+            for (int i = 0; i < playerDamage; i++)
+            {
+                if (EnemyStats.Health > 0)
+                {
+                    EnemyStats.Health--;
+                }
+            }
+        }
+
+        
+        for (int i = 0; i < enemyDamage; i++)
         {
             if (PlayerStats.armor > 0)
             {
@@ -112,14 +130,10 @@ public class CombatScript : MonoBehaviour
                 PlayerStats.health--;
             }
         }
-
-        for (int i = 0; i < playerDamage; i++)
-            {
-                if (EnemyStats.Health > 0)
-                {
-                    EnemyStats.Health--;
-                }
-            }
+        
+        
+            
+        
         cooldown = attackCooldown;
     }
 
@@ -132,6 +146,7 @@ public class CombatScript : MonoBehaviour
             //PoisonDamageNumber
             GameObject PDN = Instantiate(poisonDamageNumber, poisonDamageNumberSpawner.transform.position, Quaternion.identity);
             PDN.GetComponentInChildren<TextMeshProUGUI>().text = EnemyStats.Poison.ToString();
+            PDN.GetComponent<DamageNumberBehavior>().InitialColor(floatingNumberColor[0]);
             EnemyStats.Poison -= 1;
         }
     }

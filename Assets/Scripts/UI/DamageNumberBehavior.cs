@@ -9,9 +9,18 @@ public class DamageNumberBehavior : MonoBehaviour
     public TextMeshProUGUI damageNumbers;
     float decaySpeed = .5f;
     float speed = 7;
-    Color transparency = Color.white;
+    Color transparency;
 
     Vector3 randomDirection = Vector3.zero;
+
+
+    public void InitialColor(Color color)
+    {
+        damageNumbers.color = color;
+
+        transparency = damageNumbers.color;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

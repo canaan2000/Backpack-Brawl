@@ -5,11 +5,12 @@ using TMPro;
 public class DamageNumberSpawner : MonoBehaviour
 {
     public GameObject damageNumber;
+    public List<Color> floatingNumberColor = new List<Color>();
     Vector3 spawnPos;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -23,8 +24,10 @@ public class DamageNumberSpawner : MonoBehaviour
         spawnPos = this.gameObject.transform.position;
         spawnPos.y += 1;
         GameObject DamageNumber = Instantiate(damageNumber, spawnPos, Quaternion.identity);
-        damageNumber.transform.SetParent(this.gameObject.transform, true);
+        //DamageNumber.transform.SetParent(this.gameObject.transform, true);
         DamageNumber.GetComponentInChildren<TextMeshProUGUI>().text = GetComponent<NewItemScript>().itemData.damage.ToString();
+        DamageNumber.GetComponent<DamageNumberBehavior>().InitialColor(floatingNumberColor[0]);
+
     }
 
     public void OnClickSpawnNumber()
@@ -35,8 +38,10 @@ public class DamageNumberSpawner : MonoBehaviour
             spawnPos = this.gameObject.transform.position;
             spawnPos.y += 1;
             GameObject DamageNumber = Instantiate(damageNumber, spawnPos, Quaternion.identity);
-            damageNumber.transform.SetParent(this.gameObject.transform, true);
+            //DamageNumber.transform.SetParent(this.gameObject.transform, true);
             DamageNumber.GetComponentInChildren<TextMeshProUGUI>().text = GetComponent<NewItemScript>().itemData.clickDamage.ToString();
+            DamageNumber.GetComponent<DamageNumberBehavior>().InitialColor(floatingNumberColor[0]);
+
         }
 
         if (itemScript.itemData.clickPoison > 0)
@@ -44,8 +49,20 @@ public class DamageNumberSpawner : MonoBehaviour
             spawnPos = this.gameObject.transform.position;
             spawnPos.y += 1;
             GameObject DamageNumber = Instantiate(damageNumber, spawnPos, Quaternion.identity);
-            damageNumber.transform.SetParent(this.gameObject.transform, true);
+            //DamageNumber.transform.SetParent(this.gameObject.transform, true);
             DamageNumber.GetComponentInChildren<TextMeshProUGUI>().text = GetComponent<NewItemScript>().itemData.clickPoison.ToString();
+            DamageNumber.GetComponent<DamageNumberBehavior>().InitialColor(floatingNumberColor[1]);
+
+        }
+
+        if (itemScript.itemData.clickHealing > 0)
+        {
+            spawnPos = this.gameObject.transform.position;
+            spawnPos.y += 1;
+            GameObject DamageNumber = Instantiate(damageNumber, spawnPos, Quaternion.identity);
+            //DamageNumber.transform.SetParent(this.gameObject.transform, true);
+            DamageNumber.GetComponentInChildren<TextMeshProUGUI>().text = GetComponent<NewItemScript>().itemData.clickHealing.ToString();
+            DamageNumber.GetComponent<DamageNumberBehavior>().InitialColor(floatingNumberColor[2]);
         }
     }
 }

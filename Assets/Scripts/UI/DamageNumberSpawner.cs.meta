@@ -5,6 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - damageNumber: {fileID: 5262715178686733786, guid: ad42eb14fccf9bb41a5fa504cfee7fb3, type: 3}
+  - poisonDamageNumber: {fileID: 5262715178686733786, guid: 5f9f39693d01b7b4e81f01b44d7eb056, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -174,6 +174,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageNumber: {fileID: 5262715178686733786, guid: ad42eb14fccf9bb41a5fa504cfee7fb3, type: 3}
+  floatingNumberColor:
+  - {r: 1, g: 0.009137107, b: 0, a: 1}
+  - {r: 0.8018868, g: 0.1021271, b: 0.7973592, a: 1}
+  - {r: 0.11661786, g: 0.8962264, b: 0.097232126, a: 1}
 --- !u!114 &-761989737072764825
 MonoBehaviour:
   m_ObjectHideFlags: 0

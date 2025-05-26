@@ -17,8 +17,9 @@ public class CombatScript : MonoBehaviour
 
     public GameObject enemy;
 
-    public GameObject poisonDamageNumber;
-    public GameObject poisonDamageNumberSpawner;
+    public GameObject damageNumber;
+    public GameObject damageNumberSpawner;
+    public GameObject thornsDamageNumberSpawner;
 
     public float attackCooldown = 1f;
     public float cooldown = 0;
@@ -32,6 +33,7 @@ public class CombatScript : MonoBehaviour
     public bool combatTrue = false;
 
     public Color poisonDamageColor;
+    public Color thornsDamageColor;
     // Start is called before the first frame update
     void Start()
     {
@@ -85,6 +87,8 @@ public class CombatScript : MonoBehaviour
     {
         Destroy(EnemyStats.gameObject);
 
+        PlayerStats.thorns = 0f;
+
         PlayerStats.money += Random.Range(10f, 55f);
 
         combatTrue = false;
@@ -100,7 +104,6 @@ public class CombatScript : MonoBehaviour
     {
         float playerDamage = PlayerStats.attack;
         float enemyDamage = EnemyStats.Attack;
-
         DealPoisonDamage();
         InventoryStats.HandleMana();
         if (PlayerStats.stamina > 0)
@@ -117,7 +120,7 @@ public class CombatScript : MonoBehaviour
                 }
             }
         }
-
+        DealThornDamage();
         
         for (int i = 0; i < enemyDamage; i++)
         {
@@ -143,11 +146,24 @@ public class CombatScript : MonoBehaviour
         {
             EnemyStats.Health -= EnemyStats.Poison;
 
-            //PoisonDamageNumber
-            GameObject PDN = Instantiate(poisonDamageNumber, poisonDamageNumberSpawner.transform.position, Quaternion.identity);
+            //damageNumber
+            GameObject PDN = Instantiate(damageNumber, damageNumberSpawner.transform.position, Quaternion.identity);
             PDN.GetComponentInChildren<TextMeshProUGUI>().text = EnemyStats.Poison.ToString();
             PDN.GetComponent<DamageNumberBehavior>().InitialColor(poisonDamageColor);
             EnemyStats.Poison -= 1;
+        }
+    }
+
+    void DealThornDamage()
+    {
+        if (PlayerStats.thorns > 0)
+        {
+            EnemyStats.Health -= PlayerStats.thorns;
+
+            //ThornDamageNumber
+            GameObject TDN = Instantiate(damageNumber, thornsDamageNumberSpawner.transform.position, Quaternion.identity);
+            TDN.GetComponentInChildren<TextMeshProUGUI>().text = PlayerStats.thorns.ToString();
+            TDN.GetComponent<DamageNumberBehavior>().InitialColor(thornsDamageColor);
         }
     }
 }

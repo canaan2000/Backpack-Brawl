@@ -23,6 +23,7 @@ public class NewItemScript : MonoBehaviour
         public float damage;
         public float armor;
         public float poison;
+        public float thorns;
         public float autoManaGain;
         public float autoStaminaUsage;
         public float staminaUsage;
@@ -32,6 +33,7 @@ public class NewItemScript : MonoBehaviour
         public float clickArmor;
         public float clickDamage;
         public float clickPoison;
+        public float clickThorns;
         public float value;
         public bool singleUse;
 

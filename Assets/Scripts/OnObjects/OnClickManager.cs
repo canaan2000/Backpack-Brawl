@@ -44,8 +44,9 @@ public class OnClickManager : MonoBehaviour
     //What an object does when clicked.
     private void OnMouseDown()
     {
+        
         NewItemScript itemScript = gameObject.GetComponent<NewItemScript>();
-        if (Combat.PlayerStats.stamina >= itemScript.itemData.staminaUsage && Combat.combatTrue == true)
+        if (Combat.PlayerStats.stamina >= itemScript.itemData.staminaUsage && Combat.PlayerStats.mana >= itemScript.itemData.clickManaUsage && Combat.combatTrue == true)
         {
             readyToClick = false;
             Combat.PlayerStats.armor += itemScript.itemData.clickArmor;

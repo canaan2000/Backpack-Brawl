@@ -14,7 +14,8 @@ public class DisplayPlayerStats : MonoBehaviour
     public TextMeshProUGUI attackDisp;
     public TextMeshProUGUI staminaDisp;
     public TextMeshProUGUI poisonDisp;
-    public TextMeshProUGUI manaDisp; // Mana Display TextMeshProUGUI
+    public TextMeshProUGUI manaDisp;
+    public TextMeshProUGUI thornsDisp;
 
     float lastHealth = 100; // Initialize with a value that ensures first update doesn't flash
     float lastArmor;
@@ -55,11 +56,12 @@ public class DisplayPlayerStats : MonoBehaviour
         // Display updates for all stats
         if (healthDisp != null) healthDisp.text = PlayerStats.health.ToString("Health: 0");
         if (armorDisp != null) armorDisp.text = PlayerStats.armor.ToString("Armor: 0");
-        if (moneyDisp != null) moneyDisp.text = PlayerStats.money.ToString("$0.00");
+        if (moneyDisp != null) moneyDisp.text = PlayerStats.money.ToString("$0");
         if (attackDisp != null) attackDisp.text = PlayerStats.attack.ToString("Auto Attack: 0.0");
         if (staminaDisp != null) staminaDisp.text = PlayerStats.stamina.ToString("Stamina: 0.000");
         if (poisonDisp != null) poisonDisp.text = PlayerStats.poison.ToString("Poison: 0");
-        if (manaDisp != null) manaDisp.text = PlayerStats.mana.ToString("Mana: 0"); // New: Mana display
+        if (manaDisp != null) manaDisp.text = PlayerStats.mana.ToString("Mana: 0");
+        if (thornsDisp != null) thornsDisp.text = PlayerStats.thorns.ToString("Thorns: 0");
 
         // Health Flash
         if (healthDisp != null && lastHealth > PlayerStats.health)

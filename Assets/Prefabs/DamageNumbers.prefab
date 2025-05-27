@@ -220,7 +220,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &5262715178686733787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +251,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageNumbers: {fileID: 827926679390251493}
+  currentType: 0
+  damageColors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0.6320754, g: 0.09838911, b: 0.50664127, a: 1}
+  - {r: 0.22622028, g: 0.8584906, b: 0.14983091, a: 1}
+  - {r: 0.10859077, g: 0.4056604, b: 0.08610717, a: 1}
+  - {r: 0.10791205, g: 0.19031373, b: 0.9150943, a: 1}
 --- !u!54 &298091182880378824
 Rigidbody:
   m_ObjectHideFlags: 0

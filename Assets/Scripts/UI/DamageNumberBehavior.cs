@@ -12,14 +12,34 @@ public class DamageNumberBehavior : MonoBehaviour
     Color transparency;
 
     Vector3 randomDirection = Vector3.zero;
+    public enum numType { Damage, Poison, Healing, Thorns, Mana };
+    public numType currentType;
 
+    public List<Color> damageColors = new List<Color>();
 
-    public void InitialColor(Color color)
+    public void InitialColor(numType type)
     {
-        damageNumbers.color = color;
-
-        transparency = damageNumbers.color;
+        switch (type)
+        {
+            case numType.Damage:
+                damageNumbers.color = damageColors[0];
+                break;
+            case numType.Poison:
+                damageNumbers.color = damageColors[1];
+                break;
+            case numType.Healing:
+                damageNumbers.color = damageColors[2];
+                break;
+            case numType.Thorns:
+                damageNumbers.color = damageColors[3];
+                break;
+            case numType.Mana:
+                damageNumbers.color = damageColors[4];
+                break;
+        }
+        transparency = damageNumbers.color; // Initialize transparency here
     }
+
 
     // Start is called before the first frame update
     void Start()

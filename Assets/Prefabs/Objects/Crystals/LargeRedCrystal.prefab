@@ -107,8 +107,7 @@ MonoBehaviour:
     description: Very Magic
     damage: 3
     armor: 10
-    poison: 0
-    thorns: 0
+    poison: 2
     autoManaGain: 0
     autoStaminaUsage: 0
     staminaUsage: 0
@@ -118,7 +117,6 @@ MonoBehaviour:
     clickArmor: 0
     clickDamage: 0
     clickPoison: 0
-    clickThorns: 0
     value: 45
     singleUse: 0
     rarity: 0

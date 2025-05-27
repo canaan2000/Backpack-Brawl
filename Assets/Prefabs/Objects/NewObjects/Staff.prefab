@@ -194,18 +194,20 @@ MonoBehaviour:
   itemData:
     name: Staff
     description: Can beat things
-    damage: 0
+    damage: 4
     armor: 0
     poison: 0
+    thorns: 0
     autoManaGain: 0
-    autoStaminaUsage: 0
-    staminaUsage: 0
+    autoStaminaUsage: 1
+    staminaUsage: 1
     clickManaUsage: 0
     clickHealing: 0
     clickHunger: 0
     clickArmor: 0
-    clickDamage: 0
+    clickDamage: 2
     clickPoison: 0
+    clickThorns: 0
     value: 0
     singleUse: 0
     rarity: 0

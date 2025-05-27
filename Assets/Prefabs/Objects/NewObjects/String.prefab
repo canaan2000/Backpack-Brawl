@@ -193,10 +193,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData:
     name: String
-    description: 
+    description: Make a bow or something.
     damage: 0
     armor: 0
     poison: 0
+    thorns: 0
     autoManaGain: 0
     autoStaminaUsage: 0
     staminaUsage: 0
@@ -206,7 +207,8 @@ MonoBehaviour:
     clickArmor: 0
     clickDamage: 0
     clickPoison: 0
-    value: 0
+    clickThorns: 0
+    value: 3
     singleUse: 0
     rarity: 0
     itemClass: 0

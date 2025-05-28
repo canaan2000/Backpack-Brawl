@@ -197,6 +197,7 @@ MonoBehaviour:
     damage: 5
     armor: 0
     poison: 3
+    thorns: 0
     autoManaGain: 0
     autoStaminaUsage: 0
     staminaUsage: 2
@@ -206,6 +207,7 @@ MonoBehaviour:
     clickArmor: 0
     clickDamage: 2
     clickPoison: 2
+    clickThorns: 0
     value: 0
     singleUse: 0
     rarity: 0

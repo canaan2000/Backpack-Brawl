@@ -25,7 +25,7 @@ public class DamageNumberSpawner : MonoBehaviour
         spawnPos.y += 1;
         GameObject DamageNumber = Instantiate(damageNumber, spawnPos, Quaternion.identity);
         //DamageNumber.transform.SetParent(this.gameObject.transform, true);
-        DamageNumber.GetComponentInChildren<TextMeshProUGUI>().text = GetComponent<NewItemScript>().itemData.damage.ToString();
+        DamageNumber.GetComponentInChildren<TextMeshProUGUI>().text = GetComponent<NewItemScript>().itemData.damage.ToString() + "<sprite=1>";
         DamageNumberBehavior Behavior = DamageNumber.GetComponent<DamageNumberBehavior>();
         DamageNumber.GetComponent<DamageNumberBehavior>().InitialColor(Behavior.currentType = DamageNumberBehavior.numType.Damage);
 
@@ -51,7 +51,7 @@ public class DamageNumberSpawner : MonoBehaviour
             spawnPos.y += 1;
             GameObject DamageNumber = Instantiate(damageNumber, spawnPos, Quaternion.identity);
             //DamageNumber.transform.SetParent(this.gameObject.transform, true);
-            DamageNumber.GetComponentInChildren<TextMeshProUGUI>().text = GetComponent<NewItemScript>().itemData.clickDamage.ToString();
+            DamageNumber.GetComponentInChildren<TextMeshProUGUI>().text = GetComponent<NewItemScript>().itemData.clickDamage.ToString() + "<sprite=1>";
             DamageNumberBehavior Behavior = DamageNumber.GetComponent<DamageNumberBehavior>();
             DamageNumber.GetComponent<DamageNumberBehavior>().InitialColor(Behavior.currentType = DamageNumberBehavior.numType.Damage);
 
@@ -63,7 +63,7 @@ public class DamageNumberSpawner : MonoBehaviour
             spawnPos.y += 1;
             GameObject DamageNumber = Instantiate(damageNumber, spawnPos, Quaternion.identity);
             //DamageNumber.transform.SetParent(this.gameObject.transform, true);
-            DamageNumber.GetComponentInChildren<TextMeshProUGUI>().text = GetComponent<NewItemScript>().itemData.clickPoison.ToString(); 
+            DamageNumber.GetComponentInChildren<TextMeshProUGUI>().text = GetComponent<NewItemScript>().itemData.clickPoison.ToString() + "<sprite=0>"; 
             DamageNumberBehavior Behavior = DamageNumber.GetComponent<DamageNumberBehavior>();
             DamageNumber.GetComponent<DamageNumberBehavior>().InitialColor(Behavior.currentType = DamageNumberBehavior.numType.Poison);
 

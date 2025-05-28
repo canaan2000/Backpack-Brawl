@@ -148,9 +148,9 @@ public class CombatScript : MonoBehaviour
 
             //damageNumber
             GameObject PDN = Instantiate(damageNumber, damageNumberSpawner.transform.position, Quaternion.identity);
-            PDN.GetComponentInChildren<TextMeshProUGUI>().text = EnemyStats.Poison.ToString();
+            PDN.GetComponentInChildren<TextMeshProUGUI>().text = EnemyStats.Poison.ToString() + "<sprite=0>";
             DamageNumberBehavior Behavior = PDN.GetComponent<DamageNumberBehavior>();
-            PDN.GetComponent<DamageNumberBehavior>().InitialColor(Behavior.currentType = DamageNumberBehavior.numType.Mana);
+            PDN.GetComponent<DamageNumberBehavior>().InitialColor(Behavior.currentType = DamageNumberBehavior.numType.Poison);
             EnemyStats.Poison -= 1;
         }
     }

@@ -148,7 +148,7 @@ public class CombatScript : MonoBehaviour
 
             //damageNumber
             GameObject PDN = Instantiate(damageNumber, damageNumberSpawner.transform.position, Quaternion.identity);
-            PDN.GetComponentInChildren<TextMeshProUGUI>().text = EnemyStats.Poison.ToString() + "<sprite=0>";
+            PDN.GetComponentInChildren<TextMeshProUGUI>().text = EnemyStats.Poison.ToString() + "<sprite=3>";
             DamageNumberBehavior Behavior = PDN.GetComponent<DamageNumberBehavior>();
             PDN.GetComponent<DamageNumberBehavior>().InitialColor(Behavior.currentType = DamageNumberBehavior.numType.Poison);
             EnemyStats.Poison -= 1;
@@ -163,7 +163,7 @@ public class CombatScript : MonoBehaviour
 
             //ThornDamageNumber
             GameObject TDN = Instantiate(damageNumber, thornsDamageNumberSpawner.transform.position, Quaternion.identity);
-            TDN.GetComponentInChildren<TextMeshProUGUI>().text = PlayerStats.thorns.ToString(); 
+            TDN.GetComponentInChildren<TextMeshProUGUI>().text = PlayerStats.thorns.ToString() + "<sprite=5>"; 
             DamageNumberBehavior Behavior = TDN.GetComponent<DamageNumberBehavior>();
             TDN.GetComponent<DamageNumberBehavior>().InitialColor(Behavior.currentType = DamageNumberBehavior.numType.Mana);
         }

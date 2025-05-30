@@ -36,7 +36,7 @@ public class DamageNumberSpawner : MonoBehaviour
         spawnPos.y += 1;
         GameObject DamageNumber = Instantiate(damageNumber, spawnPos, Quaternion.identity);
         //DamageNumber.transform.SetParent(this.gameObject.transform, true);
-        DamageNumber.GetComponentInChildren<TextMeshProUGUI>().text = GetComponent<NewItemScript>().itemData.autoManaGain.ToString() + "<sprite=2";
+        DamageNumber.GetComponentInChildren<TextMeshProUGUI>().text = GetComponent<NewItemScript>().itemData.autoManaGain.ToString() + "<sprite=2>";
         DamageNumberBehavior Behavior = DamageNumber.GetComponent<DamageNumberBehavior>();
         DamageNumber.GetComponent<DamageNumberBehavior>().InitialColor(Behavior.currentType = DamageNumberBehavior.numType.Mana);
     }

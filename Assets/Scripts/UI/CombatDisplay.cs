@@ -31,10 +31,10 @@ public class CombatDisplay : MonoBehaviour
             enemyHealth.enabled = true;
             enemyDamage.enabled = true;
 
-            enemyHealth.text = CombatScript.EnemyStats.Health.ToString("Health: 0");
+            enemyHealth.text = CombatScript.EnemyStats.Health.ToString("<sprite=1> 0");
             enemyHealth.color = Color.red;
 
-            enemyDamage.text = CombatScript.EnemyStats.Attack.ToString("Damage per attack: 0");
+            enemyDamage.text = CombatScript.EnemyStats.Attack.ToString("<sprite=0> 0");
 
         }   
         else

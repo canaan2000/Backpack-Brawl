@@ -87,4 +87,15 @@ public class InventoryStats : MonoBehaviour
             PlayerStats.mana += itemScript.itemData.autoManaGain;
         }
     }
+
+    public void UpdateThorns()
+    {
+        PlayerStats.thorns = 0;
+        foreach (var item in Inventory.inventoryList)
+        {
+            NewItemScript itemScript = item.GetComponent<NewItemScript>();
+
+            PlayerStats.thorns += itemScript.itemData.thorns;
+        }
+    }
 }

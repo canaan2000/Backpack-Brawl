@@ -80,6 +80,8 @@ public class CombatScript : MonoBehaviour
         startFightButton.gameObject.SetActive(false);
 
         InventoryStats.UpdateArmorStats();
+
+        InventoryStats.UpdateThorns();
         
     }
 
@@ -165,7 +167,7 @@ public class CombatScript : MonoBehaviour
             GameObject TDN = Instantiate(damageNumber, thornsDamageNumberSpawner.transform.position, Quaternion.identity);
             TDN.GetComponentInChildren<TextMeshProUGUI>().text = PlayerStats.thorns.ToString() + "<sprite=5>"; 
             DamageNumberBehavior Behavior = TDN.GetComponent<DamageNumberBehavior>();
-            TDN.GetComponent<DamageNumberBehavior>().InitialColor(Behavior.currentType = DamageNumberBehavior.numType.Mana);
+            TDN.GetComponent<DamageNumberBehavior>().InitialColor(Behavior.currentType = DamageNumberBehavior.numType.Thorns);
         }
     }
 }

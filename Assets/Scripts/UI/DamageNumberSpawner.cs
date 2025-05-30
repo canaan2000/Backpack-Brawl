@@ -5,7 +5,6 @@ using TMPro;
 public class DamageNumberSpawner : MonoBehaviour
 {
     public GameObject damageNumber;
-    public List<Color> floatingNumberColor = new List<Color>();
     Vector3 spawnPos;
     // Start is called before the first frame update
     void Start()

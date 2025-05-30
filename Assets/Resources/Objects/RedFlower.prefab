@@ -174,7 +174,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageNumber: {fileID: 5262715178686733786, guid: ad42eb14fccf9bb41a5fa504cfee7fb3, type: 3}
-  floatingNumberColor: []
 --- !u!114 &3423419755132831817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +192,7 @@ MonoBehaviour:
     damage: 0
     armor: 0
     poison: 0
-    thorns: 0
+    thorns: 3
     autoManaGain: 0
     autoStaminaUsage: 0
     staminaUsage: 0

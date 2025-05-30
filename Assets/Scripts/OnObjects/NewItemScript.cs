@@ -40,7 +40,7 @@ public class NewItemScript : MonoBehaviour
         public enum Rarity {Common, Uncommon, Rare};
         public Rarity rarity;
 
-        public enum Class { Basic };
+        public enum Class { Basic , Warrior, Rogue, Mage};
         public Class itemClass;
     }
 

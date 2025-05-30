@@ -121,7 +121,7 @@ MonoBehaviour:
     clickThorns: 0
     value: 15
     singleUse: 0
-    rarity: 0
+    rarity: 1
     itemClass: 0
 --- !u!114 &-3872060694386306341
 MonoBehaviour:

@@ -193,7 +193,7 @@ MonoBehaviour:
     value: 15
     singleUse: 0
     rarity: 1
-    itemClass: 0
+    itemClass: 1
 --- !u!114 &1951191682421341654
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4218,18 +4218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storeCanvas: {fileID: 2063271183}
-  allAvailableStoreItems:
-  - {fileID: 7266997441106935290, guid: ba8690e80d685074e8de0706a16779d2, type: 3}
-  - {fileID: 7408208907586688709, guid: 74aac245a68648c4abcf9c16bb3e7d2b, type: 3}
-  - {fileID: 8184504930981440606, guid: 7bb08a82f85361741878148daaa44087, type: 3}
-  - {fileID: 2232784183559900383, guid: 902d791e81404034b830bd1875f6340e, type: 3}
-  - {fileID: 7334410138749303876, guid: 7bc38652efd3f23419ab0a96c92d56e1, type: 3}
-  - {fileID: 7334410138749303876, guid: 6df4d71161f6b084e93c1d549890b2a6, type: 3}
-  - {fileID: 4256801514369983928, guid: 70a094ab7da411441b9466502e5d61b1, type: 3}
-  - {fileID: 6063351912288209982, guid: 77f4f5b4dab1dee46be9420334d95342, type: 3}
-  - {fileID: 206986292603798753, guid: 83728ef1ffcb9f246840b4a682adf72a, type: 3}
-  - {fileID: 2452048709274745361, guid: 331cc126f1c4a334189044d0ea810d6a, type: 3}
-  - {fileID: 4655967774871242519, guid: 084085f2956e94f498feabf578b30014, type: 3}
+  allAvailableStoreItems: []
   storeButtons:
   - {fileID: 1563914344}
   - {fileID: 1293722950}

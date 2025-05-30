@@ -26,6 +26,14 @@ public class StoreManager : MonoBehaviour
 
     void Start()
     {
+
+        GameObject[] objects = Resources.LoadAll<GameObject>("Objects");
+        foreach (GameObject prefab in objects)
+        {
+            allAvailableStoreItems.Add(prefab);
+            Debug.Log($"Loaded prefab: {prefab.name}");
+        }
+
         if (playerStats == null)
         {
             Debug.LogError("PlayerStats is not assigned in StoreManager!");

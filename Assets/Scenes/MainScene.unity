@@ -3376,6 +3376,9 @@ MonoBehaviour:
     Obj2Tag: Leaf
     ResultPrefab: {fileID: 1869634578200866347, guid: fd6c182924cabd448b5d55c143ee2101, type: 3}
   - Obj1Tag: Rock
+    Obj2Tag: Rock
+    ResultPrefab: {fileID: 7408208907586688709, guid: 74aac245a68648c4abcf9c16bb3e7d2b, type: 3}
+  - Obj1Tag: Rock
     Obj2Tag: Flower
     ResultPrefab: {fileID: 4870479689551863581, guid: 5ff9d3c15fd53ce44b9007d63d2d3c9e, type: 3}
   - Obj1Tag: Flower

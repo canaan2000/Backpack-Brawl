@@ -203,7 +203,7 @@ MonoBehaviour:
     clickDamage: 3
     clickPoison: 0
     clickThorns: 0
-    value: 4
+    value: 40
     singleUse: 0
     rarity: 0
     itemClass: 0

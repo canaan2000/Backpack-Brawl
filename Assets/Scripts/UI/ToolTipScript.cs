@@ -71,18 +71,6 @@ public class ToolTipScript : MonoBehaviour
                         tooltip.text += "\nClick <sprite=1> " + itemScript.itemData.clickHealing; // Healing/Health sprite 1
                     }
 
-                    if (itemScript.itemData.clickHunger > 0)
-                    {
-                        // Assuming Food/Hunger still uses text, or you'll need a sprite ID for it
-                        tooltip.text += "\nFood: " + itemScript.itemData.clickHunger;
-                    }
-
-                    if (itemScript.itemData.clickArmor > 0)
-                    {
-                        // Assuming Armor still uses text, or you'll need a sprite ID for it
-                        tooltip.text += "\nArmor: " + itemScript.itemData.clickArmor;
-                    }
-
                     if (itemScript.itemData.clickDamage > 0)
                     {
                         tooltip.text += "\nClick <sprite=0> " + itemScript.itemData.clickDamage; // Damage sprite 0

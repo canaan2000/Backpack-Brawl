@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -20,6 +21,8 @@ public class NewItemScript : MonoBehaviour
     {
         public string name;
         public string description;
+        public float cooldown;
+        public float timeRemaining;
         public float damage;
         public float armor;
         public float poison;
@@ -37,6 +40,9 @@ public class NewItemScript : MonoBehaviour
         public float value;
         public bool singleUse;
 
+        public enum DamageType { Normal, Fire, Arcane}
+        public DamageType damageType;
+
         public enum Rarity {Common, Uncommon, Rare};
         public Rarity rarity;
 
@@ -48,6 +54,13 @@ public class NewItemScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (itemData.cooldown == 0)
+        {
+            itemData.cooldown = 1;
+        }
+
+        itemData.timeRemaining = itemData.cooldown;
+
         if (itemData == null) // Check if it's already assigned (e.g., in the Inspector)
         {
             itemData = new ItemClass();

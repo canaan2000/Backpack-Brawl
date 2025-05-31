@@ -40,10 +40,9 @@ public class InventoryList : MonoBehaviour
             Stats.UpdateStats();
     }
 
-    public void StartDamageNumbers()
+    public void StartDamageNumbers(GameObject item)
     {
-        foreach (var item in inventoryList)
-        {
+        
             NewItemScript itemScript = item.GetComponent<NewItemScript>();
             if (itemScript.itemData.damage > 0)
             {
@@ -54,6 +53,6 @@ public class InventoryList : MonoBehaviour
             {
                 item.GetComponent<DamageNumberSpawner>().SpawnManaNumber();
             }
-        }
+        
     }
 }

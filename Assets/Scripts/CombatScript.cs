@@ -45,6 +45,20 @@ public class CombatScript : MonoBehaviour
     {
         if (combatTrue == true && !Input.GetKey(KeyCode.Space)) 
         {
+            foreach (var item in InventoryList.inventoryList)
+            {
+                NewItemScript itemScript = item.GetComponent<NewItemScript>();
+                itemScript.itemData.timeRemaining -= Time.deltaTime;
+
+                if (itemScript.itemData.timeRemaining < 0)
+                {
+                    itemScript.itemData.timeRemaining = itemScript.itemData.cooldown;
+                    ActivateSingleItem(itemScript);
+                }
+            }
+
+
+
             cooldown -= Time.deltaTime;
             if (cooldown <= 0 && combatTrue == true)
             {
@@ -102,26 +116,40 @@ public class CombatScript : MonoBehaviour
         RandomEvent.TriggerRandomEvent();
     }
 
-    void DealDamage()
+    void ActivateSingleItem(NewItemScript itemScript)
     {
-        float playerDamage = PlayerStats.attack;
-        float enemyDamage = EnemyStats.Attack;
-        DealPoisonDamage();
-        InventoryStats.HandleMana();
-        if (PlayerStats.stamina > 0)
         {
-            InventoryList.StartDamageNumbers();
-            
-            InventoryStats.HandleAutoStaminaUsage();
+            if (itemScript == null) return;
 
-            for (int i = 0; i < playerDamage; i++)
+            // Apply item's damage if it has any and player has stamina
+            if (itemScript.itemData.damage > 0 && PlayerStats.stamina > itemScript.itemData.staminaUsage)
             {
-                if (EnemyStats.Health > 0)
+                InventoryList.StartDamageNumbers(itemScript.gameObject);
+
+                // Apply stamina usage specific to this item
+                PlayerStats.stamina -= itemScript.itemData.autoStaminaUsage;
+
+                for (int i = 0; i < itemScript.itemData.damage; i++)
                 {
-                    EnemyStats.Health--;
+                    if (EnemyStats.Health > 0)
+                    {
+                        EnemyStats.Health--;
+                    }
                 }
             }
+
+            // Apply item's mana gain
+            if (itemScript.itemData.autoManaGain > 0)
+            {
+                PlayerStats.mana += itemScript.itemData.autoManaGain;
+            }
         }
+    }
+
+    void DealDamage()
+    {
+        float enemyDamage = EnemyStats.Attack;
+        DealPoisonDamage();
         DealThornDamage();
         
         for (int i = 0; i < enemyDamage; i++)

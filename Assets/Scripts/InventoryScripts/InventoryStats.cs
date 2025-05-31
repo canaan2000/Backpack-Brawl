@@ -24,7 +24,7 @@ public class InventoryStats : MonoBehaviour
     //updates when a new item enters inventory.
     public void UpdateStats()
     {
-        PlayerStats.attack = 1f;
+        PlayerStats.attack = 0f;
         foreach (var item in Inventory.inventoryList)
         {
             NewItemScript itemScript = item.GetComponent<NewItemScript>();
@@ -75,16 +75,6 @@ public class InventoryStats : MonoBehaviour
             NewItemScript itemScript = item.GetComponent<NewItemScript>();
 
             PlayerStats.stamina -= itemScript.itemData.autoStaminaUsage;
-        }
-    }
-
-    public void HandleMana()
-    {
-        foreach (var item in Inventory.inventoryList)
-        {
-            NewItemScript itemScript = item.GetComponent<NewItemScript>();
-
-            PlayerStats.mana += itemScript.itemData.autoManaGain;
         }
     }
 

@@ -189,21 +189,24 @@ MonoBehaviour:
   itemData:
     name: Stick
     description: 
-    damage: 0
+    cooldown: 0.75
+    timeRemaining: 0
+    damage: 1
     armor: 0
     poison: 0
     thorns: 0
     autoManaGain: 0
-    autoStaminaUsage: 0
-    staminaUsage: 0
+    autoStaminaUsage: 0.1
+    staminaUsage: 1
     clickManaUsage: 0
     clickHealing: 0
     clickHunger: 0
     clickArmor: 0
-    clickDamage: 0
+    clickDamage: 1
     clickPoison: 0
     clickThorns: 0
     value: 4
     singleUse: 0
+    damageType: 0
     rarity: 0
     itemClass: 0

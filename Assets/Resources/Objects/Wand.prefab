@@ -189,14 +189,16 @@ MonoBehaviour:
   itemData:
     name: Wand
     description: Magic
-    damage: 2
+    cooldown: 1.5
+    timeRemaining: 0
+    damage: 8
     armor: 0
     poison: 0
     thorns: 0
     autoManaGain: 1
     autoStaminaUsage: 0.5
-    staminaUsage: 0
-    clickManaUsage: 3
+    staminaUsage: 0.25
+    clickManaUsage: 4
     clickHealing: 0
     clickHunger: 0
     clickArmor: 0
@@ -205,5 +207,6 @@ MonoBehaviour:
     clickThorns: 0
     value: 0
     singleUse: 0
+    damageType: 0
     rarity: 0
     itemClass: 3

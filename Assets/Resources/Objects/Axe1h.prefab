@@ -176,22 +176,25 @@ MonoBehaviour:
   itemData:
     name: 1H Axe
     description: A weapon
+    cooldown: 1.25
+    timeRemaining: 0
     damage: 5
     armor: 0
     poison: 0
     thorns: 0
     autoManaGain: 0
-    autoStaminaUsage: 0
+    autoStaminaUsage: 2
     staminaUsage: 2
     clickManaUsage: 0
     clickHealing: 0
     clickHunger: 0
     clickArmor: 0
-    clickDamage: 3
+    clickDamage: 8
     clickPoison: 0
     clickThorns: 0
     value: 30
     singleUse: 0
+    damageType: 0
     rarity: 1
     itemClass: 1
 --- !u!114 &1951191682421341654

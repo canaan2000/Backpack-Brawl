@@ -45,6 +45,8 @@ public class ToolTipScript : MonoBehaviour
                         tooltip.text += "\n" + itemScript.itemData.description;
                     }
 
+                    tooltip.text += "\nCooldown: " + itemScript.itemData.cooldown;
+
                     if (itemScript.itemData.damage > 0)
                     {
                         tooltip.text += "\n<sprite=0> " + itemScript.itemData.damage; // Damage sprite 0
@@ -64,6 +66,10 @@ public class ToolTipScript : MonoBehaviour
                     if (itemScript.itemData.staminaUsage > 0)
                     {
                         tooltip.text += "\nClick <sprite=4> " + itemScript.itemData.staminaUsage; // Stamina sprite 4
+                    }
+                    else if (itemScript.itemData.staminaUsage < 0)
+                    {
+                        tooltip.text += "\nClick Gain <sprite=2> " + itemScript.itemData.autoManaGain;
                     }
 
                     if (itemScript.itemData.clickHealing > 0)

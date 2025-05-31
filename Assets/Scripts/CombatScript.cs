@@ -122,7 +122,7 @@ public class CombatScript : MonoBehaviour
             if (itemScript == null) return;
 
             // Apply item's damage if it has any and player has stamina
-            if (itemScript.itemData.damage > 0 && PlayerStats.stamina > itemScript.itemData.staminaUsage)
+            if (PlayerStats.stamina > itemScript.itemData.autoStaminaUsage)
             {
                 InventoryList.StartDamageNumbers(itemScript.gameObject);
 
@@ -136,13 +136,22 @@ public class CombatScript : MonoBehaviour
                         EnemyStats.Health--;
                     }
                 }
+
+                // Apply item's mana gain
+                if (itemScript.itemData.autoManaGain > 0)
+                {
+                    PlayerStats.mana += itemScript.itemData.autoManaGain;
+                }
+            }
+            else
+            {
+                GameObject DNText = Instantiate(damageNumber, damageNumberSpawner.transform.position, Quaternion.identity);
+                DNText.GetComponentInChildren<TextMeshProUGUI>().text = "Not Enough <sprite=4>";
+                DamageNumberBehavior Behavior = DNText.GetComponent<DamageNumberBehavior>();
+                DNText.GetComponent<DamageNumberBehavior>().InitialColor(Behavior.currentType = DamageNumberBehavior.numType.Healing);
             }
 
-            // Apply item's mana gain
-            if (itemScript.itemData.autoManaGain > 0)
-            {
-                PlayerStats.mana += itemScript.itemData.autoManaGain;
-            }
+            
         }
     }
 
@@ -163,10 +172,6 @@ public class CombatScript : MonoBehaviour
                 PlayerStats.health--;
             }
         }
-        
-        
-            
-        
         cooldown = attackCooldown;
     }
 

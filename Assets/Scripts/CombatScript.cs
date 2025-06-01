@@ -12,6 +12,7 @@ public class CombatScript : MonoBehaviour
     public InventoryList InventoryList;
     public PocketInventoryManager Pocket;
     public RandomEventHandler RandomEvent;
+    public EnemyInventoryScript EnemyInventory;
 
     public Button startFightButton;
 
@@ -53,10 +54,22 @@ public class CombatScript : MonoBehaviour
                 if (itemScript.itemData.timeRemaining < 0)
                 {
                     itemScript.itemData.timeRemaining = itemScript.itemData.cooldown;
-                    ActivateSingleItem(itemScript);
+                    ActivateSingleItem(itemScript, true);
                 }
             }
 
+
+            foreach (var item in EnemyInventory.enemyInventory)
+            {
+                NewItemScript itemScript = item.GetComponent<NewItemScript>();
+                itemScript.itemData.timeRemaining -= Time.deltaTime;
+
+                if (itemScript.itemData.timeRemaining < 0)
+                {
+                    itemScript.itemData.timeRemaining = itemScript.itemData.cooldown;
+                    ActivateSingleItem(itemScript, false);
+                }
+            }
 
 
             cooldown -= Time.deltaTime;
@@ -116,41 +129,57 @@ public class CombatScript : MonoBehaviour
         RandomEvent.TriggerRandomEvent();
     }
 
-    void ActivateSingleItem(NewItemScript itemScript)
+    void ActivateSingleItem(NewItemScript itemScript, bool player)
     {
         {
             if (itemScript == null) return;
 
-            // Apply item's damage if it has any and player has stamina
-            if (PlayerStats.stamina > itemScript.itemData.autoStaminaUsage)
+            //If item belongs to player
+            if (player)
             {
-                InventoryList.StartDamageNumbers(itemScript.gameObject);
+                // Apply item's damage if it has any and player has stamina
+                if (PlayerStats.stamina > itemScript.itemData.autoStaminaUsage)
+                {
+                    InventoryList.StartDamageNumbers(itemScript.gameObject);
 
-                // Apply stamina usage specific to this item
-                PlayerStats.stamina -= itemScript.itemData.autoStaminaUsage;
+                    // Apply stamina usage specific to this item
+                    PlayerStats.stamina -= itemScript.itemData.autoStaminaUsage;
+
+                    for (int i = 0; i < itemScript.itemData.damage; i++)
+                    {
+                        if (EnemyStats.Health > 0)
+                        {
+                            EnemyStats.Health--;
+                        }
+                    }
+
+                    // Apply item's mana gain
+                    if (itemScript.itemData.autoManaGain > 0)
+                    {
+                        PlayerStats.mana += itemScript.itemData.autoManaGain;
+                    }
+                }
+                else
+                {
+                    GameObject DNText = Instantiate(damageNumber, damageNumberSpawner.transform.position, Quaternion.identity);
+                    DNText.GetComponentInChildren<TextMeshProUGUI>().text = "Not Enough <sprite=4>";
+                    DamageNumberBehavior Behavior = DNText.GetComponent<DamageNumberBehavior>();
+                    DNText.GetComponent<DamageNumberBehavior>().InitialColor(Behavior.currentType = DamageNumberBehavior.numType.Healing);
+                }
+            }
+            //if item does not belong to player
+            else
+            {
+                EnemyInventory.StartDamageNumbers(itemScript.gameObject);
 
                 for (int i = 0; i < itemScript.itemData.damage; i++)
                 {
-                    if (EnemyStats.Health > 0)
+                    if (PlayerStats.health > 0)
                     {
-                        EnemyStats.Health--;
+                        PlayerStats.health--;
                     }
                 }
-
-                // Apply item's mana gain
-                if (itemScript.itemData.autoManaGain > 0)
-                {
-                    PlayerStats.mana += itemScript.itemData.autoManaGain;
-                }
             }
-            else
-            {
-                GameObject DNText = Instantiate(damageNumber, damageNumberSpawner.transform.position, Quaternion.identity);
-                DNText.GetComponentInChildren<TextMeshProUGUI>().text = "Not Enough <sprite=4>";
-                DamageNumberBehavior Behavior = DNText.GetComponent<DamageNumberBehavior>();
-                DNText.GetComponent<DamageNumberBehavior>().InitialColor(Behavior.currentType = DamageNumberBehavior.numType.Healing);
-            }
-
             
         }
     }
@@ -188,6 +217,18 @@ public class CombatScript : MonoBehaviour
             PDN.GetComponent<DamageNumberBehavior>().InitialColor(Behavior.currentType = DamageNumberBehavior.numType.Poison);
             EnemyStats.Poison -= 1;
         }
+
+        if (PlayerStats.poison > 0) 
+        {
+            PlayerStats.health -= PlayerStats.poison;
+
+            //damageNumber
+            GameObject PDN = Instantiate(damageNumber, damageNumberSpawner.transform.position, Quaternion.identity);
+            PDN.GetComponentInChildren<TextMeshProUGUI>().text = EnemyStats.Poison.ToString() + "<sprite=3>";
+            DamageNumberBehavior Behavior = PDN.GetComponent<DamageNumberBehavior>();
+            PDN.GetComponent<DamageNumberBehavior>().InitialColor(Behavior.currentType = DamageNumberBehavior.numType.Poison);
+            PlayerStats.poison -= 1;
+        }
     }
 
     void DealThornDamage()
@@ -202,5 +243,7 @@ public class CombatScript : MonoBehaviour
             DamageNumberBehavior Behavior = TDN.GetComponent<DamageNumberBehavior>();
             TDN.GetComponent<DamageNumberBehavior>().InitialColor(Behavior.currentType = DamageNumberBehavior.numType.Thorns);
         }
+
+        //Add enemy Thorns..
     }
 }

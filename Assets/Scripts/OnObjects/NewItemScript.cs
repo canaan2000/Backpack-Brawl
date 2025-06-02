@@ -9,7 +9,6 @@ using UnityEngine;
 [RequireComponent(typeof(OnMergeScript))]
 [RequireComponent(typeof(OnClickManager))]
 [RequireComponent(typeof(CollisionDetector))]
-[RequireComponent(typeof(MeshCollider))]
 [RequireComponent(typeof(DamageNumberSpawner))]
 
 

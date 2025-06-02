@@ -149,6 +149,8 @@ MonoBehaviour:
   itemData:
     name: Shield
     description: Block em
+    cooldown: 0
+    timeRemaining: 0
     damage: 0
     armor: 20
     poison: 0
@@ -165,6 +167,7 @@ MonoBehaviour:
     clickThorns: 0
     value: 15
     singleUse: 0
+    damageType: 0
     rarity: 1
     itemClass: 0
 --- !u!114 &4200038387159553450

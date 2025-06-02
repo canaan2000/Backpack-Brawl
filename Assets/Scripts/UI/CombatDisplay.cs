@@ -47,7 +47,7 @@ public class CombatDisplay : MonoBehaviour
         if (CombatScript.combatTrue == true)
         {
             attackCooldownDis.SetActive(true);
-            Vector3 newScale = new Vector3(Mathf.Lerp(0, 1, CombatScript.cooldown / CombatScript.attackCooldown), normalScale.y, normalScale.z);
+            Vector3 newScale = new Vector3(Mathf.Lerp(0, 1, CombatScript.cooldown / CombatScript.globalCooldown), normalScale.y, normalScale.z);
             attackCooldownDis.transform.localScale = newScale;
 
             //if combat is active the display the clickcooldown

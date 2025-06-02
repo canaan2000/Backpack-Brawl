@@ -280,6 +280,8 @@ MonoBehaviour:
   itemData:
     name: Ore
     description: You could make ingots out of this.
+    cooldown: 0
+    timeRemaining: 0
     damage: 1
     armor: 0
     poison: 0
@@ -296,6 +298,7 @@ MonoBehaviour:
     clickThorns: 0
     value: 7
     singleUse: 0
+    damageType: 0
     rarity: 0
     itemClass: 0
 --- !u!114 &-1424563954530645169

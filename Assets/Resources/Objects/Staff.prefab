@@ -189,6 +189,8 @@ MonoBehaviour:
   itemData:
     name: Staff
     description: Can beat things
+    cooldown: 0
+    timeRemaining: 0
     damage: 2
     armor: 0
     poison: 0
@@ -205,5 +207,6 @@ MonoBehaviour:
     clickThorns: 0
     value: 10
     singleUse: 0
+    damageType: 0
     rarity: 0
     itemClass: 0

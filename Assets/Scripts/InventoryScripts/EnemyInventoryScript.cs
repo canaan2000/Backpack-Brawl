@@ -8,19 +8,35 @@ public class EnemyInventoryScript : MonoBehaviour
 
     public List<GameObject> enemyInventory = new List<GameObject>();
 
+    public EnemyScript enemyScript;
+
     public GameObject enemySpawner;
+
+    public CombatScript combatScript;
+
+    public float spawnCooldown = 5f;
+    public float spawnTime;
+    public int indexToSpawn;
     // Start is called before the first frame update
     void Start()
     {
-        foreach (GameObject item in itemsToSpawn) 
-        {
-            Instantiate(item, enemySpawner.transform.position, Quaternion.identity);
-        }
+        spawnTime = spawnCooldown;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (combatScript.combatTrue)
+        {
+            spawnTime -= Time.deltaTime;
+            if (spawnTime < 0)
+            {
+                spawnTime = spawnCooldown;
+                indexToSpawn++;
+                Instantiate(itemsToSpawn[indexToSpawn], enemySpawner.transform.position, Quaternion.identity);
+            }
+        }
+
 
         if (enemyInventory != null)
         {
@@ -36,6 +52,9 @@ public class EnemyInventoryScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+        enemyScript.Attack += collision.GetComponent<NewItemScript>().itemData.damage;
+
+
         if (!enemyInventory.Contains(collision.gameObject))
         {
             enemyInventory.Add(collision.gameObject);
@@ -56,5 +75,15 @@ public class EnemyInventoryScript : MonoBehaviour
             item.GetComponent<DamageNumberSpawner>().SpawnManaNumber();
         }
 
+    }
+
+    public void FindEnemy()
+    {
+        enemyScript = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyScript>();
+    }
+
+    public void SpawnEnemyItem()
+    {
+        Instantiate(itemsToSpawn[0], enemySpawner.transform.position, Quaternion.identity);
     }
 }

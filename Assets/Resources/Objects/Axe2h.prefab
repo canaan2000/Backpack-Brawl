@@ -176,6 +176,8 @@ MonoBehaviour:
   itemData:
     name: 2H Axe
     description: A weapon
+    cooldown: 0
+    timeRemaining: 0
     damage: 7
     armor: 0
     poison: 0
@@ -192,6 +194,7 @@ MonoBehaviour:
     clickThorns: 0
     value: 50
     singleUse: 0
+    damageType: 0
     rarity: 1
     itemClass: 1
 --- !u!114 &5217630276065743300

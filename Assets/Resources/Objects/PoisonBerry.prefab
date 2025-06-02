@@ -119,6 +119,8 @@ MonoBehaviour:
   itemData:
     name: Poison Berry
     description: Not so yummy
+    cooldown: 0
+    timeRemaining: 0
     damage: 0
     armor: 0
     poison: 5
@@ -135,6 +137,7 @@ MonoBehaviour:
     clickThorns: 0
     value: 2
     singleUse: 1
+    damageType: 0
     rarity: 0
     itemClass: 0
 --- !u!64 &7010517976325496168

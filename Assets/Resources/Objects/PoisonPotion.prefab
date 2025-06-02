@@ -127,6 +127,8 @@ MonoBehaviour:
   itemData:
     name: Poison Potion
     description: 
+    cooldown: 0
+    timeRemaining: 0
     damage: 0
     armor: 0
     poison: 0
@@ -143,6 +145,7 @@ MonoBehaviour:
     clickThorns: 0
     value: 25
     singleUse: 1
+    damageType: 0
     rarity: 1
     itemClass: 0
 --- !u!114 &2610609625721234311
@@ -158,11 +161,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageNumber: {fileID: 5262715178686733786, guid: ad42eb14fccf9bb41a5fa504cfee7fb3, type: 3}
-  floatingNumberColor:
-  - {r: 1, g: 0.009137107, b: 0, a: 1}
-  - {r: 0.8207547, g: 0.112273075, b: 0.64108133, a: 1}
-  - {r: 0.11173906, g: 0.8773585, b: 0.12588793, a: 1}
-  - {r: 0, g: 0.41398382, b: 1, a: 1}
 --- !u!1 &5767179004397596705
 GameObject:
   m_ObjectHideFlags: 0

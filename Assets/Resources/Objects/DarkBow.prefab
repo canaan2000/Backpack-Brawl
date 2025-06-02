@@ -189,6 +189,8 @@ MonoBehaviour:
   itemData:
     name: Dark Bow
     description: A bow of darkness
+    cooldown: 0
+    timeRemaining: 0
     damage: 5
     armor: 0
     poison: 3
@@ -205,5 +207,6 @@ MonoBehaviour:
     clickThorns: 0
     value: 27
     singleUse: 0
+    damageType: 0
     rarity: 0
     itemClass: 0

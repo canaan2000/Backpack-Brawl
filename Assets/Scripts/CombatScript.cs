@@ -22,11 +22,11 @@ public class CombatScript : MonoBehaviour
     public GameObject damageNumberSpawner;
     public GameObject thornsDamageNumberSpawner;
 
-    public float attackCooldown = 1f;
+    public float globalCooldown = 1f;
     public float cooldown = 0;
 
     public float scalePercent = .3f;
-    public float baseAttack = 2;
+    //public float baseAttack = 2;
     public float baseHealth = 30f;
 
     public int level = 1;
@@ -92,13 +92,15 @@ public class CombatScript : MonoBehaviour
 
     
 
-    //NAME ENEMIES "ENEMY"
     public void FightStart()
     {
         Instantiate(enemy);
 
+        EnemyInventory.FindEnemy();
+        EnemyInventory.SpawnEnemyItem();
+
         EnemyStats = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyScript>();
-        EnemyStats.Attack = baseAttack * Mathf.Pow(1 + scalePercent, level - 1);
+        //EnemyStats.Attack = baseAttack * Mathf.Pow(1 + scalePercent, level - 1); //Made more item oritented
         EnemyStats.Health = baseHealth * Mathf.Pow(1 + scalePercent, level - 1);
         EnemyStats.Poison = InventoryStats.UpdatePoisonStats();
 
@@ -115,6 +117,11 @@ public class CombatScript : MonoBehaviour
     void FightEnd()
     {
         Destroy(EnemyStats.gameObject);
+
+        foreach (var item in EnemyInventory.enemyInventory)
+        {
+            Destroy(item);
+        }
 
         PlayerStats.thorns = 0f;
 
@@ -186,22 +193,10 @@ public class CombatScript : MonoBehaviour
 
     void DealDamage()
     {
-        float enemyDamage = EnemyStats.Attack;
         DealPoisonDamage();
         DealThornDamage();
         
-        for (int i = 0; i < enemyDamage; i++)
-        {
-            if (PlayerStats.armor > 0)
-            {
-                PlayerStats.armor--;
-            }
-            else
-            {
-                PlayerStats.health--;
-            }
-        }
-        cooldown = attackCooldown;
+        cooldown = globalCooldown;
     }
 
     void DealPoisonDamage()
@@ -224,7 +219,7 @@ public class CombatScript : MonoBehaviour
 
             //damageNumber
             GameObject PDN = Instantiate(damageNumber, damageNumberSpawner.transform.position, Quaternion.identity);
-            PDN.GetComponentInChildren<TextMeshProUGUI>().text = EnemyStats.Poison.ToString() + "<sprite=3>";
+            PDN.GetComponentInChildren<TextMeshProUGUI>().text = PlayerStats.poison.ToString() + "<sprite=3>";
             DamageNumberBehavior Behavior = PDN.GetComponent<DamageNumberBehavior>();
             PDN.GetComponent<DamageNumberBehavior>().InitialColor(Behavior.currentType = DamageNumberBehavior.numType.Poison);
             PlayerStats.poison -= 1;

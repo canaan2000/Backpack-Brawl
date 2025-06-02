@@ -150,6 +150,8 @@ MonoBehaviour:
   itemData:
     name: Ingot
     description: Fancy~
+    cooldown: 0
+    timeRemaining: 0
     damage: 3
     armor: 2
     poison: 0
@@ -166,6 +168,7 @@ MonoBehaviour:
     clickThorns: 0
     value: 10
     singleUse: 0
+    damageType: 0
     rarity: 1
     itemClass: 1
 --- !u!114 &263160810586300495

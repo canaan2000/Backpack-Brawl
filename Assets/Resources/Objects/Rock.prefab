@@ -189,7 +189,7 @@ MonoBehaviour:
   itemData:
     name: Rock
     description: Rocky
-    cooldown: 0.75
+    cooldown: 2
     timeRemaining: 0
     damage: 1
     armor: 5

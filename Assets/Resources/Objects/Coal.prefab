@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData:
     name: Coal
-    description: 
+    description: Hot coals
     cooldown: 0
     timeRemaining: 0
     damage: 1

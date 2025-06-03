@@ -207,6 +207,6 @@ MonoBehaviour:
     clickThorns: 0
     value: 0
     singleUse: 0
-    damageType: 0
+    damageType: 2
     rarity: 0
     itemClass: 3

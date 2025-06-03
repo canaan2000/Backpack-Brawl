@@ -196,7 +196,7 @@ MonoBehaviour:
     poison: 3
     thorns: 0
     autoManaGain: 0
-    autoStaminaUsage: 0
+    autoStaminaUsage: 2
     staminaUsage: 2
     clickManaUsage: 0
     clickHealing: 0

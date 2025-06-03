@@ -9,6 +9,9 @@ public class EnemyScript : MonoBehaviour
     public float Attack;
     public float Health;
     public float Poison;
+    public float stamina;
+    public float maxStamina = 10f;
+    public float mana;
     
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,16 @@ public class EnemyScript : MonoBehaviour
         if (Poison < 0) 
         {
             Poison = 0;
+        }
+
+
+        if (stamina <= maxStamina && !Input.GetKey(KeyCode.Space))
+        {
+            stamina += Time.deltaTime;
+        }
+        if (stamina > maxStamina)
+        {
+            stamina = maxStamina;
         }
     }
 }

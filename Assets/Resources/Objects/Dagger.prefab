@@ -461,13 +461,13 @@ MonoBehaviour:
   itemData:
     name: Dagger
     description: Pointy Stabby
-    cooldown: 0
+    cooldown: 0.25
     timeRemaining: 0
     damage: 1
     armor: 0
     poison: 0
     thorns: 0
-    autoManaGain: 0
+    autoManaGain: 0.1
     autoStaminaUsage: 0
     staminaUsage: 0.25
     clickManaUsage: 0

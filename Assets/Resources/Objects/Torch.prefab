@@ -165,6 +165,8 @@ MonoBehaviour:
   itemData:
     name: Torch
     description: Don't touch the hot end.
+    cooldown: 0
+    timeRemaining: 0
     damage: 3
     armor: 0
     poison: 0
@@ -181,6 +183,7 @@ MonoBehaviour:
     clickThorns: 0
     value: 10
     singleUse: 0
+    damageType: 0
     rarity: 1
     itemClass: 0
 --- !u!114 &-378820468843637746
@@ -208,11 +211,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageNumber: {fileID: 5262715178686733786, guid: ad42eb14fccf9bb41a5fa504cfee7fb3, type: 3}
-  floatingNumberColor:
-  - {r: 1, g: 0.009137107, b: 0, a: 1}
-  - {r: 0.8207547, g: 0.112273075, b: 0.64108133, a: 1}
-  - {r: 0.11173906, g: 0.8773585, b: 0.12588793, a: 1}
-  - {r: 0, g: 0.41398382, b: 1, a: 1}
 --- !u!1 &7980327791504779189
 GameObject:
   m_ObjectHideFlags: 0

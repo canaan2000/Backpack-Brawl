@@ -97,7 +97,7 @@ public class CombatScript : MonoBehaviour
         Instantiate(enemy);
 
         EnemyInventory.FindEnemy();
-        EnemyInventory.SpawnEnemyItem();
+        //EnemyInventory.SpawnEnemyItem();
 
         EnemyStats = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyScript>();
         //EnemyStats.Attack = baseAttack * Mathf.Pow(1 + scalePercent, level - 1); //Made more item oritented
@@ -117,6 +117,8 @@ public class CombatScript : MonoBehaviour
     void FightEnd()
     {
         Destroy(EnemyStats.gameObject);
+
+        EnemyInventory.GenerateItemList();
 
         foreach (var item in EnemyInventory.enemyInventory)
         {
@@ -165,6 +167,12 @@ public class CombatScript : MonoBehaviour
                     {
                         PlayerStats.mana += itemScript.itemData.autoManaGain;
                     }
+
+                    //Auto Heal
+                    if (itemScript.itemData.autoHeal > 0)
+                    {
+                        PlayerStats.health += itemScript.itemData.autoHeal;
+                    }
                 }
                 else
                 {
@@ -177,14 +185,48 @@ public class CombatScript : MonoBehaviour
             //if item does not belong to player
             else
             {
-                EnemyInventory.StartDamageNumbers(itemScript.gameObject);
-
-                for (int i = 0; i < itemScript.itemData.damage; i++)
+                // Apply item's damage if it has any and enemy has stamina
+                // This code assumes it's part of a larger class that has access to itemScript,
+                // InventoryList, EnemyStats, PlayerStats, damageNumber, and damageNumberSpawner.
+                if (EnemyStats.stamina > itemScript.itemData.autoStaminaUsage)
                 {
-                    if (PlayerStats.health > 0)
+                    // Assuming StartDamageNumbers is a static method in InventoryList
+                    // and it handles damage numbers for the target (which is now the Player).
+                    InventoryList.StartDamageNumbers(itemScript.gameObject); // Still pass the item's game object
+
+                    // Apply stamina usage specific to this item to the Enemy
+                    EnemyStats.stamina -= itemScript.itemData.autoStaminaUsage;
+
+                    // Enemy deals damage to the Player
+                    for (int i = 0; i < itemScript.itemData.damage; i++)
                     {
-                        PlayerStats.health--;
+                        if (PlayerStats.health > 0) // Check Player's Health
+                        {
+                            PlayerStats.health--; // Reduce Player's Health
+                        }
                     }
+
+                    // Apply item's mana gain to the Enemy
+                    if (itemScript.itemData.autoManaGain > 0)
+                    {
+                        EnemyStats.mana += itemScript.itemData.autoManaGain; // Enemy gains mana
+                    }
+
+                    // Auto Heal for the Enemy
+                    if (itemScript.itemData.autoHeal > 0)
+                    {
+                        EnemyStats.Health += itemScript.itemData.autoHeal; // Enemy heals itself
+                    }
+                }
+                else // If enemy does not have enough stamina
+                {
+                    // Instantiate a damage number text for the enemy (e.g., above the enemy)
+                    // You might need to adjust the position (damageNumberSpawner.transform.position)
+                    // to be relative to the enemy's position for better visual feedback.
+                    GameObject DNText = Instantiate(damageNumber, damageNumberSpawner.transform.position, Quaternion.identity);
+                    DNText.GetComponentInChildren<TextMeshProUGUI>().text = "Enemy: Not Enough <sprite=4>"; // Message for enemy
+                    DamageNumberBehavior Behavior = DNText.GetComponent<DamageNumberBehavior>();
+                    DNText.GetComponent<DamageNumberBehavior>().InitialColor(Behavior.currentType = DamageNumberBehavior.numType.Healing); // Or a different color for "not enough"
                 }
             }
             

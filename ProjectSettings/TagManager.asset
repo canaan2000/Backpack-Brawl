@@ -23,6 +23,7 @@ TagManager:
   - OreTag
   - CoalTag
   - TorchTag
+  - EnemyItem
   layers:
   - Default
   - TransparentFX

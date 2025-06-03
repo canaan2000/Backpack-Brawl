@@ -54,14 +54,14 @@ public class DisplayPlayerStats : MonoBehaviour
     void Update()
     {
         // Display updates for all stats
-        if (healthDisp != null) healthDisp.text = PlayerStats.health.ToString("<sprite=1> 0");
-        if (armorDisp != null) armorDisp.text = PlayerStats.armor.ToString("Armor: 0");
-        if (moneyDisp != null) moneyDisp.text = PlayerStats.money.ToString("$0");
-        if (attackDisp != null) attackDisp.text = PlayerStats.attack.ToString("<sprite=0> 0.0");
-        if (staminaDisp != null) staminaDisp.text = PlayerStats.stamina.ToString("<sprite=4> 0.000");
-        if (poisonDisp != null) poisonDisp.text = PlayerStats.poison.ToString("<sprite=3> 0");
-        if (manaDisp != null) manaDisp.text = PlayerStats.mana.ToString("<sprite=2> 0");
-        if (thornsDisp != null) thornsDisp.text = PlayerStats.thorns.ToString("<sprite=5> 0");
+        if (healthDisp != null) healthDisp.text = $"<sprite=1>{PlayerStats.health:0}";
+        if (armorDisp != null) armorDisp.text = $"Armor: {PlayerStats.armor:0}";
+        if (moneyDisp != null) moneyDisp.text = $"${PlayerStats.money:0}";
+        if (attackDisp != null) attackDisp.text = $"<sprite=0>{PlayerStats.attack:0.0}"; // Assuming <sprite=0> for attack
+        if (staminaDisp != null) staminaDisp.text = $"<sprite=4>{PlayerStats.stamina:0.000}";
+        if (poisonDisp != null) poisonDisp.text = $"<sprite=3>{PlayerStats.poison:0}";
+        if (manaDisp != null) manaDisp.text = $"<sprite=2>{PlayerStats.mana:0}";
+        if (thornsDisp != null) thornsDisp.text = $"<sprite=5>{PlayerStats.thorns:0}";
 
         // Health Flash
         if (healthDisp != null && lastHealth > PlayerStats.health)

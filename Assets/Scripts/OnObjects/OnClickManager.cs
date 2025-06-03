@@ -39,6 +39,11 @@ public class OnClickManager : MonoBehaviour
         {
             cooldown -= Time.deltaTime;
         }
+
+        if (this.tag == "EnemyItem")
+        {
+            EnemyClick();
+        }
     }
 
     //What an object does when clicked.
@@ -46,7 +51,7 @@ public class OnClickManager : MonoBehaviour
     {
         
         NewItemScript itemScript = gameObject.GetComponent<NewItemScript>();
-        if (Combat.PlayerStats.stamina >= itemScript.itemData.staminaUsage && Combat.PlayerStats.mana >= itemScript.itemData.clickManaUsage && Combat.combatTrue == true)
+        if (Combat.PlayerStats.stamina >= itemScript.itemData.staminaUsage && Combat.PlayerStats.mana >= itemScript.itemData.clickManaUsage && Combat.combatTrue == true && this.tag != "EnemyItem")
         {
             readyToClick = false;
             Combat.PlayerStats.armor += itemScript.itemData.clickArmor;
@@ -64,5 +69,41 @@ public class OnClickManager : MonoBehaviour
             }
         }
 
+    }
+
+    private void EnemyClick()
+    {
+        NewItemScript itemScript = gameObject.GetComponent<NewItemScript>();
+
+        // Check if the enemy has enough stamina and mana, if combat is active,
+        // and if the item is specifically tagged as an "EnemyItem".
+        if (Combat.EnemyStats.stamina >= itemScript.itemData.staminaUsage &&
+            Combat.EnemyStats.mana >= itemScript.itemData.clickManaUsage &&
+            Combat.combatTrue == true &&
+            this.tag == "EnemyItem") // Condition changed for enemy item
+        {
+            // Set readyToClick to false to prevent immediate re-use.
+            // (Assuming readyToClick is a member variable of the class this code is in)
+            readyToClick = false;
+
+            // Apply item effects to the Player (since it's an enemy item)
+            Combat.PlayerStats.armor += itemScript.itemData.clickArmor;
+            Combat.PlayerStats.health -= itemScript.itemData.clickDamage; // Enemy deals damage to Player
+            Combat.PlayerStats.poison += itemScript.itemData.clickPoison; // Enemy applies poison to Player
+            Combat.EnemyStats.Health += itemScript.itemData.clickHealing; // Enemy heals itself
+
+            // Deduct stamina and mana from the Enemy
+            Combat.EnemyStats.stamina -= itemScript.itemData.staminaUsage;
+            Combat.EnemyStats.mana -= itemScript.itemData.clickManaUsage;
+
+            // Call the number spawner (assuming this is for visual feedback like damage numbers)
+            NumberSpawner.OnClickSpawnNumber();
+
+            // If the item is single-use, destroy the GameObject after use.
+            if (itemScript.itemData.singleUse == true)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

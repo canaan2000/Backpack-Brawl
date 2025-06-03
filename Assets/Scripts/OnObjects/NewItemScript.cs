@@ -26,6 +26,7 @@ public class NewItemScript : MonoBehaviour
         public float armor;
         public float poison;
         public float thorns;
+        public float autoHeal;
         public float autoManaGain;
         public float autoStaminaUsage;
         public float staminaUsage;

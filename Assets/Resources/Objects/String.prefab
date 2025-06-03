@@ -189,9 +189,9 @@ MonoBehaviour:
   itemData:
     name: String
     description: 
-    cooldown: 0
+    cooldown: 2
     timeRemaining: 0
-    damage: 0
+    damage: 1
     armor: 0
     poison: 0
     thorns: 0

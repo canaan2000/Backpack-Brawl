@@ -30,7 +30,7 @@ public class InventoryStats : MonoBehaviour
             NewItemScript itemScript = item.GetComponent<NewItemScript>();
             if (itemScript != null)
             {
-                PlayerStats.attack += itemScript.itemData.damage;
+                PlayerStats.attack += itemScript.itemData.damage / itemScript.itemData.cooldown;
             }
         }
 
@@ -39,7 +39,7 @@ public class InventoryStats : MonoBehaviour
             NewItemScript storedItemScript = storedItem.GetComponent<NewItemScript>();
             if (storedItemScript != null)
             {
-                PlayerStats.attack += storedItemScript.itemData.damage;
+                PlayerStats.attack += storedItemScript.itemData.damage / storedItemScript.itemData.cooldown;
             }
         }
     }

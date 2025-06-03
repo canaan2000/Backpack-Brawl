@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerStats: {fileID: 0}
-  Attack: 2
+  Attack: 0
   Health: 100
   Poison: 0

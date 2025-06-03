@@ -7,9 +7,9 @@ public class OnClickManager : MonoBehaviour
     public CombatScript Combat;
     public DamageNumberSpawner NumberSpawner;
 
-    private float clickCooldown = 1f;
+    public float clickCooldown = 1f;
     public bool readyToClick = true;
-    float cooldown;
+    public float cooldown;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +26,10 @@ public class OnClickManager : MonoBehaviour
         if (cooldown <= 0)
         {
             readyToClick = true;
+            if (this.transform.tag == "EnemyTag")
+            {
+                EnemyClick();
+            }
             cooldown = clickCooldown;
         }
 
@@ -39,33 +43,30 @@ public class OnClickManager : MonoBehaviour
         {
             cooldown -= Time.deltaTime;
         }
-
-        if (this.tag == "EnemyItem")
-        {
-            EnemyClick();
-        }
     }
 
     //What an object does when clicked.
     private void OnMouseDown()
     {
-        
-        NewItemScript itemScript = gameObject.GetComponent<NewItemScript>();
-        if (Combat.PlayerStats.stamina >= itemScript.itemData.staminaUsage && Combat.PlayerStats.mana >= itemScript.itemData.clickManaUsage && Combat.combatTrue == true && this.tag != "EnemyItem")
+        if (readyToClick)
         {
-            readyToClick = false;
-            Combat.PlayerStats.armor += itemScript.itemData.clickArmor;
-            Combat.EnemyStats.Health -= itemScript.itemData.clickDamage;
-            Combat.EnemyStats.Poison += itemScript.itemData.clickPoison;
-            Combat.PlayerStats.health += itemScript.itemData.clickHealing;
-
-            Combat.PlayerStats.stamina -= itemScript.itemData.staminaUsage;
-            Combat.PlayerStats.mana -= itemScript.itemData.clickManaUsage;
-
-            NumberSpawner.OnClickSpawnNumber();
-            if (itemScript.itemData.singleUse == true)
+            NewItemScript itemScript = gameObject.GetComponent<NewItemScript>();
+            if (Combat.PlayerStats.stamina >= itemScript.itemData.staminaUsage && Combat.PlayerStats.mana >= itemScript.itemData.clickManaUsage && Combat.combatTrue == true && this.tag != "EnemyItem")
             {
-                Destroy(gameObject);
+                readyToClick = false;
+                Combat.PlayerStats.armor += itemScript.itemData.clickArmor;
+                Combat.EnemyStats.Health -= itemScript.itemData.clickDamage;
+                Combat.EnemyStats.Poison += itemScript.itemData.clickPoison;
+                Combat.PlayerStats.health += itemScript.itemData.clickHealing;
+
+                Combat.PlayerStats.stamina -= itemScript.itemData.staminaUsage;
+                Combat.PlayerStats.mana -= itemScript.itemData.clickManaUsage;
+
+                NumberSpawner.OnClickSpawnNumber();
+                if (itemScript.itemData.singleUse == true)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
 

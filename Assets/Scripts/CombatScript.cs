@@ -188,8 +188,6 @@ public class CombatScript : MonoBehaviour
             else
             {
                 // Apply item's damage if it has any and enemy has stamina
-                // This code assumes it's part of a larger class that has access to itemScript,
-                // InventoryList, EnemyStats, PlayerStats, damageNumber, and damageNumberSpawner.
                 if (EnemyStats.stamina > itemScript.itemData.autoStaminaUsage)
                 {
                     // Assuming StartDamageNumbers is a static method in InventoryList
@@ -202,9 +200,13 @@ public class CombatScript : MonoBehaviour
                     // Enemy deals damage to the Player
                     for (int i = 0; i < itemScript.itemData.damage; i++)
                     {
-                        if (PlayerStats.health > 0) // Check Player's Health
+                        if (PlayerStats.armor > 0) // Check Player's Health
                         {
-                            PlayerStats.health--; // Reduce Player's Health
+                            PlayerStats.armor--; // Reduce Player's Health
+                        }
+                        else
+                        {
+                            PlayerStats.health--;
                         }
                     }
 

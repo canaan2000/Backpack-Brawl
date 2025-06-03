@@ -165,6 +165,7 @@ MonoBehaviour:
     armor: 0
     poison: 0
     thorns: 0
+    autoHeal: 0
     autoManaGain: 0
     autoStaminaUsage: 0
     staminaUsage: 0
@@ -203,7 +204,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: f86a0e8e0d5a95648928d733cc3834f1, type: 3}
 --- !u!114 &6676243276976984435

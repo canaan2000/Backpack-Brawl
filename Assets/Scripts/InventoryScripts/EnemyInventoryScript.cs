@@ -48,8 +48,6 @@ public class EnemyInventoryScript : MonoBehaviour
                 rareItems.Add(item);
             }
         }
-
-        GenerateItemList();
     }
 
     // Update is called once per frame

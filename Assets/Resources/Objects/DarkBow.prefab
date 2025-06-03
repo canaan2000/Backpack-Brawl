@@ -195,6 +195,7 @@ MonoBehaviour:
     armor: 0
     poison: 3
     thorns: 0
+    autoHeal: 0
     autoManaGain: 0
     autoStaminaUsage: 2
     staminaUsage: 2

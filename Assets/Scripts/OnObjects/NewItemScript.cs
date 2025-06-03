@@ -40,7 +40,7 @@ public class NewItemScript : MonoBehaviour
         public float value;
         public bool singleUse;
 
-        public enum DamageType { Normal, Fire, Arcane}
+        public enum DamageType { None, Melee, Ranged, Fire, Arcane}
         public DamageType damageType;
 
         public enum Rarity {Common, Uncommon, Rare};

@@ -22,7 +22,7 @@ public class CollisionDetector : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag != "Floor" && collision.transform.tag != "Backpack")   
+        if (collision.transform.tag != "Floor" && collision.transform.tag != "Backpack" && collision.transform.tag != "EnemyItem")   
         {
             GameObject Obj1 = this.gameObject;
             GameObject Obj2 = collision.gameObject;

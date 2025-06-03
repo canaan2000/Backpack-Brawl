@@ -12,6 +12,7 @@ public class EnemyScript : MonoBehaviour
     public float stamina;
     public float maxStamina = 10f;
     public float mana;
+    public float thorns;
     
     // Start is called before the first frame update
     void Start()

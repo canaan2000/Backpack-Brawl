@@ -10,10 +10,14 @@ public class CombatDisplay : MonoBehaviour
 
     public GameObject attackCooldownDis;
 
-    public GameObject clickCooldownDis;
+    public TextMeshProUGUI enemyStamina;
+    public TextMeshProUGUI enemyMana;
+    public TextMeshProUGUI enemyThorns;
 
     public TextMeshProUGUI enemyHealth;
     public TextMeshProUGUI enemyDamage;
+
+    bool enemyFound = false;
 
     Vector3 normalScale;
     // Start is called before the first frame update
@@ -28,19 +32,34 @@ public class CombatDisplay : MonoBehaviour
     {
         if (CombatScript.combatTrue == true && CombatScript.EnemyStats != null) 
         {
-            enemyHealth.enabled = true;
-            enemyDamage.enabled = true;
+           
+            
+                enemyHealth.enabled = true;
+                enemyDamage.enabled = true;
+                enemyMana.enabled = true;
+                enemyThorns.enabled = true;
+                enemyStamina.enabled = true;
 
-            enemyHealth.text = $"<sprite=1> {CombatScript.EnemyStats.Health:0}";
-            enemyHealth.color = Color.red;
+                enemyHealth.text = $"<sprite=1> {CombatScript.EnemyStats.Health:0}";
+                enemyHealth.color = Color.red;
 
-            enemyDamage.text = $"<sprite=0> {CombatScript.EnemyStats.Attack:0}";
+                enemyDamage.text = $"<sprite=0> {CombatScript.EnemyStats.Attack:0}";
+
+                enemyStamina.text = $"<sprite=4> {CombatScript.EnemyStats.stamina:0.000}";
+
+                enemyThorns.text = $"<sprite=5> {CombatScript.EnemyStats.thorns:0}";
+
+                enemyMana.text = $"<sprite=2> {CombatScript.EnemyStats.mana:0}";
+            
 
         }   
         else
         {
             enemyHealth.enabled = false;
             enemyDamage.enabled = false;
+            enemyMana.enabled = false;
+            enemyThorns.enabled = false;
+            enemyStamina.enabled = false;
         }
 
         //Activate and set size of attack cooldown display.

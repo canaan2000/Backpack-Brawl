@@ -39,7 +39,9 @@ public class NewItemScript : MonoBehaviour
         public float clickThorns;
         public float value;
         public bool singleUse;
-
+        public bool additionMergeItem;
+        public float gainAmount;
+        
         public enum DamageType { None, Melee, Ranged, Fire, Arcane}
         public DamageType damageType;
 
@@ -48,6 +50,8 @@ public class NewItemScript : MonoBehaviour
 
         public enum Class { Basic , Warrior, Rogue, Mage};
         public Class itemClass;
+        public enum GainType { NA, Damage, Stamina, Speed }
+        public GainType gainType;
     }
 
     public ItemClass itemData;

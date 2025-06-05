@@ -6,6 +6,7 @@ using UnityEngine;
 public class MergeMathScript : MonoBehaviour
 {
     public InventoryList Inventory;
+    public EnemyInventoryScript EnemyInventory;
 
     public GameObject Obj1;
     public GameObject Obj2;
@@ -46,7 +47,13 @@ public class MergeMathScript : MonoBehaviour
             GameObject newObject = Instantiate(result, newPos, Quaternion.identity);
             newObject.GetComponent<OnMergeScript>().OnMerge();
             newObject.name = newName;
-            if (!Inventory.inventoryList.Contains(newObject))
+            if (merge1.tag == "EnemyItem" && merge2.tag == "EnemyItem")
+            {
+                newObject.tag = "EnemyItem";
+                EnemyInventory.enemyInventory.Add(newObject);
+
+            }
+            else if (!Inventory.inventoryList.Contains(newObject))
             {
                 Inventory.inventoryList.Add(newObject);
             }

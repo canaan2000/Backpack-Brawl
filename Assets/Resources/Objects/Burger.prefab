@@ -180,12 +180,12 @@ MonoBehaviour:
     clickThorns: 0
     value: 25
     singleUse: 1
-    additionMergeItem: 1
+    additionMergeItem: 0
     gainAmount: 1
-    damageType: 1
+    damageType: 0
     rarity: 2
     itemClass: 0
-    gainType: 1
+    gainType: 0
 --- !u!114 &-3187657687565404435
 MonoBehaviour:
   m_ObjectHideFlags: 0

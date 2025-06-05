@@ -34,7 +34,7 @@ public class DragObjectsManager : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreRaycast))
             {
-                if (hit.collider != null && hit.collider.tag != "EnemyItem")
+                if (hit.collider != null && hit.collider.tag != "EnemyItem" && hit.collider.tag != "NoDrag")
                 {
                     dragObject = hit.collider.gameObject;
                     dragObject.GetComponent<Rigidbody>().useGravity = false;

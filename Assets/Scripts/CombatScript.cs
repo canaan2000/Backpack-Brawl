@@ -13,6 +13,7 @@ public class CombatScript : MonoBehaviour
     public PocketInventoryManager Pocket;
     public RandomEventHandler RandomEvent;
     public EnemyInventoryScript EnemyInventory;
+    public BlockButtonScript BlockButton;
 
     public Button startFightButton;
 
@@ -187,13 +188,14 @@ public class CombatScript : MonoBehaviour
             //if item does not belong to player
             else
             {
+                
                 // Apply item's damage if it has any and enemy has stamina
                 if (EnemyStats.stamina > itemScript.itemData.autoStaminaUsage)
                 {
                     // Assuming StartDamageNumbers is a static method in InventoryList
                     // and it handles damage numbers for the target (which is now the Player).
                     InventoryList.StartDamageNumbers(itemScript.gameObject); // Still pass the item's game object
-
+                    BlockButton.SpawnBlockButton(itemScript);
                     // Apply stamina usage specific to this item to the Enemy
                     EnemyStats.stamina -= itemScript.itemData.autoStaminaUsage;
 

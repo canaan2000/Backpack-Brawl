@@ -316,7 +316,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Combat: {fileID: 0}
   NumberSpawner: {fileID: 0}
+  clickCooldown: 1
   readyToClick: 1
+  cooldown: 0
 --- !u!114 &-5567693578166056794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +340,7 @@ MonoBehaviour:
     armor: 0
     poison: 0
     thorns: 0
+    autoHeal: 0
     autoManaGain: 0
     autoStaminaUsage: 0
     staminaUsage: 0
@@ -350,9 +353,12 @@ MonoBehaviour:
     clickThorns: 0
     value: 2
     singleUse: 1
+    additionMergeItem: 0
+    gainAmount: 0.1
     damageType: 0
     rarity: 0
     itemClass: 0
+    gainType: 3
 --- !u!114 &-1784061191686995383
 MonoBehaviour:
   m_ObjectHideFlags: 0

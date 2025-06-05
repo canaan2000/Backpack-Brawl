@@ -39,7 +39,7 @@ public class CollisionDetector : MonoBehaviour
         if (collision.transform.tag == "Floor") return;
 
         // Handle addition merge items
-        if (otherItemScript.itemData.additionMergeItem)
+        if (otherItemScript.itemData.additionMergeItem && thisItemScript.itemData.damageType == otherItemScript.itemData.damageType)
         {
             Debug.Log($"Processing addition item {otherItemScript.itemData.name} with {thisItemScript.itemData.name}.");
 

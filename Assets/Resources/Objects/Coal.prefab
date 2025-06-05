@@ -168,9 +168,12 @@ MonoBehaviour:
     clickThorns: 0
     value: 0
     singleUse: 0
+    additionMergeItem: 0
+    gainAmount: 0
     damageType: 0
     rarity: 0
     itemClass: 0
+    gainType: 0
 --- !u!114 &4258850059961277498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +214,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Combat: {fileID: 0}
   NumberSpawner: {fileID: 0}
+  clickCooldown: 1
   readyToClick: 1
+  cooldown: 0
 --- !u!114 &8107668834964401159
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,9 +7,9 @@ public class OnClickManager : MonoBehaviour
     public CombatScript Combat;
     public DamageNumberSpawner NumberSpawner;
 
-    public float clickCooldown = 1f;
-    public bool readyToClick = true; // Tracks if *this specific object* is ready to be clicked/used
-    public float cooldown;
+    float clickCooldown = 1f;
+    bool readyToClick = false; // Tracks if *this specific object* is ready to be clicked/used
+    float cooldown = 1f;
 
     void Start()
     {
@@ -117,11 +117,7 @@ public class OnClickManager : MonoBehaviour
             }
             else
             {
-                // Log why the player click failed (uncomment for detailed debugging)
-                // Debug.Log($"Player click failed for {gameObject.name}. " +
-                //           $"Stamina: {Combat.PlayerStats?.stamina ?? 0}/{itemScript.itemData.staminaUsage}, " +
-                //           $"Mana: {Combat.PlayerStats?.mana ?? 0}/{itemScript.itemData.clickManaUsage}, " +
-                //           $"Combat Active: {Combat?.combatTrue}");
+
             }
         }
     }
@@ -130,46 +126,48 @@ public class OnClickManager : MonoBehaviour
     // This method is called by the Update() loop for "EnemyItem" tagged GameObjects.
     private void EnemyClick()
     {
-        // Debug.Log($"EnemyClick called on {gameObject.name}. readyToClick: {readyToClick}, Tag: {this.tag}");
-
-        // Get the NewItemScript component.
-        NewItemScript itemScript = gameObject.GetComponent<NewItemScript>();
-        if (itemScript == null)
+        float rand = Random.Range( 0f, 1f );
+        if (rand > .5f)
         {
-            Debug.LogWarning($"EnemyClick: {gameObject.name} is missing NewItemScript. Cannot perform action.");
-            return;
-        }
-
-        // Check if the enemy has sufficient resources, if combat is active,
-        // and if this object is indeed tagged as "EnemyItem".
-        if (Combat != null && Combat.EnemyStats != null && Combat.PlayerStats != null &&
-            Combat.EnemyStats.stamina >= itemScript.itemData.staminaUsage &&
-            Combat.EnemyStats.mana >= itemScript.itemData.clickManaUsage &&
-            Combat.combatTrue == true &&
-            this.tag == "EnemyItem") // Double-check tag for safety, though Update() already filters this.
-        {
-            // Enemy action successful:
-            readyToClick = false; // Set this object to not ready (start cooldown)
-            // The cooldown is implicitly reset in Update() when readyToClick becomes true again.
-
-            // Apply item effects to the Player (since it's an enemy item) or heal enemy.
-            Combat.PlayerStats.armor += itemScript.itemData.clickArmor;
-            Combat.PlayerStats.health -= itemScript.itemData.clickDamage; // Enemy deals damage to Player
-            Combat.PlayerStats.poison += itemScript.itemData.clickPoison; // Enemy applies poison to Player
-            Combat.EnemyStats.Health += itemScript.itemData.clickHealing; // Enemy heals itself
-
-            // Deduct stamina and mana from the Enemy.
-            Combat.EnemyStats.stamina -= itemScript.itemData.staminaUsage;
-            Combat.EnemyStats.mana -= itemScript.itemData.clickManaUsage;
-
-            // Spawn damage numbers.
-            NumberSpawner?.OnClickSpawnNumber(); // Null-conditional operator for safety
-
-            // If the item is single-use, destroy it after use.
-            if (itemScript.itemData.singleUse == true)
+            // Get the NewItemScript component.
+            NewItemScript itemScript = gameObject.GetComponent<NewItemScript>();
+            if (itemScript == null)
             {
-                Debug.Log($"Destroying enemy single-use item: {gameObject.name}");
-                Destroy(gameObject);
+                Debug.LogWarning($"EnemyClick: {gameObject.name} is missing NewItemScript. Cannot perform action.");
+                return;
+            }
+
+            // Check if the enemy has sufficient resources, if combat is active,
+            // and if this object is indeed tagged as "EnemyItem".
+            if (Combat != null && Combat.EnemyStats != null && Combat.PlayerStats != null &&
+                Combat.EnemyStats.stamina >= itemScript.itemData.staminaUsage &&
+                Combat.EnemyStats.mana >= itemScript.itemData.clickManaUsage &&
+                Combat.combatTrue == true &&
+                this.tag == "EnemyItem") // Double-check tag for safety, though Update() already filters this.
+            {
+                // Enemy action successful:
+                readyToClick = false; // Set this object to not ready (start cooldown)
+                                      // The cooldown is implicitly reset in Update() when readyToClick becomes true again.
+
+                // Apply item effects to the Player (since it's an enemy item) or heal enemy.
+                Combat.PlayerStats.armor += itemScript.itemData.clickArmor;
+                Combat.PlayerStats.health -= itemScript.itemData.clickDamage; // Enemy deals damage to Player
+                Combat.PlayerStats.poison += itemScript.itemData.clickPoison; // Enemy applies poison to Player
+                Combat.EnemyStats.Health += itemScript.itemData.clickHealing; // Enemy heals itself
+
+                // Deduct stamina and mana from the Enemy.
+                Combat.EnemyStats.stamina -= itemScript.itemData.staminaUsage;
+                Combat.EnemyStats.mana -= itemScript.itemData.clickManaUsage;
+
+                // Spawn damage numbers.
+                NumberSpawner?.OnClickSpawnNumber(); // Null-conditional operator for safety
+
+                // If the item is single-use, destroy it after use.
+                if (itemScript.itemData.singleUse == true)
+                {
+                    Debug.Log($"Destroying enemy single-use item: {gameObject.name}");
+                    Destroy(gameObject);
+                }
             }
         }
     }

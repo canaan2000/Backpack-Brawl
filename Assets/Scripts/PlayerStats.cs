@@ -9,7 +9,6 @@ public class PlayerStats : MonoBehaviour
     public float armor = 0;
     public float attack = 1f;
     public float poison = 0f;
-    public float durability = 100f;
     public float money = 0f;
     public float stamina = 0f;
     public float maxStamina = 10f;

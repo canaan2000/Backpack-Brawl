@@ -24,6 +24,7 @@ TagManager:
   - CoalTag
   - TorchTag
   - EnemyItem
+  - NoDrag
   layers:
   - Default
   - TransparentFX

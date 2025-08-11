@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2568177866683635425}
   - component: {fileID: 3168618491008428535}
   - component: {fileID: 2610609625721234311}
+  - component: {fileID: -6961032475099116323}
   m_Layer: 0
   m_Name: PoisonPotion
   m_TagString: Untagged
@@ -97,7 +98,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Combat: {fileID: 0}
   NumberSpawner: {fileID: 0}
-  readyToClick: 1
 --- !u!114 &2568177866683635425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +133,7 @@ MonoBehaviour:
     armor: 0
     poison: 0
     thorns: 0
+    autoHeal: 0
     autoManaGain: 0
     autoStaminaUsage: 0
     staminaUsage: 0
@@ -145,9 +146,12 @@ MonoBehaviour:
     clickThorns: 0
     value: 25
     singleUse: 1
+    additionMergeItem: 0
+    gainAmount: 0
     damageType: 0
     rarity: 1
     itemClass: 0
+    gainType: 0
 --- !u!114 &2610609625721234311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +165,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageNumber: {fileID: 5262715178686733786, guid: ad42eb14fccf9bb41a5fa504cfee7fb3, type: 3}
+--- !u!65 &-6961032475099116323
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3695059735673706771}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.020011479, y: 0.0264452, z: 0.024826145}
+  m_Center: {x: 0.0004078387, y: 0.018388158, z: -0.0027032583}
 --- !u!1 &5767179004397596705
 GameObject:
   m_ObjectHideFlags: 0

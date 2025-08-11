@@ -348,6 +348,7 @@ GameObject:
   - component: {fileID: 5476033466582903275}
   - component: {fileID: 4294832734868321755}
   - component: {fileID: 4229451694710001306}
+  - component: {fileID: 6642781904151877967}
   m_Layer: 0
   m_Name: HealthPotion
   m_TagString: Untagged
@@ -430,7 +431,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Combat: {fileID: 0}
   NumberSpawner: {fileID: 0}
-  readyToClick: 1
 --- !u!114 &5476033466582903275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,6 +466,7 @@ MonoBehaviour:
     armor: 0
     poison: 0
     thorns: 0
+    autoHeal: 0
     autoManaGain: 0
     autoStaminaUsage: 0
     staminaUsage: 0
@@ -478,9 +479,12 @@ MonoBehaviour:
     clickThorns: 0
     value: 25
     singleUse: 1
+    additionMergeItem: 0
+    gainAmount: 0
     damageType: 0
     rarity: 1
     itemClass: 0
+    gainType: 0
 --- !u!114 &4229451694710001306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,3 +498,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageNumber: {fileID: 5262715178686733786, guid: ad42eb14fccf9bb41a5fa504cfee7fb3, type: 3}
+--- !u!65 &6642781904151877967
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5684125226766054322}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.023545558, y: 0.0264452, z: 0.024826145}
+  m_Center: {x: 0.03305847, y: 0.018388158, z: -0.0027032583}
